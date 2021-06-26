@@ -1,0 +1,4 @@
+name: lunerouge
+recipe: lamp
+config:
+  webroot: .

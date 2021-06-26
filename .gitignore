@@ -8,16 +8,25 @@ wp-content/*
 !wp-content/plugins/
 !wp-content/themes/
 
-# ignore these plugins
-wp-content/plugins/hello.php
-
 # ignore specific themes
 wp-content/themes/twenty*/
 
 # ignore node dependency directories
+.sass-cache/
 node_modules/
 
 # ignore log files and databases
 *.log
 *.sql
 *.sqlite
+wp-config.php
+
+# Ignore OS generated files
+.DS_Store
+ehthumbs.db
+Thumbs.db
+
+# Ignore log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
