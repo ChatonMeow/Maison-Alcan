@@ -1,0 +1,35 @@
+.button {
+    border: 0;
+    text-decoration: none;
+    transition: all $t1;
+    text-align: center;
+    min-width: 170px;
+    font-size: 1.8rem;
+    border-radius: 8px;
+    color: $cp2;
+    background: $cp3;
+    font-family: $title;
+    font-weight: 500;
+    cursor: pointer;
+    padding: em(12, 18) em(18, 18);
+    display: inline-block;
+
+    &:hover {
+        background: $cs1;
+    }
+
+    &.disabled,
+    &[disabled] {
+        pointer-events: none;
+        opacity: 0.35;
+    }
+
+    // Style variants
+    &.mono {
+        background: $cp1;
+
+        &:hover {
+            background: $cp3;
+        }
+    }
+}

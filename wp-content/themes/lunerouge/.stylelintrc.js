@@ -35,6 +35,8 @@ module.exports = {
       {
         "severity": "warning"
       }
-    ]
+    ],
+    "block-no-empty": null,
+    "selector-pseudo-element-colon-notation": null,
   },
 };

@@ -1,0 +1,55 @@
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-kerning: auto;
+}
+
+html {
+    min-width: 320px;
+    font-family: $font;
+    font-weight: 300;
+    font-size: 10px;
+    color: $cp1;
+    background: $cp2;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-size: 1.5rem;
+    margin: 0;
+    height: 100vh;
+}
+
+.wrapper {
+    margin: 0 auto;
+    padding: 0 $padding-viewport;
+    width: 100%;
+}
+
+img,
+svg {
+    max-width: 100%;
+    backface-visibility: hidden;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow: hidden;
+    justify-content: space-between;
+}
+
+.main__content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.main__content-inner {
+    flex-grow: 1;
+}

@@ -1,5 +1,95 @@
-/** Search form */
-// TODO: .search-form {}
-// TODO: .search-form label {}
-// TODO: .search-form .search-field {}
-// TODO: .search-form .search-submit {}
+.input-wrapper {
+    margin-bottom: 1.5rem;
+
+    &.double {
+        @include mq-up(md) {
+            display: flex;
+            flex-wrap: nowrap;
+            justify-content: space-between;
+        }
+
+        br {
+            display: none;
+        }
+
+        > * {
+            @include mq-up(md) {
+                width: percent(466, 958);
+            }
+
+            &:not(:last-child) {
+                @include mq-down(sm) {
+                    margin-bottom: 1.1rem;
+                }
+            }
+        }
+    }
+
+    &.submit {
+        text-align: center;
+        margin-bottom: 0;
+
+        @include mq-up(md) {
+            margin-top: 4rem;
+        }
+    }
+}
+
+input,
+textarea,
+select {
+    &.disabled,
+    [disabled] {
+        opacity: 0.75;
+        pointer-events: none;
+    }
+}
+
+textarea {
+    resize: vertical;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="date"],
+input[type="email"],
+input[type="month"],
+input[type="color"],
+input[type="password"],
+input[type="search"],
+input[type="tel"],
+input[type="url"],
+input[type="week"],
+select,
+textarea {
+    -webkit-appearance: none;
+    appearance: none;
+
+    &::placeholder {
+    }
+
+    &::-ms-input-placeholder {
+    }
+
+    &:focus {
+    }
+
+    .error &,
+    &.error,
+    &.wpcf7-not-valid {
+    }
+}
+
+input[type="submit"] {
+    @extend .button;
+}
+
+input[type="radio"] {
+}
+
+input[type="checkbox"] {
+}
+
+form,
+.form {
+}

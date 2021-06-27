@@ -1,0 +1,35 @@
+%reset-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+        margin: 0;
+        padding: 0;
+
+        &:before {
+            content: "";
+            display: none;
+        }
+    }
+}
+
+%clearfix {
+    &:after {
+        display: table;
+        clear: both;
+        content: "";
+    }
+}
+
+%default-anim {
+    transition: opacity $t2, transform $t2;
+    opacity: 0;
+    transform: translateY(2rem);
+
+    .is-viewed &,
+    &.is-viewed {
+        opacity: 1;
+        transform: none;
+    }
+}

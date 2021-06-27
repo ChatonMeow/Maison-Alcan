@@ -1,0 +1,72 @@
+p,
+ul,
+ol {
+}
+
+h1 {
+    font-size: 5.5rem;
+    font-family: $title;
+    font-weight: 500;
+
+    @include mq-down(sm) {
+        font-size: 3.5rem;
+    }
+}
+
+h2 {
+    font-weight: normal;
+    font-family: $title;
+    letter-spacing: 1px;
+    font-size: 3.5rem;
+
+    @include mq-down(sm) {
+        font-size: 2.5rem;
+    }
+}
+
+h3 {
+    font-weight: bold;
+    font-size: 3rem;
+}
+
+h4 {
+}
+
+h5 {
+}
+
+h6 {
+}
+
+a {
+    text-decoration: underline;
+    color: inherit;
+    cursor: pointer;
+
+    &:hover {
+        text-decoration: none;
+    }
+}
+
+p,
+ul,
+ol,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    &:first-child {
+        margin-top: 0;
+    }
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+::selection {
+    background: $cp3;
+    color: $cp2;
+}

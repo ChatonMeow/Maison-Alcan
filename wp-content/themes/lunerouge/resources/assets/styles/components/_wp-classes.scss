@@ -13,44 +13,23 @@
 
 .aligncenter {
   display: block;
-  margin: ($spacer / 2) auto;
+  margin: 0 auto;
   height: auto;
 }
 
 .alignleft,
 .alignright {
-  margin-bottom: ($spacer / 2);
   height: auto;
 }
 
-@media (min-width: 30rem) {
+@include mq-up(sm) {
   .alignleft {
     float: left;
-    margin-right: ($spacer / 2);
+    margin-right: $padding-viewport;
   }
 
   .alignright {
     float: right;
-    margin-left: ($spacer / 2);
+    margin-left: $padding-viewport;
   }
-}
-
-/** Captions */
-
-// TODO: .wp-caption {}
-// TODO: .wp-caption img {}
-// TODO: .wp-caption-text {}
-
-/** Text meant only for screen readers */
-.screen-reader-text {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  border: 0;
-  color: #000;
-  background: #fff;
 }

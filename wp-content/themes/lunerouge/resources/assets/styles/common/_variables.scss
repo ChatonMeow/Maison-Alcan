@@ -1,5 +1,32 @@
-/** Colors */
-$brand-primary:         #525ddc;
+$cp1: #141d28; //Mirage
+$cp2: #fff; //White
+$cp3: #f8ae35; //Sea Buckthorn
 
-/** Box Model  */
-$spacer:                2rem;
+$cs1: #d04727; //Valencia
+
+$font: "Montserrat", sans-serif;
+$title: "Diavlo", "Montserrat", sans-serif;
+$font-icon: "icon-font";
+
+$radius: 10px;
+
+$padding-viewport: 87px;
+
+$max-viewport: 1600px;
+
+$t1: 0.25s;
+$t2: 0.5s;
+
+$bounce: cubic-bezier(0.35, 0, 0.22, 1.26);
+$bounce-soft: cubic-bezier(0.35, 0, 0.22, 1);
+
+$bp: (
+    xs: 0,
+    s: 375px,
+    sm: 576px,
+    md: 768px,
+    lg: 1050px,
+    xl: 1336px,
+    fullhd: 1920px,
+    retina: 2000px,
+) !default;
