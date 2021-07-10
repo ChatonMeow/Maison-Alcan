@@ -30,4 +30,10 @@ class App extends Controller
         }
         return get_the_title();
     }
+
+    public function pageslug()
+    {
+        global $post;
+        return $post->post_name;
+    }
 }
