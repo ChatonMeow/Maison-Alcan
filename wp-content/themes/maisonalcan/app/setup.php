@@ -46,7 +46,8 @@ add_action('after_setup_theme', function () {
      * @link https://developer.wordpress.org/reference/functions/register_nav_menus/
      */
     register_nav_menus([
-        'primary_navigation' => __('Primary Navigation', 'sage')
+        'primary_navigation' => __('Primary Navigation', 'sage'),
+        'footer' => __('Footer', 'sage')
     ]);
 
     /**
@@ -128,3 +129,51 @@ add_action('after_setup_theme', function () {
         return "<?= " . __NAMESPACE__ . "\\asset_path({$asset}); ?>";
     });
 });
+
+// Add ACF options page
+if (function_exists('acf_add_options_page')) {
+    acf_add_options_page();
+}
+
+// Add Artistes post type
+add_action('init', function () {
+    register_post_type('artists', [
+        'labels' => [
+            'name' => __('Artistes', 'maisonalcan'),
+            'singular_name' => __('artiste', 'maisonalcan'),
+            'all_items' => __('Tous les artistes', 'maisonalcan'),
+            'add_new' => __('Ajouter artiste', 'maisonalcan'),
+            'add_new_item' => __('Ajouter artiste', 'maisonalcan'),
+            'edit' => __('Modifier artiste', 'maisonalcan'),
+            'edit_item' => __('Modifier post types artiste', 'maisonalcan'),
+            'new_item' => __('Nouveau post type artiste', 'maisonalcan'),
+            'view_item' => __('Voir post Type artiste', 'maisonalcan'),
+            'search_items' => __('Recherche posts type artiste', 'maisonalcan'),
+            'not_found' =>  __('Aucun résultat dans la base de données', 'maisonalcan'),
+            'not_found_in_trash' => __('Aucun résultat dans la poubelle', 'maisonalcan'),
+            'parent_item_colon' => ''
+        ],
+        'description' => __('Répertoire des artistes', 'maisonalcan'),
+        'public' => true,
+        'publicly_queryable' => false,
+        'exclude_from_search' => false,
+        'show_ui' => true,
+        'query_var' => true,
+        'menu_position' => 5,
+        'menu_icon' => 'dashicons-art',
+        'capability_type' => 'post',
+        'hierarchical' => false,
+        'supports' => ['title', 'custom-fields', 'thumbnail']
+    ]);
+});
+
+// ************* Remove default Posts type since no blog *************
+// Remove side menu
+add_action('admin_menu', function () {
+    remove_menu_page('edit.php');
+});
+// Remove Quick Draft Dashboard Widget
+add_action('wp_dashboard_setup', function () {
+    remove_meta_box('dashboard_quick_press', 'dashboard', 'side');
+}, 999);
+// End remove post type
