@@ -432,6 +432,10 @@ class WP_Installer {
 							if ( array_key_exists( 'plugins', $product ) ) {
 								foreach ( $product['plugins'] as $plugin_slug ) {
 
+									if ( ! $this->isPluginAvailableInRepositoryDownloads( $repository_id, $plugin_slug ) ) {
+										continue;
+									}
+
 									$download = $this->settings['repositories'][ $repository_id ]['data']['downloads']['plugins'][ $plugin_slug ];
 
 									if ( ! isset( $repositories_plugins[ $repository_id ][ $download['slug'] ] ) ) {
@@ -1350,6 +1354,10 @@ class WP_Installer {
 						$plugin_finder = $this->get_plugin_finder();
 						$plugin = $plugin_finder->get_plugin( $plugin_slug, $repository_id );
 
+						if( ! $plugin ) {
+							continue;
+						}
+
 						$external_repo = $plugin->get_external_repo();
 
 						if ( $external_repo && $this->repository_has_valid_subscription( $external_repo ) ) {
@@ -1946,6 +1954,10 @@ class WP_Installer {
 						foreach ( $package['products'] as $product ) {
 
 							foreach ( $product['plugins'] as $plugin_slug ) {
+
+								if ( ! $this->isPluginAvailableInRepositoryDownloads( $repository_id, $plugin_slug ) ) {
+									continue;
+								}
 
 								$download = $this->settings['repositories'][ $repository_id ]['data']['downloads']['plugins'][ $plugin_slug ];
 
@@ -2628,6 +2640,10 @@ class WP_Installer {
 							$plugin_finder = $this->get_plugin_finder();
 							$plugin_found = $plugin_finder->get_plugin( $plugin_slug, $repository_id );
 
+							if( ! $plugin_found ) {
+								continue;
+							}
+
 							$external_repo = $plugin_found->get_external_repo();
 
 							if ( $external_repo && $this->plugin_is_registered( $external_repo, $plugin_slug ) ) {
@@ -3230,4 +3246,14 @@ class WP_Installer {
 			   $this->plugin_is_registered( 'wpml', $slug );
 	}
 
+	/**
+	 * @param string $plugin_slug
+	 * @param string $repository_id
+	 *
+	 * @return bool
+	 */
+	private function isPluginAvailableInRepositoryDownloads( $plugin_slug, $repository_id ) {
+		return $plugin_slug &&
+		       isset( $this->settings['repositories'][ $repository_id ]['data']['downloads']['plugins'][ $plugin_slug ] );
+	}
 }

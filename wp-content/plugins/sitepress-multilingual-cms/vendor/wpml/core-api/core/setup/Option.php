@@ -2,19 +2,28 @@
 
 namespace WPML\Setup;
 
+use WPML\FP\Fns;
+use WPML\FP\Lst;
+use WPML\FP\Relation;
+use WPML\LIB\WP\PostType;
 use WPML\WP\OptionManager;
 
 class Option {
+	const POSTS_LIMIT_FOR_AUTOMATIC_TRANSLATION = 10;
 
 	const OPTION_GROUP = 'setup';
 	const CURRENT_STEP = 'current-step';
 	const ORIGINAL_LANG = 'original-lang';
 	const TRANSLATED_LANGS = 'translated-langs';
 	const WHO_MODE = 'who-mode';
-	const TRANSLATION_METHOD = 'translation-method';
 	const TRANSLATE_EVERYTHING = 'translate-everything';
 	const TRANSLATE_EVERYTHING_COMPLETED = 'translate-everything-completed';
 	const TM_ALLOWED = 'is-tm-allowed';
+	const REVIEW_MODE = 'review-mode';
+
+	const NO_REVIEW = 'no-review';
+	const PUBLISH_AND_REVIEW = 'publish-and-review';
+	const HOLD_FOR_REVIEW = 'before-publish';
 
 	public static function getCurrentStep() {
 		return self::get( self::CURRENT_STEP, 'languages' );
@@ -54,27 +63,14 @@ class Option {
 		return self::get( self::WHO_MODE, [] );
 	}
 
-	public static function getTranslationMethod() {
-		return self::get( self::TRANSLATION_METHOD, 'automatic' );
-	}
-
-	public static function isAutomaticTranslations() {
-		return self::getTranslationMethod() === 'automatic';
-	}
-
-	/** @param string $method */
-	public static function setTranslationMethod( $method ) {
-		self::set( self::TRANSLATION_METHOD, $method );
-	}
-
-	public static function setTranslateEverythingAsDefault() {
+	public static function setTranslateEverythingDefault() {
 		if ( self::get( self::TRANSLATE_EVERYTHING, null ) === null ) {
-			self::setTranslateEverything( true );
+			self::setTranslateEverything( self::getTranslateEverythingDefaultInSetup() );
 		}
 	}
 
-	public static function shouldTranslateEverything() {
-		return self::get( self::TRANSLATE_EVERYTHING, false );
+	public static function shouldTranslateEverything( $default = false ) {
+		return self::get( self::TRANSLATE_EVERYTHING, $default );
 	}
 
 	/** @param bool $state */
@@ -93,6 +89,12 @@ class Option {
 		self::setTranslateEverythingCompleted( $completed );
 	}
 
+	public static function removeLanguageFromCompleted( $language ) {
+		$removeLanguage = Fns::map( Fns::reject( Relation::equals( $language ) ) );
+
+		self::setTranslateEverythingCompleted( $removeLanguage( self::getTranslateEverythingCompleted() ) );
+	}
+
 	public static function getTranslateEverythingCompleted() {
 		return self::get( self::TRANSLATE_EVERYTHING_COMPLETED, [] );
 	}
@@ -105,6 +107,22 @@ class Option {
 		self::set( self::TM_ALLOWED, $isTMAllowed );
 	}
 
+	public static function setReviewMode( $mode ) {
+		$allowedOptions = [ self::PUBLISH_AND_REVIEW, self::NO_REVIEW, self::HOLD_FOR_REVIEW ];
+		if ( Lst::includes( $mode, $allowedOptions ) ) {
+			self::set( self::REVIEW_MODE, $mode );
+		}
+	}
+
+	public static function getReviewMode() {
+		return self::get( self::REVIEW_MODE, self::HOLD_FOR_REVIEW );
+	}
+
+	public static function shouldBeReviewed() {
+		return self::shouldTranslateEverything() && self::getReviewMode() !== self::NO_REVIEW;
+	}
+
+
 	private static function get( $key, $default = null ) {
 		return ( new OptionManager() )->get( self::OPTION_GROUP, $key, $default );
 	}
@@ -113,5 +131,9 @@ class Option {
 		return ( new OptionManager() )->set( self::OPTION_GROUP, $key, $value );
 	}
 
-
+	public static function getTranslateEverythingDefaultInSetup() {
+		return PostType::getPublishedCount( 'post' ) + PostType::getPublishedCount( 'page' ) > self::POSTS_LIMIT_FOR_AUTOMATIC_TRANSLATION
+			? false
+			: true;
+	}
 }

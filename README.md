@@ -1,10 +1,10 @@
-# Lune-rouge
+# Maison Alcan
 
 ## First time setup
 1. [Installer Lando](https://github.com/lando/lando/releases)
 2. [Installer Yarn](https://yarnpkg.com/lang/en/docs/cli/install/)
 3. Aller dans le dossier du projet puis `lando start`
-4. `cd wp-content/themes/lunerouge`
+4. `cd wp-content/themes/maisonalcan`
 5. `lando composer install`
 6. `yarn`
 7. `yarn start`

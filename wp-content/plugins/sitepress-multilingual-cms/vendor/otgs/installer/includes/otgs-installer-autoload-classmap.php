@@ -107,4 +107,5 @@ return [
 	'OTGS\Installer\Loader\Config'                              => $baseDir . '/includes/loader/Config.php',
 	'OTGS\Installer\CommercialTab\SectionsManager'                 => $baseDir . '/includes/products/commercial-tab/SectionsManager.php',
 	'OTGS\Installer\CommercialTab\DownloadsList'                   => $baseDir . '/includes/products/commercial-tab/DownloadsList.php',
+	'OTGS\Installer\Settings'                                      => $baseDir . '/includes/class-otgs-installer-settings.php',
 ];

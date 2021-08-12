@@ -120,6 +120,7 @@ return array(
     'WPML\\ST\\Troubleshooting\\BackendHooks' => $baseDir . '/classes/Troubleshooting/BackendHooks.php',
     'WPML\\ST\\Troubleshooting\\Cleanup\\Database' => $baseDir . '/classes/Troubleshooting/Cleanup/Database.php',
     'WPML\\ST\\Troubleshooting\\RequestHandle' => $baseDir . '/classes/Troubleshooting/RequestHandle.php',
+    'WPML\\ST\\Upgrade\\Command\\MigrateMultilingualWidgets' => $baseDir . '/classes/upgrade/Command/MigrateMultilingualWidgets.php',
     'WPML\\ST\\Upgrade\\Command\\RegenerateMoFilesWithStringNames' => $baseDir . '/classes/upgrade/Command/RegenerateMoFilesWithStringNames.php',
     'WPML\\ST\\Utils\\LanguageResolution' => $baseDir . '/classes/utilities/LanguageResolution.php',
     'WPML\\ST\\WP\\App\\Resources' => $baseDir . '/classes/utilities/Resources.php',
@@ -316,5 +317,4 @@ return array(
     'WPML_Tax_Slug_Translation_Records' => $baseDir . '/classes/slug-translation/taxonomy/wpml-tax-slug-translation-records.php',
     'WPML_Theme_String_Scanner' => $baseDir . '/inc/gettext/wpml-theme-string-scanner.class.php',
     'WPML_Translation_Priority_Select' => $baseDir . '/classes/string-translation-ui/class-wpml-translation-priority-select.php',
-    'WP_Widget_Text_Icl' => $baseDir . '/classes/widgets/wp-widget-text-icl.php',
 );

@@ -18,6 +18,7 @@ node_modules/
 # ignore log files and databases
 *.log
 *.sql
+*.gz
 *.sqlite
 wp-config.php
 

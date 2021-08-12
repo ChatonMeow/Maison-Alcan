@@ -6,7 +6,9 @@ use WPML\Collect\Support\Traits\Macroable;
 use WPML\FP\Either;
 use WPML\FP\Fns;
 use WPML\FP\Logic;
+use WPML\FP\Lst;
 use function WPML\FP\curryN;
+use function WPML\FP\gatherArgs;
 use function WPML\FP\partialRight;
 use function WPML\FP\pipe;
 
@@ -18,6 +20,10 @@ use function WPML\FP\pipe;
  * @method static callable|int|bool updateMeta( ...$postId, ...$key, ...$value ) - Curried :: int → string → mixed → int|bool
  * @method static callable|string|false getType( ...$postId ) - Curried :: int → string|bool
  * @method static callable|\WP_Post|null get( ...$postId ) - Curried :: int → \WP_Post|null
+ * @method static callable|string|false getStatus( ...$postId ) - Curried :: int → string|bool
+ * @method static callable|int update(...$data) - Curried :: array -> int
+ * @method static callable|int setStatus(...$id, ...$status) - Curried :: int -> string -> int
+ * @method static callable|int setStatusWithoutFilters(...$id, ...$status) - Curried :: int -> string -> int
  */
 class Post {
 
@@ -43,6 +49,17 @@ class Post {
 
 		self::macro( 'get', curryN( 1, Fns::unary( 'get_post' ) ) );
 
+		self::macro( 'getStatus', curryN( 1, 'get_post_status' ) );
+
+		self::macro( 'update', curryN( 1, Fns::unary( 'wp_update_post' ) ) );
+
+		self::macro( 'setStatus', curryN(2, gatherArgs( pipe( Lst::zipObj( [ 'ID', 'post_status' ] ), self::update() ) ) ) );
+
+		self::macro( 'setStatusWithoutFilters', curryN( 2, function ( $id, $newStatus ) {
+			global $wpdb;
+
+			return $wpdb->update( $wpdb->posts, [ 'post_status' => $newStatus ], [ 'ID' => $id ] ) ? $id : 0;
+		} ) );
 	}
 }
 

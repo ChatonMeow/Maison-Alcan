@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit80f7177a650a1bf7d5cc408bddb051f0
+class ComposerStaticInitae7709ba24aeec3f5dc8ede6924743ee
 {
     public static $classMap = array (
         'IWPML_ST_Rewrite_Rule_Filter' => __DIR__ . '/../..' . '/classes/slug-translation/iwpml-st-rewrite-rule-filter.php',
@@ -121,6 +121,7 @@ class ComposerStaticInit80f7177a650a1bf7d5cc408bddb051f0
         'WPML\\ST\\Troubleshooting\\BackendHooks' => __DIR__ . '/../..' . '/classes/Troubleshooting/BackendHooks.php',
         'WPML\\ST\\Troubleshooting\\Cleanup\\Database' => __DIR__ . '/../..' . '/classes/Troubleshooting/Cleanup/Database.php',
         'WPML\\ST\\Troubleshooting\\RequestHandle' => __DIR__ . '/../..' . '/classes/Troubleshooting/RequestHandle.php',
+        'WPML\\ST\\Upgrade\\Command\\MigrateMultilingualWidgets' => __DIR__ . '/../..' . '/classes/upgrade/Command/MigrateMultilingualWidgets.php',
         'WPML\\ST\\Upgrade\\Command\\RegenerateMoFilesWithStringNames' => __DIR__ . '/../..' . '/classes/upgrade/Command/RegenerateMoFilesWithStringNames.php',
         'WPML\\ST\\Utils\\LanguageResolution' => __DIR__ . '/../..' . '/classes/utilities/LanguageResolution.php',
         'WPML\\ST\\WP\\App\\Resources' => __DIR__ . '/../..' . '/classes/utilities/Resources.php',
@@ -317,13 +318,12 @@ class ComposerStaticInit80f7177a650a1bf7d5cc408bddb051f0
         'WPML_Tax_Slug_Translation_Records' => __DIR__ . '/../..' . '/classes/slug-translation/taxonomy/wpml-tax-slug-translation-records.php',
         'WPML_Theme_String_Scanner' => __DIR__ . '/../..' . '/inc/gettext/wpml-theme-string-scanner.class.php',
         'WPML_Translation_Priority_Select' => __DIR__ . '/../..' . '/classes/string-translation-ui/class-wpml-translation-priority-select.php',
-        'WP_Widget_Text_Icl' => __DIR__ . '/../..' . '/classes/widgets/wp-widget-text-icl.php',
     );
 
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->classMap = ComposerStaticInit80f7177a650a1bf7d5cc408bddb051f0::$classMap;
+            $loader->classMap = ComposerStaticInitae7709ba24aeec3f5dc8ede6924743ee::$classMap;
 
         }, null, ClassLoader::class);
     }

@@ -3,9 +3,13 @@
 namespace WPML\Element\API;
 
 use WPML\Collect\Support\Traits\Macroable;
+use WPML\FP\Fns;
 use WPML\FP\Lst;
+use WPML\FP\Obj;
 use WPML\LIB\WP\Post;
+use function WPML\FP\curry;
 use function WPML\FP\curryN;
+use function WPML\FP\pipe;
 
 /**
  * Class PostTranslations

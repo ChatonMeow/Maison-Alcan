@@ -249,6 +249,7 @@ class TranslationManagement {
 	}
 
 	public function get_settings() {
+		$this->load_settings_if_required();
 		return $this->settings;
 	}
 

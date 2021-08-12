@@ -312,7 +312,7 @@ class Fns {
 
 				$args = func_get_args();
 				$key  = call_user_func_array( $cacheKeyFn, $args );
-				if ( isset( $cache[ $key ] ) ) {
+				if ( array_key_exists( $key, $cache ) ) {
 					return $cache[ $key ];
 				}
 

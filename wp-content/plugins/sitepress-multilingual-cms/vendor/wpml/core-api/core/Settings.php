@@ -2,6 +2,7 @@
 
 namespace WPML\API;
 
+use WPML\FP\Lst;
 use WPML\FP\Obj;
 
 class Settings {
@@ -60,5 +61,11 @@ class Settings {
 	 */
 	public static function assoc( $key, $subKey, $value ) {
 		return self::setAndSave( $key, Obj::assoc( $subKey, $value, self::getOr([], $key ) ) );
+	}
+
+	public static function pathOr( $default, $path ) {
+		$key = Lst::nth( 0, $path );
+
+		return Obj::pathOr( $default, Lst::drop( 1, $path ), self::getOr( [], $key ) );
 	}
 }

@@ -8,9 +8,12 @@ use WPML\FP\Functor\ConstFunctor;
 use WPML\FP\Functor\IdentityFunctor;
 
 /**
- * @method static callable prop( ...$key, ...$obj ) - Curried :: string->Collection|array|object->mixed|null
- * @method static callable propOr( ...$default, ...$key, ...$obj ) - Curried :: mixed->string->Collection|array|object->mixed|null
+ * @method static callable|mixed prop( ...$key, ...$obj ) - Curried :: string->Collection|array|object->mixed|null
+ * @method static callable|mixed propOr( ...$default, ...$key, ...$obj ) - Curried :: mixed->string->Collection|array|object->mixed|null
  * @method static callable|array props( ...$keys, ...$obj ) - Curried :: [keys] → Collection|array|object → [v]
+ * @method static callable|array|\stdClass addProp( ...$key, ...$transformation, ...$obj ) - Curried :: string->callable->object|array->object->array
+ * @method static callable|array|\stdClass removeProp( ...$key, ...$obj ) - Curried :: string->object|array->object->array
+ * @method static callable|array|\stdClass renameProp( ...$key, ...$newKey, ...$obj ) - Curried :: string->string->object|array->object->array
  * @method static callable|mixed path( ...$path, ...$obj ) - Curried :: array->Collection|array|object->mixed|null
  * @method static callable|mixed pathOr( ...$default, ...$path, ...$obj ) - Curried :: mixed → array → Collection|array|object → mixed
  * @method static callable assoc( ...$key, ...$value, ...$item ) - Curried :: string->mixed->Collection|array|object->mixed|null
@@ -107,6 +110,31 @@ class Obj {
 
 		self::macro( 'props', curryN( 2, function ( array $keys, $item ) {
 			return Fns::map( Obj::prop( Fns::__, $item ), $keys );
+		} ) );
+
+		self::macro( 'addProp', curryN( 3, function ( $key, $transformation, $data ) {
+			return Obj::assoc( $key, $transformation( $data ), $data );
+		} ) );
+
+		self::macro( 'removeProp', curryN( 2, function ( $key, $data ) {
+			if ( is_array( $data ) ) {
+				unset( $data[ $key ] );
+
+				return $data;
+			} elseif ( is_object( $data ) ) {
+				$newData = clone $data;
+				unset( $newData->$key );
+
+				return $newData;
+			}
+
+			return $data;
+		} ) );
+
+		self::macro( 'renameProp', curryN( 3, function ( $key, $newKey, $data ) {
+			$data = self::addProp( $newKey, self::prop( $key ), $data );
+
+			return self::removeProp( $key, $data );
 		} ) );
 
 		self::macro( 'path', curryN( 2, function ( $path, $item ) {

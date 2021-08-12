@@ -12,13 +12,13 @@ class DynamicContent extends BaseDynamicContent {
 	/**
 	 * Sets $positions dynamic content to be translatable.
 	 *
-	 * @param string $string   The decoded string so far.
+	 * @param string|array $string   The decoded string so far.
 	 * @param string $encoding The encoding used.
 	 *
 	 * @return string|array
 	 */
 	public function decode_dynamic_content( $string, $encoding ) {
-		if ( ! $string ) {
+		if ( ! $string || is_array( $string ) ) {
 			return $string;
 		}
 

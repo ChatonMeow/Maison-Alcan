@@ -102,6 +102,10 @@ use WPML\LIB\WP\Option as WPOption;
  *
  * It returns a default language code.
  *
+ * @method static array getCurrentCode()
+ *
+ * It returns a current language code.
+ *
  * @method static callable|string getFlagUrl( ...$code ) - Curried :: string → string
  *
  * Gets the flag url for the given language code.
@@ -148,15 +152,33 @@ class Languages {
 	 * @return void
 	 */
 	public static function init() {
-		global $sitepress;
+		self::macro( 'getActive', function () {
+			global $sitepress;
 
-		self::macro( 'getActive', [ $sitepress, 'get_active_languages' ] );
+			return $sitepress->get_active_languages();
+		} );
 
-		self::macro( 'getLanguageDetails', curryN( 1, [ $sitepress, 'get_language_details' ] ) );
+		self::macro( 'getLanguageDetails', curryN( 1, function ( $code ) {
+			global $sitepress;
 
-		self::macro( 'getDefault', pipe( [ $sitepress, 'get_default_language' ], self::getLanguageDetails() ) );
+			return $sitepress->get_language_details( $code );
+		} ) );
 
-		self::macro( 'getDefaultCode', [ $sitepress, 'get_default_language' ] );
+		self::macro( 'getDefaultCode', function () {
+			global $sitepress;
+
+			return $sitepress->get_default_language();
+		} );
+
+		self::macro('getCurrentCode', function() {
+			global $sitepress;
+
+			return $sitepress->get_current_language();
+		});
+
+		self::macro( 'getDefault', function() {
+			return self::getLanguageDetails(self::getDefaultCode());
+		} );
 
 		self::macro(
 			'getSecondaries',
@@ -165,9 +187,17 @@ class Languages {
 
 		self::macro( 'getSecondaryCodes', pipe( [ self::class, 'getSecondaries' ], Lst::pluck( 'code' ) ) );
 
-		self::macro( 'getAll', [ $sitepress, 'get_languages' ] );
+		self::macro( 'getAll', function ( $userLang = false ) {
+			global $sitepress;
 
-		self::macro( 'getFlagUrl', curryN( 1, [ $sitepress, 'get_flag_url' ] ) );
+			return $sitepress->get_languages( $userLang );
+		} );
+
+		self::macro( 'getFlagUrl', curryN( 1, function ( $code ) {
+			global $sitepress;
+
+			return $sitepress->get_flag_url( $code );
+		} ) );
 
 		self::macro( 'withFlags', curryN( 1, function ( $langs ) {
 			$addFlag = function ( $lang, $code ) {
@@ -276,10 +306,12 @@ class Languages {
 			                    ->filter( Lst::includes( Fns::__, Lst::pluck( 'code', $allLangs ) ) )
 			                    ->getOrElse( false );
 
+			$getByNonEmptyLocales = pipe( Fns::filter( Obj::prop( 'default_locale' ) ), Lst::pluck( 'default_locale' ) );
+
 			return Obj::pathOr(
 				$guessedCode,
 				[ $locale, 'code' ],
-				Lst::keyBy( 'default_locale', $allLangs )
+				$getByNonEmptyLocales( $allLangs )
 			);
 		};
 
@@ -301,7 +333,8 @@ class Languages {
 	public static function add( $code, $english_name, $default_locale, $major = 0, $active = 0, $encode_url = 0, $tag = '', $country = null ) {
 		global $wpdb;
 
-		$existingCodes = Obj::keys( self::getAll() );
+		$languages     = self::getAll();
+		$existingCodes = Obj::keys( $languages );
 
 		$res = $wpdb->insert(
 			$wpdb->prefix . 'icl_languages', [
@@ -324,6 +357,11 @@ class Languages {
 		$codes      = Lst::concat( $existingCodes, [ $code ] );
 
 		Fns::map( self::setLanguageTranslation( $code, Fns::__, $english_name ), $codes );
+
+		Fns::map( Fns::converge(
+			self::setLanguageTranslation( Fns::__, $code, Fns::__ ),
+			[ Obj::prop( 'code' ), Obj::prop( 'english_name' ) ]
+		), $languages );
 
 		return $languageId;
 	}

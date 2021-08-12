@@ -1,6 +1,7 @@
 <?php
 
 use WPML\Element\API\Languages;
+use WPML\FP\Maybe;
 
 /**
  * @package wpml-core
@@ -197,8 +198,12 @@ class WPML_User_Language {
 		if ( $this->user_needs_sync_admin_lang() && $user_id && $this->user_admin_language_for_edit( $user_id ) ) {
 			update_user_meta( $user_id, 'icl_admin_language', $lang );
 
-			$wp_lang = Languages::getWPLocale( $this->sitepress->get_language_details( $lang ) );
-			update_user_meta( $user_id, 'locale', $wp_lang );
+			$wpLang = Maybe::of( $lang )
+			               ->map( Languages::getLanguageDetails() )
+			               ->map( Languages::getWPLocale() )
+			               ->getOrElse( null );
+
+			update_user_meta( $user_id, 'locale', $wpLang );
 		}
 	}
 

@@ -1,4 +1,4 @@
-name: lunerouge
+name: maisonalcan
 recipe: lamp
 config:
   webroot: .

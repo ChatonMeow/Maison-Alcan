@@ -2,10 +2,10 @@
 /**
  * Plugin Name: WPML Multilingual CMS
  * Plugin URI: https://wpml.org/
- * Description: WPML Multilingual CMS | <a href="https://wpml.org">Documentation</a> | <a href="https://wpml.org/version/wpml-4-4-10/">WPML 4.4.10 release notes</a>
+ * Description: WPML Multilingual CMS | <a href="https://wpml.org">Documentation</a> | <a href="https://wpml.org/version/wpml-4-4-11/">WPML 4.4.11 release notes</a>
  * Author: OnTheGoSystems
  * Author URI: http://www.onthegosystems.com/
- * Version: 4.4.10
+ * Version: 4.4.11
  * Plugin Slug: sitepress-multilingual-cms
  *
  * @package WPML\Core
@@ -28,11 +28,11 @@ if ( ! \WPML\Requirements\WordPress::checkMinimumRequiredVersion() ) {
 	return;
 }
 
-define( 'ICL_SITEPRESS_VERSION', '4.4.10' );
+define( 'ICL_SITEPRESS_VERSION', '4.4.11' );
 
 // Do not uncomment the following line!
-// If you need to use this constant, use it in the wp-config.php file
-// define('ICL_SITEPRESS_DEV_VERSION', '3.4-dev');
+// If you need to use this constant, use it in the wp-config.php file.
+
 define( 'WPML_PLUGIN_BASENAME', plugin_basename( __FILE__ ) );
 define( 'WPML_PLUGIN_FOLDER', dirname( WPML_PLUGIN_BASENAME ) );
 define( 'WPML_PLUGIN_PATH', __DIR__ );
@@ -300,13 +300,17 @@ if ( $sitepress->get_wp_api()->is_admin() ) {
 	wpml_get_admin_notices();
 }
 
-// activation hook
+// activation hook.
 register_deactivation_hook( WPML_PLUGIN_PATH . '/' . WPML_PLUGIN_FILE, 'icl_sitepress_deactivate' );
 
 add_filter( 'plugin_action_links', 'icl_plugin_action_links', 10, 2 );
 
 $WPML_Users_Languages_Dependencies = new WPML_Users_Languages_Dependencies( $sitepress );
 
+function wpml_init_cli() {
+	$wpml_cli_bootstrap = new \WPML\CLI\Core\BootStrap();
+	$wpml_cli_bootstrap->init();
+}
 function wpml_init_language_switcher() {
 	global $wpml_language_switcher, $sitepress;
 
@@ -326,10 +330,15 @@ function wpml_mlo_init() {
  * @param SitePress $sitepress
  */
 function wpml_loaded( $sitepress ) {
+	if ( class_exists( 'WP_CLI' ) && defined( 'WP_CLI' ) && WP_CLI ) {
+		wpml_init_cli();
+	}
+	$wpml_wp_api = $sitepress->get_wp_api();
+
 	wpml_init_language_switcher();
+
 	wpml_mlo_init();
 
-	$wpml_wp_api = $sitepress->get_wp_api();
 	/**
 	 * Also allow `troubleshooting.php` and `theme-localization.php` because we have direct AJAX calls
 	 *

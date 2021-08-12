@@ -109,7 +109,7 @@ class WPML_String_Translation_Table {
 			<?php endif; ?>
 			<th scope="col"><?php esc_html_e( 'String', 'wpml-string-translation' ); ?></th>
 			<th scope="col" class="wpml-col-languages"
-				data-langs="<?php esc_attr_e( json_encode( $codes ) ); ?>"><?php echo $flags->get(); ?></th>
+				data-langs="<?php echo esc_attr( json_encode( $codes ) ); ?>"><?php echo $flags->get(); ?></th>
 		</tr>
 		<<?php echo $tag; ?>>
 		<?php
@@ -120,7 +120,7 @@ class WPML_String_Translation_Table {
 		$icl_string = $this->decodeHtmlEntitiesForStringAndTranslations( $icl_string );
 
 		?>
-		<tr valign="top" data-string="<?php esc_attr_e( htmlentities( json_encode( $icl_string ), ENT_QUOTES ) ); ?>">
+		<tr valign="top" data-string="<?php echo esc_attr( htmlentities( json_encode( $icl_string ), ENT_QUOTES ) ); ?>">
 			<?php echo $this->render_checkbox_cell( $icl_string ); ?>
 			<td class="wpml-st-col-domain"><?php echo esc_html( $icl_string['context'] ); ?></td>
 			<?php if ( $this->additional_columns_to_render->contains( 'context' ) ) : ?>

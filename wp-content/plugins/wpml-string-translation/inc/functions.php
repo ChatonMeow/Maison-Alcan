@@ -152,7 +152,7 @@ function wpml_st_init_register_widget_titles() {
 		}
 
 		if ( $w_title ) {
-			icl_register_string( WP_Widget_Text_Icl::STRING_DOMAIN, 'widget title - ' . md5( $w_title ), $w_title );
+			icl_register_string( WPML_ST_WIDGET_STRING_DOMAIN, 'widget title - ' . md5( $w_title ), $w_title );
 		}
 	}
 }
@@ -685,12 +685,12 @@ function icl_get_strings_tracked_in_pages( $string_translations ) {
 }
 
 function icl_sw_filters_widget_title( $val ) {
-	$val = icl_translate( WP_Widget_Text_Icl::STRING_DOMAIN, 'widget title - ' . md5( $val ), $val );
+	$val = icl_translate( WPML_ST_WIDGET_STRING_DOMAIN, 'widget title - ' . md5( $val ), $val );
 	return $val;
 }
 
 function icl_sw_filters_widget_text( $val ) {
-	$val = icl_translate( WP_Widget_Text_Icl::STRING_DOMAIN, 'widget body - ' . md5( $val ), $val );
+	$val = icl_translate( WPML_ST_WIDGET_STRING_DOMAIN, 'widget body - ' . md5( $val ), $val );
 	return $val;
 }
 
@@ -862,10 +862,10 @@ function icl_st_update_widget_title_actions( $old_options, $new_options ) {
 	foreach ( $new_options as $k => $o ) {
 		if ( isset( $o['title'] ) ) {
 			if ( isset( $old_options[ $k ]['title'] ) && $old_options[ $k ]['title'] ) {
-				icl_st_update_string_actions( WP_Widget_Text_Icl::STRING_DOMAIN, 'widget title - ' . md5( $old_options[ $k ]['title'] ), $old_options[ $k ]['title'], $o['title'] );
+				icl_st_update_string_actions( WPML_ST_WIDGET_STRING_DOMAIN, 'widget title - ' . md5( $old_options[ $k ]['title'] ), $old_options[ $k ]['title'], $o['title'] );
 			} else {
 				if ( $new_options[ $k ]['title'] ) {
-					icl_register_string( WP_Widget_Text_Icl::STRING_DOMAIN, 'widget title - ' . md5( $new_options[ $k ]['title'] ), $new_options[ $k ]['title'] );
+					icl_register_string( WPML_ST_WIDGET_STRING_DOMAIN, 'widget title - ' . md5( $new_options[ $k ]['title'] ), $new_options[ $k ]['title'] );
 				}
 			}
 		}
@@ -889,14 +889,14 @@ function icl_st_update_text_widgets_actions( $old_options, $new_options ) {
 		foreach ( $widget_text as $k => $w ) {
 			if ( isset( $old_options[ $k ]['text'] ) && trim( $old_options[ $k ]['text'] ) && $old_options[ $k ]['text'] != $w['text'] ) {
 				$old_md5 = md5( $old_options[ $k ]['text'] );
-				$string  = $wpdb->get_row( $wpdb->prepare( "SELECT id, value, status FROM {$wpdb->prefix}icl_strings WHERE context=%s AND name=%s", WP_Widget_Text_Icl::STRING_DOMAIN, 'widget body - ' . $old_md5 ) );
+				$string  = $wpdb->get_row( $wpdb->prepare( "SELECT id, value, status FROM {$wpdb->prefix}icl_strings WHERE context=%s AND name=%s", WPML_ST_WIDGET_STRING_DOMAIN, 'widget body - ' . $old_md5 ) );
 				if ( $string ) {
-					icl_st_update_string_actions( WP_Widget_Text_Icl::STRING_DOMAIN, 'widget body - ' . $old_md5, $old_options[ $k ]['text'], $w['text'] );
+					icl_st_update_string_actions( WPML_ST_WIDGET_STRING_DOMAIN, 'widget body - ' . $old_md5, $old_options[ $k ]['text'], $w['text'] );
 				} else {
-					icl_register_string( WP_Widget_Text_Icl::STRING_DOMAIN, 'widget body - ' . md5( $w['text'] ), $w['text'] );
+					icl_register_string( WPML_ST_WIDGET_STRING_DOMAIN, 'widget body - ' . md5( $w['text'] ), $w['text'] );
 				}
 			} elseif ( isset( $new_options[ $k ]['text'] ) && ( ! isset( $old_options[ $k ]['text'] ) || $old_options[ $k ]['text'] != $new_options[ $k ]['text'] ) ) {
-				icl_register_string( WP_Widget_Text_Icl::STRING_DOMAIN, 'widget body - ' . md5( $new_options[ $k ]['text'] ), $new_options[ $k ]['text'] );
+				icl_register_string( WPML_ST_WIDGET_STRING_DOMAIN, 'widget body - ' . md5( $new_options[ $k ]['text'] ), $new_options[ $k ]['text'] );
 			}
 		}
 	}

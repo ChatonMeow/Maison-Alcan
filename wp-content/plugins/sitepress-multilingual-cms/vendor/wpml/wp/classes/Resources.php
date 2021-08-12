@@ -62,7 +62,7 @@ class Resources {
 		}
 
 		if ( $domain && WordPress::versionCompare( '>=', '5.0.0' ) ) {
-			wp_set_script_translations( $handle, $domain, "$pluginBasePath/locale/jed/$handle" );
+			wp_set_script_translations( $handle, $domain, "$pluginBasePath/locale/jed" );
 		}
 	}
 }

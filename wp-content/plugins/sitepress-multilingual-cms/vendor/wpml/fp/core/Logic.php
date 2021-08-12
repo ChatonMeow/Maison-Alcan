@@ -12,8 +12,8 @@ use WPML\Collect\Support\Traits\Macroable;
  * @method static callable unless( ...$predicate, ...$fn ) - Curried :: ( a->bool )->callable->callable
  * @method static callable cond( ...$conditions, ...$fn ) - Curried :: [( a->bool ), callable]->callable
  * @method static callable both( ...$a, ...$b, ...$data ) - Curried :: ( a → bool ) → ( a → bool ) → a → bool
- * @method static callable allPass( array $predicates ) - Curried :: [( *… → bool )] → ( *… → bool )
- * @method static callable anyPass( array $predicates ) - Curried :: [( *… → bool )] → ( *… → bool )
+ * @method static callable|bool allPass( ...$predicates, ...$data ) - Curried :: [( *… → bool )] → ( *… → bool )
+ * @method static callable|bool anyPass( ...$predicates, ...$data ) - Curried :: [( *… → bool )] → ( *… → bool )
  * @method static callable complement( ...$fn ) - Curried :: ( *… → * ) → ( *… → bool )
  * @method static callable|mixed defaultTo( ...$a, ...$b ) - Curried :: a → b → a | b
  * @method static callable|bool either( ...$a, ...$b ) - Curried :: ( *… → bool ) → ( *… → bool ) → ( *… → bool )

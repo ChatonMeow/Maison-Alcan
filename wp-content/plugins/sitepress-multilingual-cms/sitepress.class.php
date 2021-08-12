@@ -1246,7 +1246,7 @@ class SitePress extends WPML_WPDB_User implements
 			$page_basename
 		);
 
-		if ( is_admin() && ! defined( 'DOING_AJAX' ) ) {
+		if ( is_admin() && ! defined( 'DOING_AJAX' ) && ! wpml_is_rest_request() && empty( $_GET['legacy-widget-preview'] ) ) {
 
 			$this->scripts_handler->add_admin_hooks();
 
@@ -3759,7 +3759,7 @@ class SitePress extends WPML_WPDB_User implements
 	function get_admin_language_cookie() {
 		global $wpml_request_handler;
 
-		return is_admin() ? $wpml_request_handler->get_cookie_lang() : null;
+		return ( is_admin() || wpml_is_rest_request() ) ? $wpml_request_handler->get_cookie_lang() : null;
 	}
 
 	function reset_admin_language_cookie() {

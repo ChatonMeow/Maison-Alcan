@@ -1,5 +1,12 @@
 <?php
 
+use WPML\FP\Fns;
+use WPML\FP\Json;
+use WPML\FP\Lst;
+use WPML\FP\Obj;
+use WPML\FP\Str;
+use function WPML\FP\pipe;
+
 /**
  * This code is inspired by WPML Widgets (https://wordpress.org/plugins/wpml-widgets/),
  * created by Jeroen Sormani
@@ -8,6 +15,8 @@
  */
 class WPML_Widgets_Support_Frontend implements IWPML_Action {
 	private $current_language;
+
+    const TERM_REGEX = '#\{.*?\}#s';
 
 	/**
 	 * WPML_Widgets constructor.
@@ -45,8 +54,14 @@ class WPML_Widgets_Support_Frontend implements IWPML_Action {
 	 * @return bool
 	 */
 	private function it_must_display( $instance ) {
-		return ! array_key_exists( 'wpml_language', $instance )
-		       || $instance['wpml_language'] === $this->current_language
-		       || 'all' === $instance['wpml_language'];
+        if ( isset ( $instance['content'] ) ) {
+            $matches  = Str::matchAll( self::TERM_REGEX, $instance['content'] );
+            $matches  = Fns::map( pipe( Lst::nth( 0 ), Json::toArray() ), $matches );
+            if ( count( $matches ) > 0 ) {
+                $instance = array_merge(...$matches);
+            }
+        }
+
+        return Lst::includes( Obj::propOr( null, 'wpml_language', $instance ), [ null, $this->current_language, 'all' ] );
 	}
 }

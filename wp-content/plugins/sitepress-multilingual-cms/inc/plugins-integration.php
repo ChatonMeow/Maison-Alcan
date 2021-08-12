@@ -145,6 +145,7 @@ function wpml_themes_integration_setup() {
 
 	if ( defined( 'FUSION_BUILDER_VERSION' ) ) {
 		$actions[] = WPML\Compatibility\FusionBuilder\DynamicContent::class;
+		$actions[] = WPML\Compatibility\FusionBuilder\FormContent::class;
 	}
 
 	$action_filter_loader = new WPML_Action_Filter_Loader();

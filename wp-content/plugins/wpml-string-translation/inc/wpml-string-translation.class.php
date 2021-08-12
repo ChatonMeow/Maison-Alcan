@@ -109,8 +109,6 @@ class WPML_String_Translation {
 
 		$this->init_active_languages();
 
-		require WPML_ST_PATH . '/inc/widget-text.php';
-
 		$wpml_string_shortcode = new WPML\ST\Shortcode( $wpdb );
 		$wpml_string_shortcode->init_hooks();
 
@@ -819,7 +817,7 @@ class WPML_String_Translation {
 		if ( is_array( $widget_text ) ) {
 			foreach ( $widget_text as $k => $w ) {
 				if ( ! empty( $w ) && isset( $w['title'], $w['text'] ) && in_array( $k, $active_text_widgets ) && $w['text'] ) {
-					icl_register_string( WP_Widget_Text_Icl::STRING_DOMAIN, 'widget body - ' . md5( $w['text'] ), $w['text'] );
+					icl_register_string( WPML_ST_WIDGET_STRING_DOMAIN, 'widget body - ' . md5( $w['text'] ), $w['text'] );
 				}
 			}
 		}

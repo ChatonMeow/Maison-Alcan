@@ -35,7 +35,26 @@ if ( ! $is_cron_request && ! $is_wp_cli_request && ! is_admin() && ! otgs_is_res
 		/**
 		 * Stub function to short-circuit Installer when it should not run.
 		 */
-		function WP_Installer_Setup() {
+		function WP_Installer_Setup( $wp_installer_instance, $args = [] ) {
+			if ( isset( $args['site_key_nags'][0]['repository_id'] ) ) {
+
+				require_once __DIR__ . '/includes/class-otgs-installer-settings.php';
+
+				$repository_id = $args['site_key_nags'][0]['repository_id'];
+				$getSiteKey    = function () use ( $repository_id ) {
+					$settings = OTGS\Installer\Settings::load();
+
+					if ( in_array( $repository_id, [ 'wpml', 'toolset' ] )
+					     && isset( $settings['repositories'][ $repository_id ]['subscription']['key'] )
+					) {
+						return $settings['repositories'][ $repository_id ]['subscription']['key'];
+					}
+
+					return null;
+				};
+
+				add_filter( 'otgs_installer_get_sitekey_'.$repository_id, $getSiteKey );
+			}
 		}
 		// phpcs:enable WordPress.NamingConventions.ValidFunctionName.FunctionNameInvalid
 	}
@@ -45,7 +64,6 @@ if ( ! $is_cron_request && ! $is_wp_cli_request && ! is_admin() && ! otgs_is_res
 }
 
 $wp_installer_instance = dirname( __FILE__ ) . '/installer.php';
-
 
 // Global stack of instances.
 global $wp_installer_instances;
