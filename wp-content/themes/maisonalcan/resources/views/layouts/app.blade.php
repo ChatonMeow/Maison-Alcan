@@ -3,16 +3,29 @@
 @include('partials.head')
 
 <body @php body_class() @endphp>
-  <div class="wrapper" data-scroll-container>
+  <div class="main" data-scroll-container>
     @php do_action('get_header') @endphp
     @include('partials.header')
-    <div class="wrap container" role="document">
-      <div class="content">
-        <main class="main">
-          @yield('content')
-        </main>
-      </div>
-    </div>
+    <main class="main__content">
+      @yield('content')
+      <p>tolkolol</p>
+      <p>tolkolol</p>
+      <p>tolkolol</p>
+      <p>tolkolol</p>
+      <p>tolkolol</p>
+      <p>tolkolol</p>
+      <p>tolkolol</p>
+      <p>tolkolol</p>
+      <p>tolkolol</p>
+      <p>tolkolol</p>
+      <p>tolkolol</p>
+      <p>tolkolol</p>
+      <p>tolkolol</p>
+      <p>tolkolol</p>
+      <p>tolkolol</p>
+      <p>tolkolol</p>
+      <p>tolkolol</p>
+    </main>
     @php do_action('get_footer') @endphp
     @include('partials.footer')
     @php wp_footer() @endphp

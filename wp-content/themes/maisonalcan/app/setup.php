@@ -11,6 +11,7 @@ use Roots\Sage\Template\BladeProvider;
  * Theme assets
  */
 add_action('wp_enqueue_scripts', function () {
+    wp_enqueue_style('aktiv-grotesk', 'https://use.typekit.net/ouz7pur.css', false, null);
     wp_enqueue_style('sage/main.css', asset_path('styles/main.css'), false, null);
     wp_enqueue_style('LocomotiveScrollCSS', 'https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.1/dist/locomotive-scroll.min.css');
     wp_enqueue_script('LocomotiveScroll', 'https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.1/dist/locomotive-scroll.min.js', [], null, true);

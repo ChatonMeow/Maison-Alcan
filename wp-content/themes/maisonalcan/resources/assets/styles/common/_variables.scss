@@ -1,18 +1,19 @@
-$cp1: #141d28; //Mirage
+:root {
+    --gap: 3.15%;
+
+    @media screen and (max-width: 767px) {
+        --gap: 5.33%;
+    }
+}
+
+$cp1: #1c1c1c; //Cod Gray
 $cp2: #fff; //White
-$cp3: #f8ae35; //Sea Buckthorn
 
-$cs1: #d04727; //Valencia
-
-$font: "Montserrat", sans-serif;
-$title: "Diavlo", "Montserrat", sans-serif;
+$font: "aktiv-grotesk", sans-serif;
 $font-icon: "icon-font";
 
-$radius: 10px;
-
-$padding-viewport: 87px;
-
 $max-viewport: 1600px;
+$gap: var(--gap);
 
 $t1: 0.25s;
 $t2: 0.5s;

@@ -24,10 +24,11 @@ body {
     height: 100vh;
 }
 
-.wrapper {
+.container {
     margin: 0 auto;
-    padding: 0 $padding-viewport;
+    padding: 0 $gap;
     width: 100%;
+    max-width: $max-viewport;
 }
 
 img,
@@ -45,11 +46,5 @@ svg {
 }
 
 .main__content {
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-}
-
-.main__content-inner {
     flex-grow: 1;
 }

@@ -36,4 +36,20 @@ class App extends Controller
         global $post;
         return $post->post_name;
     }
+
+    public function logo()
+    {
+        return get_field('logo', 'option');
+    }
+
+    public function language()
+    {
+        $languages = apply_filters('wpml_active_languages', NULL);
+        return array_map(function ($language) {
+            return [
+                'language' => ucwords($language['native_name']),
+                'url' => $language['url'],
+            ];
+        }, $languages);
+    }
 }

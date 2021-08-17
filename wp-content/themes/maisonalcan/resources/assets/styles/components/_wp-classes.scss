@@ -25,11 +25,11 @@
 @include mq-up(sm) {
   .alignleft {
     float: left;
-    margin-right: $padding-viewport;
+    margin-right: $gap;
   }
 
   .alignright {
     float: right;
-    margin-left: $padding-viewport;
+    margin-left: $gap;
   }
 }

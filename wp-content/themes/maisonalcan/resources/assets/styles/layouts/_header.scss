@@ -1,2 +1,137 @@
-// TODO: .banner .nav li {}
-// TODO: .banner .nav a {}
+.header {
+    padding: 34px 0;
+    background: $cp2;
+
+    @include mq-down(md) {
+        padding: 45px 0;
+    }
+
+    .container {
+        display: flex;
+        flex-wrap: nowrap;
+        align-items: flex-end;
+        justify-content: space-between;
+    }
+
+    .logo {
+        min-width: 134px;
+        max-width: 134px;
+        display: block;
+        line-height: 0;
+        transition: all $t1;
+
+        @include mq-down(md) {
+            min-width: 94px;
+            max-width: 94px;
+        }
+
+        &:hover {
+            opacity: 0.75;
+        }
+    }
+
+    .nav-wrapper {
+        @include mq-up(lg) {
+            transform: none !important;
+        }
+
+        @include mq-down(md) {
+            position: fixed;
+            top: 100%;
+            width: 100%;
+            right: 0;
+            background: $cp2;
+        }
+    }
+
+    nav {
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: flex-end;
+        align-items: center;
+        white-space: nowrap;
+        font-size: 2.4rem;
+
+        @include mq-down(md) {
+            transform: translateX(100%);
+            transition: all 0.5s;
+
+            .nav-open & {
+                transform: none;
+            }
+        }
+
+        a {
+            text-decoration: none;
+            display: inline-block;
+            padding: em(10, 24) 0;
+            margin: 0 em(36, 24);
+            position: relative;
+
+            &:hover {
+                &:before {
+                    width: calc(100% - 0.5rem);
+                    opacity: 1;
+                }
+            }
+
+            &:before {
+                position: absolute;
+                bottom: em(5, 24);
+                content: "";
+                left: 0.25rem;
+                transition: all $t2;
+                border-top: 1px solid;
+                width: 0;
+                opacity: 0;
+            }
+
+            &.header__lang {
+                margin-right: 0;
+            }
+        }
+
+        ul {
+            @extend %reset-list;
+
+            display: flex;
+            flex-wrap: nowrap;
+            align-items: center;
+        }
+    }
+
+    .menu-toggle {
+        text-transform: uppercase;
+        font-weight: 600;
+        font-size: 2rem;
+        text-decoration: none;
+        padding: 0 em(6, 20);
+        text-align: right;
+
+        @include mq-up(lg) {
+            display: none;
+        }
+
+        .open,
+        .close {
+            transition: all $t2;
+        }
+
+        .open {
+            .nav-open & {
+                opacity: 0;
+                transform: translateY(-100%);
+            }
+        }
+
+        .close {
+            position: absolute;
+            opacity: 0;
+
+            .nav-open & {
+                opacity: 1;
+                transform: translateY(-100%);
+            }
+        }
+    }
+}
