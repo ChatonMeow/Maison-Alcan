@@ -7,7 +7,7 @@
         {{ $siteName }}
       @endif
     </a>
-    <div class="nav-wrapper" data-scroll data-scroll-sticky data-scroll-target="body">
+    <div class="nav-wrapper">
       <nav class="nav-primary">
         @if (has_nav_menu('primary_navigation'))
           {!! wp_nav_menu(['theme_location' => 'primary_navigation', 'container' => '']) !!}
@@ -16,6 +16,9 @@
           {{ ICL_LANGUAGE_CODE == 'en' ? 'FR' : 'EN' }}
         </a>
       </nav>
+      <div class="desc">
+        {{ get_bloginfo('description') }}
+      </div>
     </div>
     <a class="menu-toggle">
       <div class="open">{{ __('Menu', 'maisonalcan') }}</div>

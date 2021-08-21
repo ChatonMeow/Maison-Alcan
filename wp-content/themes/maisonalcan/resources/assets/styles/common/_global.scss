@@ -16,6 +16,7 @@ html {
     color: $cp1;
     background: $cp2;
     scroll-behavior: smooth;
+    line-height: 1.375;
 }
 
 body {
@@ -28,7 +29,6 @@ body {
     margin: 0 auto;
     padding: 0 $gap;
     width: 100%;
-    max-width: $max-viewport;
 }
 
 img,

@@ -52,4 +52,9 @@ class App extends Controller
             ];
         }, $languages);
     }
+
+    public function footerartist()
+    {
+        return get_field('pied_page_defaut');
+    }
 }

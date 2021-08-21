@@ -8,23 +8,23 @@
     @include('partials.header')
     <main class="main__content">
       @yield('content')
-      <p>tolkolol</p>
-      <p>tolkolol</p>
-      <p>tolkolol</p>
-      <p>tolkolol</p>
-      <p>tolkolol</p>
-      <p>tolkolol</p>
-      <p>tolkolol</p>
-      <p>tolkolol</p>
-      <p>tolkolol</p>
-      <p>tolkolol</p>
-      <p>tolkolol</p>
-      <p>tolkolol</p>
-      <p>tolkolol</p>
-      <p>tolkolol</p>
-      <p>tolkolol</p>
-      <p>tolkolol</p>
-      <p>tolkolol</p>
+      <p>contenu</p>
+      <p>contenu</p>
+      <p>contenu</p>
+      <p>contenu</p>
+      <p>contenu</p>
+      <p>contenu</p>
+      <p>contenu</p>
+      <p>contenu</p>
+      <p>contenu</p>
+      <p>contenu</p>
+      <p>contenu</p>
+      <p>contenu</p>
+      <p>contenu</p>
+      <p>contenu</p>
+      <p>contenu</p>
+      <p>contenu</p>
+      <p>contenu</p>
     </main>
     @php do_action('get_footer') @endphp
     @include('partials.footer')
