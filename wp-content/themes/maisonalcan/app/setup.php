@@ -133,7 +133,7 @@ add_action('after_setup_theme', function () {
 
 // Add ACF options page
 if (function_exists('acf_add_options_page')) {
-    acf_add_options_page();
+    acf_add_options_page(['autoload' => true]);
 }
 
 // Add Artistes post type

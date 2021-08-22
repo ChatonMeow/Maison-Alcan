@@ -55,6 +55,45 @@ class App extends Controller
 
     public function footerartist()
     {
-        return get_field('pied_page_defaut');
+        $pageField = get_field('pied_page_defaut');
+        if ($pageField) {
+            $artistID = $pageField[0]->ID;
+        } else {
+            $args = array(
+                'post_type' => 'artists',
+                'orderby' => 'rand',
+                'posts_per_page' => 1,
+                'fields' => 'ids',
+            );
+            $the_query = new \WP_Query($args);
+            while ($the_query->have_posts()) {
+                $the_query->the_post();
+                $artistID =  get_the_ID();
+            }
+        }
+
+        if ($artistID) {
+            return [
+                "title" => get_the_title($artistID),
+                "fields" => get_fields($artistID)
+            ];
+        } else {
+            return null;
+        }
+    }
+
+    public function footeraddress()
+    {
+        return get_field('pied_de_page', 'option')['adresse'];
+    }
+
+    public function footermission()
+    {
+        return get_field('pied_de_page', 'option')['texte_artistes'];
+    }
+
+    public function footeremail()
+    {
+        return get_field('pied_de_page', 'option')['courriel'];
     }
 }
