@@ -1,0 +1,252 @@
+.footer {
+    .top {
+        padding: 62px 0 105px;
+
+        @include mq-down(md) {
+            padding: 47px 0 96px;
+        }
+
+        @include mq-down(sm) {
+            padding: 45px 0;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: nowrap;
+            justify-content: space-between;
+
+            @include mq-down(md) {
+                display: block;
+            }
+        }
+    }
+
+    .left {
+        max-width: percent(535, 1711);
+
+        @include mq-down(xl) {
+            max-width: percent(408, 1367);
+        }
+
+        @include mq-down(lg) {
+            max-width: 40%;
+        }
+
+        @include mq-down(md) {
+            max-width: percent(421, 688);
+        }
+
+        @include mq-down(sm) {
+            max-width: 100%;
+        }
+
+        img {
+            display: block;
+            border: 3px solid;
+            margin-bottom: 59px;
+
+            @include mq-down(md) {
+                margin-bottom: 40px;
+            }
+
+            @include mq-down(sm) {
+                margin: 0 auto 23px;
+            }
+        }
+
+        .infos {
+            display: flex;
+            flex-wrap: nowrap;
+            justify-content: space-between;
+
+            .left {
+            }
+
+            .artist {
+                font-size: 2.4rem;
+            }
+
+            .label {
+                font-size: 1.4rem;
+            }
+
+            .title {
+                font-size: 1.4rem;
+                font-style: italic;
+                max-width: em(165, 14);
+                margin-left: 2em;
+
+                @include mq-down(sm) {
+                    max-width: em(125, 14);
+                }
+            }
+        }
+
+        .mission {
+            font-size: 1.4rem;
+            padding-top: 32px;
+            margin-top: 38px;
+            border-top: 1px solid;
+        }
+    }
+
+    .right {
+        width: percent(774, 1711);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        @include mq-down(xl) {
+            width: percent(595, 1367);
+        }
+
+        @include mq-down(lg) {
+            width: 50%;
+        }
+
+        @include mq-down(md) {
+            width: auto;
+            flex-direction: row;
+            margin-top: 92px;
+        }
+
+        .menu {
+            @extend %reset-list;
+
+            white-space: nowrap;
+            font-size: 2.4rem;
+            display: flex;
+            flex-wrap: nowrap;
+            justify-content: space-between;
+
+            @include mq-down(md) {
+                display: block;
+            }
+
+            li {
+                &:not(:last-child) {
+                    @include mq-down(md) {
+                        margin-bottom: 17px;
+                    }
+                }
+            }
+
+            a {
+                text-decoration: none;
+                position: relative;
+                display: inline-block;
+                padding: 0 0 0.15em 0;
+
+                @include mq-down(md) {
+                    padding: 0;
+                }
+
+                &:hover {
+                    &:before {
+                        width: calc(100% - 0.5rem);
+                        opacity: 1;
+                    }
+                }
+
+                &:before {
+                    position: absolute;
+                    bottom: em(5, 24);
+                    content: "";
+                    left: 0.25rem;
+                    transition: all $t2;
+                    border-top: 1px solid;
+                    width: 0;
+                    opacity: 0;
+
+                    @include mq-down(md) {
+                        display: none;
+                    }
+                }
+            }
+        }
+
+        .bot {
+            display: flex;
+            flex-wrap: nowrap;
+            justify-content: space-between;
+            align-items: flex-end;
+
+            @include mq-down(md) {
+                width: 60%;
+                margin-left: 20px;
+            }
+
+            @include mq-down(sm) {
+                width: percent(94, 332);
+            }
+
+            .contact {
+                font-size: 1.6rem;
+
+                @include mq-down(md) {
+                    text-align: right;
+                }
+
+                @include mq-down(sm) {
+                    display: none;
+                }
+
+                .address {
+                    &:not(:last-child) {
+                        margin-bottom: 51px;
+                    }
+                }
+
+                a {
+                    text-decoration: none;
+
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                }
+            }
+
+            img {
+                width: percent(109, 595);
+
+                @include mq-down(md) {
+                    width: percent(94, 431);
+                }
+
+                @include mq-down(sm) {
+                    width: auto;
+                }
+            }
+        }
+    }
+
+    .copy {
+        background: #000;
+        color: $cp2;
+        font-size: 1.2rem;
+        padding: 10px 0;
+
+        .container {
+            @include mq-down(md) {
+                display: flex;
+                flex-wrap: nowrap;
+                justify-content: space-between;
+            }
+        }
+
+        ul {
+            @extend %reset-list;
+
+            display: inline-block;
+            margin-left: 105px;
+
+            @include mq-down(xl) {
+                margin-left: 70px;
+            }
+        }
+
+        li {
+            display: inline;
+        }
+    }
+}

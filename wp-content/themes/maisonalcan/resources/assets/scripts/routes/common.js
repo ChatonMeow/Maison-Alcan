@@ -4,10 +4,10 @@ export default {
 
     //Locomotive Scroll
     // eslint-disable-next-line no-unused-vars, no-undef
-    const scroll = new LocomotiveScroll({
+    /*const scroll = new LocomotiveScroll({
       el: document.querySelector('[data-scroll-container]'),
       smooth: true,
-    });
+    });*/
 
     //Nav
     document.querySelector('.header .menu-toggle').addEventListener('click', () => {

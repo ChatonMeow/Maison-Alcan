@@ -26,3 +26,4 @@
     </a>
   </div>
 </header>
+<div class="header-spacer"></div>
