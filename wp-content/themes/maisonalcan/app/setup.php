@@ -133,10 +133,13 @@ add_action('after_setup_theme', function () {
 
 // Add ACF options page
 if (function_exists('acf_add_options_page')) {
-    acf_add_options_page(['autoload' => true]);
+    acf_add_options_page([
+        'page_title' => 'Global',
+        'autoload' => true
+    ]);
 }
 
-// Add Artistes post type
+// Add custom post types
 add_action('init', function () {
     register_post_type('artists', [
         'labels' => [
@@ -146,10 +149,10 @@ add_action('init', function () {
             'add_new' => __('Ajouter artiste', 'maisonalcan'),
             'add_new_item' => __('Ajouter artiste', 'maisonalcan'),
             'edit' => __('Modifier artiste', 'maisonalcan'),
-            'edit_item' => __('Modifier post types artiste', 'maisonalcan'),
-            'new_item' => __('Nouveau post type artiste', 'maisonalcan'),
-            'view_item' => __('Voir post Type artiste', 'maisonalcan'),
-            'search_items' => __('Recherche posts type artiste', 'maisonalcan'),
+            'edit_item' => __('Modifier artiste', 'maisonalcan'),
+            'new_item' => __('Nouveau artiste', 'maisonalcan'),
+            'view_item' => __('Voir artiste', 'maisonalcan'),
+            'search_items' => __('Recherche artiste', 'maisonalcan'),
             'not_found' =>  __('Aucun résultat dans la base de données', 'maisonalcan'),
             'not_found_in_trash' => __('Aucun résultat dans la poubelle', 'maisonalcan'),
             'parent_item_colon' => ''
@@ -162,6 +165,35 @@ add_action('init', function () {
         'query_var' => true,
         'menu_position' => 5,
         'menu_icon' => 'dashicons-art',
+        'capability_type' => 'post',
+        'hierarchical' => false,
+        'supports' => ['title', 'custom-fields', 'thumbnail']
+    ]);
+
+    register_post_type('residents', [
+        'labels' => [
+            'name' => __('Résidents', 'maisonalcan'),
+            'singular_name' => __('resident', 'maisonalcan'),
+            'all_items' => __('Tous les résidents', 'maisonalcan'),
+            'add_new' => __('Ajouter résident', 'maisonalcan'),
+            'add_new_item' => __('Ajouter resident', 'maisonalcan'),
+            'edit' => __('Modifier resident', 'maisonalcan'),
+            'edit_item' => __('Modifier resident', 'maisonalcan'),
+            'new_item' => __('Nouveauresident', 'maisonalcan'),
+            'view_item' => __('Voirresident', 'maisonalcan'),
+            'search_items' => __('Recherche resident', 'maisonalcan'),
+            'not_found' =>  __('Aucun résultat dans la base de données', 'maisonalcan'),
+            'not_found_in_trash' => __('Aucun résultat dans la poubelle', 'maisonalcan'),
+            'parent_item_colon' => ''
+        ],
+        'description' => __('Répertoire des residents', 'maisonalcan'),
+        'public' => true,
+        'publicly_queryable' => false,
+        'exclude_from_search' => false,
+        'show_ui' => true,
+        'query_var' => true,
+        'menu_position' => 5,
+        'menu_icon' => 'dashicons-building',
         'capability_type' => 'post',
         'hierarchical' => false,
         'supports' => ['title', 'custom-fields', 'thumbnail']
