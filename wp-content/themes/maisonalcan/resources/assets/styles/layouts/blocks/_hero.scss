@@ -1,0 +1,25 @@
+.hero {
+    padding-left: $gap;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+
+    .infos {
+    }
+
+    .title {
+    }
+
+    .text {
+    }
+
+    img {
+        border: 3px solid;
+        border-right: 0;
+        width: percent(854, 1920);
+
+        @include mq-down(xl) {
+            width: percent(670, 1366);
+        }
+    }
+}

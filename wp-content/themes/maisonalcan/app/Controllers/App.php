@@ -53,6 +53,11 @@ class App extends Controller
         }, $languages);
     }
 
+    public function getfields()
+    {
+        return get_fields();
+    }
+
     public function footerartist()
     {
         $pageField = get_field('pied_page_defaut');

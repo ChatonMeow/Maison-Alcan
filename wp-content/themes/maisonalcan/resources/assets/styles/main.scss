@@ -22,5 +22,6 @@
 @import "components/wp-classes";
 @import "./layouts/header";
 @import "./layouts/footer";
-@import "./layouts/blocks/**/*";
+@import "./layouts/blocks/marquee";
+@import "./layouts/blocks/hero";
 @import "./layouts/pages/**/*";
