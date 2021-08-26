@@ -3,23 +3,95 @@
     display: flex;
     flex-wrap: nowrap;
     justify-content: space-between;
+    margin-bottom: percent(182, 1366);
+
+    @include mq-down(md) {
+        flex-direction: column-reverse;
+        padding-right: $gap;
+        margin-bottom: percent(90, 768);
+        padding-bottom: percent(80, 768);
+        border-bottom: 2px solid;
+    }
+
+    @include mq-down(sm) {
+        margin-bottom: percent(70, 375);
+        padding-bottom: percent(90, 375);
+    }
 
     .infos {
+        padding-top: 50px;
+
+        @include mq-down(md) {
+            padding-top: 0;
+        }
     }
 
     .title {
+        position: relative;
+        display: inline-block;
+        padding-right: em(141, 80);
+        font-size: 8rem;
+        margin-bottom: em(226, 80);
+
+        @include mq-down(md) {
+            display: block;
+            margin-bottom: em(195, 80);
+        }
+
+        @include mq-down(sm) {
+            font-size: 5rem;
+            padding-right: 1.5em;
+        }
+
+        img {
+            position: absolute;
+            width: em(108, 80);
+            right: 0;
+            top: 55%;
+
+            @include mq-down(sm) {
+                width: em(50, 50);
+            }
+        }
     }
 
     .text {
+        font-size: 1.6rem;
+
+        @include mq-down(md) {
+            column-count: 2;
+            column-gap: em(24, 16);
+        }
+
+        @include mq-down(sm) {
+            column-count: 1;
+            column-gap: 0;
+        }
     }
 
-    img {
+    .img {
         border: 3px solid;
         border-right: 0;
-        width: percent(854, 1920);
+        width: percent(854, 1800);
+        margin-left: percent(73, 1800);
+        object-fit: cover;
 
         @include mq-down(xl) {
-            width: percent(670, 1366);
+            width: percent(670, 1320);
+            margin-left: percent(137, 1320);
+        }
+
+        @include mq-down(md) {
+            width: 100%;
+            display: block;
+            border-right: 3px solid;
+            margin: 0 0 percent(79, 688);
+        }
+
+        @include mq-down(sm) {
+            margin-bottom: percent(28, 330);
+            height: 75vh;
+            max-height: 454px;
         }
     }
 }
