@@ -3,12 +3,42 @@ ul,
 ol {
 }
 
+h1,
+h2 {
+    &.with-arrow {
+        position: relative;
+        display: inline-block;
+        padding-right: em(141, 80);
+        margin-bottom: em(226, 80);
+
+        @include mq-down(md) {
+            margin-bottom: em(195, 80);
+        }
+
+        @include mq-down(sm) {
+            display: block;
+            padding-right: 1.5em;
+        }
+
+        img {
+            position: absolute;
+            width: em(108, 80);
+            right: 0;
+            top: 55%;
+
+            @include mq-down(sm) {
+                width: em(50, 50);
+            }
+        }
+    }
+}
+
 h1 {
-    font-size: 5.5rem;
+    font-size: 8rem;
     font-weight: normal;
 
     @include mq-down(sm) {
-        font-size: 3.5rem;
+        font-size: 5rem;
     }
 }
 

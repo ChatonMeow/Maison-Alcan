@@ -18,6 +18,62 @@
         padding-bottom: percent(90, 375);
     }
 
+    &.is-home {
+        margin-bottom: 0;
+
+        @include mq-down(xl) {
+            margin-bottom: percent(67, 1366);
+        }
+
+        @include mq-down(md) {
+            margin-bottom: percent(145, 768);
+            flex-direction: column;
+            padding-bottom: 0;
+            border-bottom: 0;
+        }
+
+        @include mq-down(sm) {
+            margin-bottom: percent(83, 375);
+        }
+
+        .infos {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding-top: 0;
+
+            @include mq-down(md) {
+                margin-bottom: 50px;
+            }
+        }
+
+        .text {
+            @include mq-down(md) {
+                column-count: 1;
+                column-gap: 0;
+                max-width: 600px;
+            }
+        }
+
+        .img {
+            width: percent(1111, 1800);
+            margin-left: percent(118, 1800);
+
+            @include mq-down(xl) {
+                width: percent(846, 1321);
+                margin-left: percent(69, 1321);
+            }
+
+            @include mq-down(md) {
+                width: calc(100% + var(--gap) * 2);
+                max-width: none;
+                border-left: 0;
+                border-right: 0;
+                margin: 0 0 0 calc(var(--gap) * -1);
+            }
+        }
+    }
+
     .infos {
         padding-top: 50px;
 
@@ -27,31 +83,10 @@
     }
 
     .title {
-        position: relative;
-        display: inline-block;
-        padding-right: em(141, 80);
         font-size: 8rem;
-        margin-bottom: em(226, 80);
-
-        @include mq-down(md) {
-            display: block;
-            margin-bottom: em(195, 80);
-        }
 
         @include mq-down(sm) {
             font-size: 5rem;
-            padding-right: 1.5em;
-        }
-
-        img {
-            position: absolute;
-            width: em(108, 80);
-            right: 0;
-            top: 55%;
-
-            @include mq-down(sm) {
-                width: em(50, 50);
-            }
         }
     }
 

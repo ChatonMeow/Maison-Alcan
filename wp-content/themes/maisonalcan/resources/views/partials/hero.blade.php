@@ -1,7 +1,7 @@
 <div class="hero {{ $home ? 'is-home' : '' }}">
   <div class="infos">
     @if($title)
-      <h1 class="title">
+      <h1 class="title with-arrow">
         {!! $title !!}
         <img src="@asset('images/arrow.svg')" alt="">
       </h1>
