@@ -28,7 +28,7 @@
         @include mq-down(md) {
             margin-bottom: percent(145, 768);
             flex-direction: column;
-            padding-bottom: 0;
+            padding: 0;
             border-bottom: 0;
         }
 
@@ -44,6 +44,7 @@
 
             @include mq-down(md) {
                 margin-bottom: 50px;
+                padding: 0 $gap;
             }
         }
 
@@ -65,11 +66,10 @@
             }
 
             @include mq-down(md) {
-                width: calc(100% + var(--gap) * 2);
-                max-width: none;
+                width: 100%;
                 border-left: 0;
                 border-right: 0;
-                margin: 0 0 0 calc(var(--gap) * -1);
+                margin: 0;
             }
         }
     }

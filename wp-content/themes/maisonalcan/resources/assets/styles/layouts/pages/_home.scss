@@ -153,9 +153,385 @@
 
             @include mq-down(md) {
                 display: block;
+                z-index: 1;
                 position: absolute;
                 bottom: 0;
                 right: 0;
+            }
+        }
+    }
+
+    .spaces {
+        border-bottom: 2px solid;
+        margin-bottom: percent(165, 1920);
+        padding: 0 440px percent(165, 1920) 0;
+
+        @include mq-down(xl) {
+            margin-bottom: percent(120, 1366);
+            padding: 0 247px percent(131, 1366) 0;
+        }
+
+        @include mq-down(md) {
+            margin-bottom: percent(122, 768);
+            padding: 0 0 percent(122, 768) 0;
+        }
+
+        @include mq-down(sm) {
+            margin-bottom: percent(76, 375);
+            padding: 0 $gap percent(90, 375);
+        }
+
+        .top {
+            position: relative;
+            display: inline-block;
+            margin-bottom: percent(120, 1472);
+
+            @include mq-down(xl) {
+                margin-bottom: percent(105, 1118);
+            }
+
+            @include mq-down(md) {
+                margin: 0 216px percent(122, 768) 0;
+            }
+
+            @include mq-down(sm) {
+                margin: 0 111px percent(60, 334) 0;
+            }
+
+            img {
+                border: 3px solid;
+
+                @include mq-down(md) {
+                    min-height: 477px;
+                    object-fit: cover;
+                }
+
+                @include mq-down(sm) {
+                    min-height: 311px;
+                }
+            }
+        }
+
+        .title {
+            position: absolute;
+            font-size: 9.4rem;
+            transform: rotate(90deg) translateX(-60%) translateY(-2.5em);
+            transform-origin: center left;
+            line-height: 1;
+            top: 50%;
+            margin: 0;
+            left: 100%;
+
+            @include mq-down(xl) {
+                transform: rotate(90deg) translateX(-60%) translateY(-1.5em);
+            }
+
+            @include mq-down(md) {
+                transform: rotate(90deg) translateX(-60%) translateY(-1.25em);
+            }
+
+            @include mq-down(sm) {
+                font-size: 6.6rem;
+                transform: rotate(90deg) translateX(-60%) translateY(-1em);
+            }
+        }
+
+        .bot {
+            display: flex;
+            flex-wrap: nowrap;
+            align-items: flex-start;
+            justify-content: space-between;
+            margin-left: $gap;
+
+            @include mq-down(md) {
+                margin: 0 $gap;
+                display: block;
+
+                &:after {
+                    content: "";
+                    display: table;
+                    clear: both;
+                }
+            }
+
+            @include mq-down(sm) {
+                margin: 0;
+
+                &:after {
+                    display: none;
+                }
+            }
+        }
+
+        .infos {
+            display: flex;
+            flex-wrap: nowrap;
+            justify-content: space-between;
+            max-width: percent(774, 1383);
+            font-size: 1.6rem;
+            padding-top: 32px;
+            border-top: 1px solid;
+
+            @include mq-down(xl) {
+                max-width: percent(626, 1062);
+            }
+
+            @include mq-down(md) {
+                max-width: none;
+            }
+
+            @include mq-down(sm) {
+                display: block;
+            }
+
+            .label {
+                min-width: 184px;
+                max-width: 184px;
+                margin-right: 52px;
+
+                @include mq-down(sm) {
+                    min-width: 0;
+                    max-width: none;
+                    margin: 0 0 32px 0;
+                }
+            }
+
+            .txt {
+                flex-grow: 1;
+
+                @include mq-down(md) {
+                    max-width: percent(445, 688);
+                }
+
+                @include mq-down(sm) {
+                    max-width: none;
+                }
+            }
+        }
+
+        .button {
+            margin: 32px 0 0 32px;
+
+            @include mq-down(md) {
+                margin: 75px 0 0 0;
+                float: right;
+            }
+
+            @include mq-down(sm) {
+                float: none;
+                margin-top: 52px;
+            }
+        }
+    }
+
+    .residents {
+        padding-bottom: percent(166, 1920);
+
+        @include mq-down(xl) {
+            padding-bottom: percent(135, 1366);
+        }
+
+        @include mq-down(md) {
+            padding-bottom: percent(156, 768);
+            padding-top: 164px;
+            display: flex;
+            position: relative;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        @include mq-down(sm) {
+            padding-bottom: percent(99, 375);
+            padding-top: 156px;
+        }
+
+        &:after {
+            content: "";
+            display: table;
+            clear: both;
+
+            @include mq-down(md) {
+                display: none;
+            }
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: nowrap;
+            justify-content: space-between;
+            margin-bottom: percent(108, 1920);
+
+            @include mq-down(xl) {
+                margin-bottom: percent(91, 1280);
+            }
+
+            @include mq-down(md) {
+                order: 2;
+                max-width: percent(628, 1280);
+                padding: 0;
+                margin: 0 0 0 $gap;
+            }
+
+            @include mq-down(sm) {
+                max-width: none;
+                flex-grow: 1;
+                margin-right: $gap;
+            }
+        }
+
+        .infos {
+            margin-top: $gap;
+            max-width: percent(656, 1718);
+
+            @include mq-down(xl) {
+                max-width: percent(628, 1280);
+            }
+
+            @include mq-down(md) {
+                margin-top: 0;
+                border-top: 1px solid;
+                padding-top: 32px;
+                max-width: none;
+            }
+        }
+
+        .title {
+            font-size: 8rem;
+
+            @include mq-down(xl) {
+                padding-right: 0;
+                margin-bottom: percent(138, 628);
+
+                img {
+                    display: none;
+                }
+            }
+
+            @include mq-down(md) {
+                margin: 0;
+                position: absolute;
+                top: 0;
+                left: $gap;
+                right: $gap;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+
+            @include mq-down(sm) {
+                font-size: 6.6rem;
+            }
+        }
+
+        .txt {
+            column-gap: 52px;
+            column-count: 2;
+
+            @include mq-down(xl) {
+                column-gap: 28px;
+            }
+
+            @include mq-down(md) {
+                column-count: 1;
+                column-gap: 0;
+            }
+        }
+
+        .img {
+            border: 3px solid;
+            object-fit: cover;
+            max-width: percent(777, 1718);
+
+            @include mq-down(xl) {
+                max-width: percent(516, 1280);
+            }
+
+            @include mq-down(md) {
+                display: none;
+            }
+        }
+
+        .marquee__wrapper {
+            margin: 0 0 percent(139, 1920);
+            white-space: nowrap;
+            font-size: inherit;
+
+            @include mq-down(xl) {
+                margin-bottom: percent(91, 1366);
+            }
+
+            @include mq-down(md) {
+                margin-bottom: percent(110, 768);
+                flex-grow: 1;
+            }
+
+            @include mq-down(sm) {
+                margin-bottom: percent(60, 375);
+            }
+        }
+
+        .marquee__inner {
+            &:after {
+                display: none;
+            }
+        }
+
+        .marquee {
+        }
+
+        .resident {
+            border: 3px solid;
+            margin-right: 40px;
+            width: 329px;
+            height: 211px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            vertical-align: middle;
+
+            @include mq-down(md) {
+                width: auto;
+                padding: 0 35px;
+            }
+
+            @include mq-down(sm) {
+                height: 134px;
+                padding: 0 26px;
+            }
+
+            img {
+                max-width: percent(260, 329);
+                max-height: percent(129, 211);
+
+                @include mq-down(md) {
+                    max-width: 260px;
+                    max-height: 65px;
+                }
+
+                @include mq-down(sm) {
+                    max-width: 156px;
+                    max-height: 45px;
+                }
+            }
+        }
+
+        .button {
+            float: right;
+            margin-right: calc(var(--gap) + 94px);
+
+            @include mq-down(xl) {
+                margin-right: $gap;
+            }
+
+            @include mq-down(md) {
+                order: 3;
+                float: none;
+                margin-top: 32px;
+            }
+
+            @include mq-down(sm) {
+                margin: 51px $gap 0;
             }
         }
     }

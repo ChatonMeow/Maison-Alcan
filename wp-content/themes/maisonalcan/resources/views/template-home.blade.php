@@ -48,8 +48,78 @@
         @endif
       </div>
     </div>
-    @php var_dump($fields) @endphp
-    @include('partials.page-header')
-    @include('partials.content-page')
+    <div class="spaces">
+      <div class="top">
+        @if($fields['espaces']['image'])
+          <img src="{{ $fields['espaces']['image']['sizes']['1536x1536'] }}" alt="{{ $fields['espaces']['image']['alt'] }}">
+        @endif
+        @if($fields['espaces']['titre'])
+          <h2 class="title">
+            {{ $fields['espaces']['titre'] }}
+          </h2>
+        @endif
+      </div>
+      <div class="bot">
+        <div class="infos">
+          @if($fields['espaces']['court_texte'])
+            <div class="label">
+              {{ $fields['espaces']['court_texte'] }}
+            </div>
+          @endif
+          @if($fields['espaces']['texte'])
+            <div class="txt">
+              {{ $fields['espaces']['texte'] }}
+            </div>
+          @endif
+        </div>
+        @if($fields['espaces']['bouton'])
+          <a href="{{ $fields['espaces']['bouton']['url'] }}" target="{{ $fields['espaces']['bouton']['target'] }}" class="button">
+            {{ $fields['espaces']['bouton']['title'] }}
+          </a>
+        @endif
+      </div>
+    </div>
+    <div class="residents">
+      <div class="container">
+        <div class="infos">
+          @if($fields['residents']['titre'])
+            <h2 class="title with-arrow">
+              {{ $fields['residents']['titre'] }}
+              <img src="@asset('images/arrow.svg')" alt="">
+            </h2>
+          @endif
+          @if($fields['residents']['texte'])
+            <div class="txt">
+              {{ $fields['residents']['texte'] }}
+            </div>
+          @endif
+        </div>
+        @if($fields['residents']['image'])
+          <img src="{{ $fields['residents']['image']['sizes']['large'] }}" alt="{{ $fields['residents']['image']['alt'] }}" class="img">
+        @endif
+      </div>
+      @if(!empty($fields['residents']['residents']))
+        <div class="marquee__wrapper">
+          <div class="marquee">
+            @for ($i = 1; $i < 5; $i++)
+              <div class="marquee__inner">
+                @foreach($fields['residents']['residents'] as $resident)
+                  @if(has_post_thumbnail($resident->ID))
+                    <div class="resident">
+                      <img src="{{ get_the_post_thumbnail_url($resident->ID) }}" alt="{{ $resident->post_title }}">
+                    </div>
+                  @endif
+                @endforeach
+              </div>
+            @endfor
+          </div>
+        </div>
+      @endif
+      @if($fields['residents']['bouton'])
+        <a href="{{ $fields['residents']['bouton']['url'] }}" target="{{ $fields['residents']['bouton']['target'] }}" class="button">
+          {{ $fields['residents']['bouton']['title'] }}
+        </a>
+      @endif
+    </div>
   @endwhile
 @endsection

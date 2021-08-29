@@ -6,6 +6,9 @@ export default {
       loop: false,
       slidesPerView: 1,
       spaceBetween: 35,
+      observer: true,
+      observeParents: true,
+      observeSlideChildren: true,
       pagination: {
         el: '.history .pager',
         clickable: true,
@@ -21,7 +24,7 @@ export default {
         1600: {
           spaceBetween: 52,
         },
-      }
+      },
     });
   },
   finalize() {
