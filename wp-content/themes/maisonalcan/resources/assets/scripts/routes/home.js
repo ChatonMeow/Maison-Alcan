@@ -22,6 +22,7 @@ export default {
           spaceBetween: 28,
         },
         1600: {
+          slidesPerView: 3,
           spaceBetween: 52,
         },
       },
