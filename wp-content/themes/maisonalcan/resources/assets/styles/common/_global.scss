@@ -79,3 +79,12 @@ svg {
         background: $cp1;
     }
 }
+
+.quote {
+    font-size: 5.5rem;
+    line-height: 1.2;
+
+    @include mq-down(md) {
+        font-size: 2.8rem;
+    }
+}
