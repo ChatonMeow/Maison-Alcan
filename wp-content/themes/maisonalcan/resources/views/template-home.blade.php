@@ -51,7 +51,7 @@
     <div class="spaces">
       <div class="top">
         @if($fields['espaces']['image'])
-          <img src="{{ $fields['espaces']['image']['sizes']['1536x1536'] }}" alt="{{ $fields['espaces']['image']['alt'] }}">
+          <div class="img" style="background-image: url('{{ $fields['espaces']['image']['sizes']['1536x1536'] }}');"></div>
         @endif
         @if($fields['espaces']['titre'])
           <h2 class="title">

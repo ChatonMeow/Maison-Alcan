@@ -183,7 +183,6 @@
 
         .top {
             position: relative;
-            display: inline-block;
             margin-bottom: percent(120, 1472);
 
             @include mq-down(xl) {
@@ -198,16 +197,33 @@
                 margin: 0 111px percent(60, 334) 0;
             }
 
-            img {
+            .img {
                 border: 3px solid;
-
-                @include mq-down(md) {
-                    min-height: 477px;
-                    object-fit: cover;
-                }
+                width: 100%;
+                background: no-repeat center;
+                background-size: cover;
+                min-height: 477px;
 
                 @include mq-down(sm) {
                     min-height: 311px;
+                }
+
+                &:before {
+                    content: "";
+                    display: block;
+                    padding-top: percent(628, 1472);
+
+                    @include mq-down(xl) {
+                        padding-top: percent(477, 1200);
+                    }
+
+                    @include mq-down(md) {
+                        padding-top: percent(477, 552);
+                    }
+
+                    @include mq-down(sm) {
+                        padding-top: percent(220, 311);
+                    }
                 }
             }
         }

@@ -40,17 +40,38 @@
             max-width: 100%;
         }
 
-        img {
-            display: block;
-            border: 3px solid;
+        .img-wrapper {
+            text-align: center;
             margin-bottom: 59px;
+            line-height: 0;
+
+            @include mq-down(xl) {
+                margin-bottom: 42px;
+            }
 
             @include mq-down(md) {
                 margin-bottom: 40px;
             }
 
             @include mq-down(sm) {
-                margin: 0 auto 23px;
+                margin-bottom: 23px;
+            }
+        }
+
+        img {
+            border: 3px solid;
+            max-height: 293px;
+
+            @include mq-down(xl) {
+                max-height: 222px;
+            }
+
+            @include mq-down(md) {
+                max-height: 230px;
+            }
+
+            @include mq-down(sm) {
+                max-height: 180px;
             }
         }
 

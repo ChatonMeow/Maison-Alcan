@@ -5,7 +5,9 @@
     <div class="container">
       <div class="left">
         @if($artist)
-          <img src="{{ $artist['fields']['oeuvre']['sizes']['medium'] }}" alt="{{ $artist['fields']['oeuvre']['alt'] ? $artist['fields']['oeuvre']['alt'] : $artist['fields']['titre'] }}">
+          <div class="img-wrapper">
+            <img src="{{ $artist['fields']['oeuvre']['sizes']['medium'] }}" alt="{{ $artist['fields']['oeuvre']['alt'] ? $artist['fields']['oeuvre']['alt'] : $artist['fields']['titre'] }}">
+          </div>
           <div class="infos">
             <div class="left">
               <div class="artist">

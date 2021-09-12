@@ -17,7 +17,14 @@
         </a>
       </nav>
       <div class="desc">
-        {{ get_bloginfo('description') }}
+        @if($footeraddress)
+          {!! $footeraddress !!}
+        @endif
+        @if($footeremail)
+          <p>
+            <a href="mailto:{{ $footeremail }}">{{ $footeremail }}</a>
+          </p>
+        @endif
       </div>
     </div>
     <a class="menu-toggle">

@@ -1,19 +1,52 @@
 button,
 .button {
     text-decoration: none;
-    transition: all $t1;
+    transition: all 1s;
     cursor: pointer;
     display: inline-block;
     white-space: nowrap;
     font-size: 2.4rem;
     position: relative;
+    border: none;
+    background: none;
+    outline: 0;
     padding: em(21, 24) em(34, 24) em(20, 24) em(16, 24);
-    background: url("/wp-content/themes/maisonalcan/dist/images/button-full.png") no-repeat center;
-    background-size: 100% 100%;
+    // background: url("/wp-content/themes/maisonalcan/dist/images/button-full.png") no-repeat center;
+    // background-size: 100% 100%;
+
+    &:before,
+    &:after {
+        content: "";
+        position: absolute;
+        z-index: -1;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        clip-path: polygon(0 0, calc(100% - 1.04em) 0, calc(100% - 0.08em) 50%, calc(100% - 1.04em) 100%, 0 100%, 0 0);
+        transition: all 1s;
+        background: $cp1;
+        background: linear-gradient(90deg, $cp1 0%, $cp1 50%, $cp1 50%, $cp2 50%, $cp2 100%);
+        background-size: 200% 100%;
+        background-position: 100% 0;
+    }
+
+    &:before {
+        background: $cp1;
+        clip-path: polygon(50% 0, calc(100% - 1em) 0, 100% 50%, calc(100% - 1em) 100%, 0 100%, 0 0);
+        margin-top: -2px;
+        margin-left: -2px;
+        width: calc(100% + 3px);
+        height: calc(100% + 3px);
+    }
 
     &:hover {
-        background-image: url("/wp-content/themes/maisonalcan/dist/images/button-full-hover.png");
+        //background-image: url("/wp-content/themes/maisonalcan/dist/images/button-full-hover.png");
         color: $cp2;
+
+        &:after {
+            background-position: 0% 0;
+        }
     }
 
     &.disabled,

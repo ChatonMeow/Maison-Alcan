@@ -13,6 +13,6 @@
     @endif
   </div>
   @if($image)
-    <img src="{{ $image['sizes']['1536x1536'] }}" alt="{{ $image['alt'] }}" class="img">
+    <div class="img" style="background-image: url('{{ $image['sizes']['1536x1536'] }}');"></div>
   @endif
 </div>

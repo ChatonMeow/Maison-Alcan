@@ -22,7 +22,7 @@
         margin-bottom: 0;
 
         @include mq-down(xl) {
-            margin-bottom: percent(67, 1366);
+            margin-bottom: percent(67, 1337);
         }
 
         @include mq-down(md) {
@@ -40,7 +40,7 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
-            padding-top: 0;
+            padding: 0;
 
             @include mq-down(md) {
                 margin-bottom: 50px;
@@ -57,33 +57,62 @@
         }
 
         .img {
-            width: percent(1111, 1800);
+            min-width: percent(1111, 1800);
+            max-width: percent(1111, 1800);
             margin-left: percent(118, 1800);
 
             @include mq-down(xl) {
-                width: percent(846, 1321);
+                min-width: percent(846, 1321);
+                max-width: percent(846, 1321);
                 margin-left: percent(69, 1321);
             }
 
             @include mq-down(md) {
+                min-width: 0;
+                max-width: none;
                 width: 100%;
                 border-left: 0;
                 border-right: 0;
                 margin: 0;
             }
+
+            &:before {
+                padding-top: percent(500, 1111);
+
+                @include mq-down(xl) {
+                    padding-top: percent(475, 846);
+                }
+
+                @include mq-down(md) {
+                    padding-top: percent(423, 768);
+                }
+
+                @include mq-down(sm) {
+                    padding-top: percent(403, 375);
+                }
+            }
         }
     }
 
     .infos {
-        padding-top: 50px;
+        padding: 50px 0 100px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        max-width: 600px;
 
         @include mq-down(md) {
-            padding-top: 0;
+            padding: 0;
+            max-width: none;
         }
     }
 
     .title {
         font-size: 8rem;
+
+        @include mq-down(md) {
+            display: block;
+        }
 
         @include mq-down(sm) {
             font-size: 5rem;
@@ -107,16 +136,16 @@
     .img {
         border: 3px solid;
         border-right: 0;
-        width: percent(854, 1800);
-        margin-left: percent(73, 1800);
-        object-fit: cover;
-
-        @include mq-down(xl) {
-            width: percent(670, 1320);
-            margin-left: percent(137, 1320);
-        }
+        min-width: percent(670, 1337);
+        max-width: percent(670, 1337);
+        margin-left: percent(137, 1337);
+        background: no-repeat center;
+        background-size: cover;
+        line-height: 0;
 
         @include mq-down(md) {
+            min-width: 0;
+            max-width: 100%;
             width: 100%;
             display: block;
             border-right: 3px solid;
@@ -125,8 +154,21 @@
 
         @include mq-down(sm) {
             margin-bottom: percent(28, 330);
-            height: 75vh;
-            max-height: 454px;
+        }
+
+        &:before {
+            content: "";
+            display: block;
+            padding-top: calc(100vh - 131px);
+
+            @include mq-down(md) {
+                padding-top: percent(492, 688);
+            }
+
+            @include mq-down(sm) {
+                padding-top: 0;
+                padding-top: percent(454, 330);
+            }
         }
     }
 }

@@ -12,12 +12,7 @@
     white-space: nowrap;
     overflow: hidden;
     font-size: vw(198, 1920);
-    margin: percent(126, 1920) 0;
-
-    @include mq-down(xl) {
-        font-size: vw(150, 1366);
-        margin: percent(104, 1366) 0;
-    }
+    margin: percent(75, 1920) 0;
 
     @include mq-down(md) {
         font-size: 150px;
@@ -37,14 +32,14 @@
 }
 
 .marquee__inner {
-    animation: marquee 15s linear infinite;
+    animation: marquee 35s linear infinite;
 
     &:after {
         content: "";
         display: inline-block;
         vertical-align: middle;
         height: 0;
-        width: 5em;
+        width: em(157, 150);
         border-top: em(5, 198) solid;
         margin: 0 0.25em;
 
