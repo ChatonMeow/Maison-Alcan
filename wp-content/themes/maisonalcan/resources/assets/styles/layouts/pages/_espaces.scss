@@ -1,2 +1,275 @@
 .template-espaces {
+    .hero {
+        @include mq-down(md) {
+            border-bottom: 0;
+            padding-bottom: 0;
+        }
+    }
+
+    .quote {
+        border-bottom: 2px solid;
+        padding-bottom: percent(80, 1366);
+        margin-bottom: percent(51, 1366);
+
+        @include mq-down(md) {
+            padding-bottom: 11.7%;
+            margin-bottom: 11.7%;
+        }
+
+        @include mq-down(sm) {
+            padding-bottom: percent(90, 375);
+            margin-bottom: percent(90, 375);
+        }
+    }
+
+    .espaces {
+        .row {
+            display: flex;
+            flex-wrap: nowrap;
+            justify-content: space-between;
+
+            @include mq-down(sm) {
+                display: block;
+            }
+
+            &.c-40-60 {
+                .left {
+                    min-width: #{"max(407px, 40.5%)"};
+                    max-width: #{"max(407px, 40.5%)"};
+                    margin-right: percent(139, 1286);
+
+                    @include mq-down(md) {
+                        min-width: 47.5%;
+                        max-width: 47.5%;
+                        margin-right: 0;
+                    }
+
+                    @include mq-down(sm) {
+                        min-width: 0;
+                        max-width: none;
+                    }
+                }
+
+                .right {
+                    flex-grow: 1;
+
+                    @include mq-down(md) {
+                        min-width: 47.5%;
+                        max-width: 47.5%;
+                        flex-grow: 0;
+                    }
+
+                    @include mq-down(sm) {
+                        min-width: 0;
+                        max-width: none;
+                    }
+                }
+            }
+
+            &.c-60-40 {
+                .right {
+                    min-width: #{"max(407px, 40.5%)"};
+                    max-width: #{"max(407px, 40.5%)"};
+                    margin-left: percent(139, 1286);
+
+                    @include mq-down(md) {
+                        min-width: 47.5%;
+                        max-width: 47.5%;
+                        margin-left: 0;
+                    }
+
+                    @include mq-down(sm) {
+                        min-width: 0;
+                        max-width: none;
+                    }
+                }
+
+                .left {
+                    flex-grow: 1;
+
+                    @include mq-down(md) {
+                        min-width: 47.5%;
+                        max-width: 47.5%;
+                        flex-grow: 0;
+                    }
+
+                    @include mq-down(sm) {
+                        min-width: 0;
+                        max-width: none;
+                    }
+                }
+            }
+
+            &.c-40-60,
+            &.c-60-40 {
+                .left {
+                    @include mq-down(sm) {
+                        border-bottom: 1px solid;
+                        padding-bottom: percent(70, 375);
+                        margin-bottom: percent(48, 375);
+                    }
+                }
+            }
+        }
+
+        .top {
+            margin-bottom: percent(153, 1286);
+
+            @include mq-down(sm) {
+                margin-bottom: percent(60, 330);
+            }
+
+            .title {
+                font-size: 8rem;
+                line-height: 1.125;
+
+                @include mq-down(md) {
+                    font-size: 5rem;
+                }
+
+                @include mq-down(sm) {
+                    font-size: 8rem;
+                }
+            }
+
+            .desc {
+                font-size: 1.6rem;
+                max-width: 545px;
+                margin: 1em 0 2em;
+
+                @include mq-down(sm) {
+                    max-width: none;
+                    margin: em(61, 16) 0 em(25, 16);
+                }
+            }
+
+            .button {
+                font-size: 1.4rem;
+            }
+        }
+
+        .spaces {
+            & + .spaces {
+                margin-top: percent(126, 1283);
+                padding-top: percent(126, 1283);
+                border-top: 1px solid;
+
+                @include mq-down(sm) {
+                    margin-top: percent(70, 375);
+                    padding-top: percent(48, 375);
+                }
+            }
+        }
+    }
+
+    .banniere {
+        margin: percent(127, 1366) 0;
+
+        @include mq-down(sm) {
+            margin: percent(90, 330) 0 percent(98, 330);
+        }
+
+        .inner {
+            border: 3px solid;
+            display: flex;
+            flex-wrap: nowrap;
+            justify-content: space-between;
+            align-items: center;
+            padding: 37px 42px 37px 32px;
+
+            @include mq-down(sm) {
+                display: block;
+                padding: 27px 22px;
+            }
+        }
+
+        .title {
+            max-width: 460px;
+            font-size: 3.2rem;
+            margin-right: 1.5em;
+
+            @include mq-down(md) {
+                font-size: 2.5rem;
+            }
+
+            @include mq-down(sm) {
+                font-size: 3.2rem;
+                margin: 0 0 1em;
+                line-height: 1.22;
+                min-height: 6.1em;
+            }
+        }
+
+        .button {
+            position: relative;
+            z-index: 1;
+        }
+    }
+
+    .autres-espaces {
+        margin-bottom: percent(60, 1280);
+
+        @include mq-down(sm) {
+            margin-bottom: percent(80, 375);
+        }
+
+        .top {
+            margin-bottom: percent(135, 1280);
+            display: flex;
+            flex-wrap: nowrap;
+            justify-content: space-between;
+            align-items: center;
+
+            @include mq-down(sm) {
+                display: block;
+                margin-bottom: percent(90, 330);
+            }
+
+            .title {
+                font-size: 8rem;
+                margin: 0 1em 0 0;
+                line-height: 1.12;
+
+                @include mq-down(sm) {
+                    margin: 0 0 0.5em;
+                }
+            }
+
+            .desc {
+                font-size: 1.6rem;
+                margin: 0;
+                max-width: 430px;
+            }
+        }
+
+        .list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+
+            @include mq-down(sm) {
+                display: block;
+            }
+
+            .espace {
+                width: percent(372, 1280);
+                margin-bottom: percent(83, 1280);
+
+                @include mq-down(md) {
+                    width: 47.5%;
+                }
+
+                @include mq-down(sm) {
+                    width: auto;
+                    margin-bottom: 0;
+
+                    &:not(:last-child) {
+                        border-bottom: 1px solid;
+                        padding-bottom: percent(80, 330);
+                        margin-bottom: percent(80, 330);
+                    }
+                }
+            }
+        }
+    }
 }
