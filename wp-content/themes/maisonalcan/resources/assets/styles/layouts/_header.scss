@@ -1,11 +1,12 @@
 .header {
     padding: 56px 0;
     background: $cp2;
-    position: fixed;
+
+    /* position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 5;
+    z-index: 5; */
 
     @include mq-down(xl) {
         padding: 27px 0;
@@ -247,7 +248,7 @@
 }
 
 .header-spacer {
-    height: 183px;
+    /* height: 183px;
 
     @include mq-down(xl) {
         height: 125px;
@@ -255,5 +256,5 @@
 
     @include mq-down(md) {
         height: 132px;
-    }
+    } */
 }
