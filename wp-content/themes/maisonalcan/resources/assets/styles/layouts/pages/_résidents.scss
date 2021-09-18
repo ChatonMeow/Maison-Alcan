@@ -1,0 +1,114 @@
+.template-residents {
+    .residents {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+
+        @include mq-down(sm) {
+            display: block;
+            padding-bottom: percent(105, 375);
+        }
+    }
+
+    .resident {
+        width: percent(364, 1293);
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        align-items: flex-start;
+        margin-bottom: percent(186, 1293);
+
+        @include mq-up(lg) {
+            &:nth-child(3n + 1) {
+                position: relative;
+
+                &:before {
+                    content: "";
+                    position: absolute;
+                    top: calc(100% + 7.75vw);
+                    border-top: 1px solid;
+                    width: calc(100vw - 3.75vw * 2);
+                }
+            }
+
+            &:nth-last-of-type(-n + 3) {
+                &:before {
+                    display: none;
+                }
+            }
+        }
+
+        @include mq-only(md) {
+            width: 45%;
+
+            &:nth-child(2n + 1) {
+                position: relative;
+
+                &:before {
+                    content: "";
+                    position: absolute;
+                    top: calc(100% + 7.75vw);
+                    border-top: 1px solid;
+                    width: calc(100vw - 3.75vw * 2);
+                }
+            }
+
+            &:nth-last-of-type(-n + 2) {
+                &:before {
+                    display: none;
+                }
+            }
+        }
+
+        @include mq-down(sm) {
+            width: 100%;
+            margin-bottom: 0;
+
+            &:not(:last-of-type) {
+                padding-bottom: percent(80, 330);
+                margin-bottom: percent(80, 330);
+                border-bottom: 1px solid;
+            }
+        }
+
+        &.empty {
+            margin: 0 !important;
+            opacity: 0;
+        }
+
+        .logo {
+            height: vw(50, 1366);
+            object-fit: contain;
+            margin-bottom: 43px;
+
+            @include mq-down(sm) {
+                height: vw(48, 375);
+            }
+        }
+
+        .photo {
+            border: 3px solid;
+            background: no-repeat center;
+            background-size: cover;
+            line-height: 0;
+            padding-top: percent(233, 364);
+            margin-bottom: 43px;
+            width: 100%;
+
+            @include mq-down(sm) {
+                padding-top: percent(233, 330);
+            }
+        }
+
+        .desc {
+            font-size: 1.6rem;
+            margin-bottom: 40px;
+            width: 100%;
+            flex-grow: 1;
+        }
+
+        .button {
+            font-size: 1.4rem;
+        }
+    }
+}

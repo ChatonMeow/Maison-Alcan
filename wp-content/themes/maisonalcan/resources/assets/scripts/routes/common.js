@@ -12,6 +12,7 @@ export default {
     //Nav
     document.querySelector('.header .menu-toggle').addEventListener('click', () => {
       document.querySelector('html').classList.toggle('nav-open');
+      window.scrollTo(0, 0);
     })
   },
   finalize() {

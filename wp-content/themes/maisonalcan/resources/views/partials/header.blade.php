@@ -1,4 +1,4 @@
-<header class="header" data-scroll data-scroll-sticky data-scroll-target="body">
+<header class="header">
   <div class="container">
     <a href="{{ home_url('/') }}" class="logo">
       @if($logo)
@@ -8,23 +8,25 @@
       @endif
     </a>
     <div class="nav-wrapper">
-      <nav class="nav-primary">
-        @if (has_nav_menu('primary_navigation'))
-          {!! wp_nav_menu(['theme_location' => 'primary_navigation', 'container' => '']) !!}
-        @endif
-        <a class="header__lang" href="{{ $language[ICL_LANGUAGE_CODE == 'en' ? 'fr' : 'en']['url'] }}">
-          {{ ICL_LANGUAGE_CODE == 'en' ? 'FR' : 'EN' }}
-        </a>
-      </nav>
-      <div class="desc">
-        @if($footeraddress)
-          {!! $footeraddress !!}
-        @endif
-        @if($footeremail)
-          <p>
-            <a href="mailto:{{ $footeremail }}">{{ $footeremail }}</a>
-          </p>
-        @endif
+      <div class="nav-inner">
+        <nav class="nav-primary">
+          @if (has_nav_menu('primary_navigation'))
+            {!! wp_nav_menu(['theme_location' => 'primary_navigation', 'container' => '']) !!}
+          @endif
+          <a class="header__lang" href="{{ $language[ICL_LANGUAGE_CODE == 'en' ? 'fr' : 'en']['url'] }}">
+            {{ ICL_LANGUAGE_CODE == 'en' ? 'FR' : 'EN' }}
+          </a>
+        </nav>
+        <div class="desc">
+          @if($footeraddress)
+            {!! $footeraddress !!}
+          @endif
+          @if($footeremail)
+            <p>
+              <a href="mailto:{{ $footeremail }}">{{ $footeremail }}</a>
+            </p>
+          @endif
+        </div>
       </div>
     </div>
     <a class="menu-toggle">

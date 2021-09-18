@@ -17,6 +17,10 @@ html {
     background: $cp2;
     scroll-behavior: smooth;
     line-height: 1.375;
+
+    &.nav-open {
+        overflow: hidden;
+    }
 }
 
 body {

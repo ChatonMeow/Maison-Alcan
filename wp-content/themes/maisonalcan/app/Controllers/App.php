@@ -73,7 +73,7 @@ class App extends Controller
             $the_query = new \WP_Query($args);
             while ($the_query->have_posts()) {
                 $the_query->the_post();
-                $artistID =  get_the_ID();
+                $artistID = get_the_ID();
             }
         }
 

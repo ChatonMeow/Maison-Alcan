@@ -52,11 +52,9 @@
             background: $cp2;
             transform: translateX(100%);
             transition: all 0.5s;
-            overflow: auto;
             border-left: 2px solid;
             border-bottom: 2px solid;
-            // height: 100vh;
-            padding: 131px 0;
+            padding: 131px 0 0;
 
             .nav-open & {
                 transform: none;
@@ -66,6 +64,14 @@
         @include mq-down(s) {
             width: 100vw;
             border-left: 0;
+        }
+
+        .nav-inner {
+            @include mq-down(md) {
+                overflow: auto;
+                max-height: calc(100vh - 131px);
+                padding-bottom: 131px;
+            }
         }
 
         .desc {
@@ -180,7 +186,8 @@
 
                 @include mq-up(lg) {
                     border: 2px solid;
-                    padding: 8px 7px 3px 7px;
+                    padding: 10px 7px 8px 7px;
+                    line-height: 1;
                     font-size: 1.9rem;
                     transition: all $t1;
 

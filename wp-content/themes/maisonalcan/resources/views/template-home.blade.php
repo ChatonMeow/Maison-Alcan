@@ -106,7 +106,7 @@
                 @foreach($fields['residents']['residents'] as $resident)
                   @if(has_post_thumbnail($resident->ID))
                     <div class="resident">
-                      <img src="{{ get_the_post_thumbnail_url($resident->ID) }}" alt="{{ $resident->post_title }}">
+                      <img src="{{ get_the_post_thumbnail_url($resident->ID, 'medium') }}" alt="{{ $resident->post_title }}">
                     </div>
                   @endif
                 @endforeach
