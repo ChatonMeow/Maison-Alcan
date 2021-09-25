@@ -26,6 +26,20 @@
                     margin-bottom: percent(80, 330);
                 }
             }
+
+            &.quote {
+                &:not(:first-child) {
+                    margin-top: -6%;
+
+                    @include mq-down(md) {
+                        margin-top: -14%;
+                    }
+
+                    @include mq-down(sm) {
+                        margin-top: -18%;
+                    }
+                }
+            }
         }
 
         .year {
@@ -222,7 +236,6 @@
 
     .timeline {
         border-bottom: 2px solid;
-        padding-bottom: percent(80, 1366);
         margin-bottom: percent(95, 1366);
 
         @include mq-down(md) {
@@ -261,18 +274,19 @@
 
         .timeline__year {
             width: percent(517, 1283);
+            margin: 0 9% percent(85, 1283) 0;
+            margin-right: 9%;
             display: flex;
             flex-wrap: wrap;
             justify-content: flex-start;
             align-items: center;
-            margin-bottom: percent(85, 1283);
 
             @include mq-down(md) {
                 width: auto;
                 flex-wrap: nowrap;
                 justify-content: space-between;
                 align-items: initial;
-                margin-bottom: 0;
+                margin: 0;
                 padding-bottom: 81px;
                 position: relative;
 
@@ -374,7 +388,7 @@
             }
 
             .btns {
-                margin-top: 55px;
+                margin: 55px 0 -38px;
                 flex-grow: 1;
                 width: 100%;
 
@@ -384,10 +398,11 @@
                     align-items: flex-start;
                     float: right;
                     width: auto;
+                    margin-bottom: -21px;
                 }
 
                 @include mq-down(sm) {
-                    margin-top: 35px;
+                    margin: 35px 0 0;
                 }
             }
 

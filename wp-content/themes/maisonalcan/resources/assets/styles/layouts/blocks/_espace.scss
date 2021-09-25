@@ -64,6 +64,7 @@
     .icon {
         width: 93px;
         image-rendering: pixelated;
+        backface-visibility: visible;
         order: 10;
         margin-left: 30px;
         max-width: 30%;

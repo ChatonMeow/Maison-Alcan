@@ -27,7 +27,7 @@
                     position: absolute;
                     top: calc(100% + 7.75vw);
                     border-top: 1px solid;
-                    width: calc(100vw - 3.75vw * 2);
+                    width: calc(100vw - var(--gap) * 2);
                 }
             }
 

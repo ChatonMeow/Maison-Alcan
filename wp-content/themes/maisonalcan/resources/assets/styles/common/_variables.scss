@@ -1,12 +1,12 @@
 :root {
-    --gap: 5.42%;
+    --gap: 5.42vw;
 
     @media screen and (max-width: 1400px) {
-        --gap: 3.15%;
+        --gap: 3.15vw;
     }
 
     @media screen and (max-width: 767px) {
-        --gap: 5.33%;
+        --gap: 5.33vw;
     }
 }
 
