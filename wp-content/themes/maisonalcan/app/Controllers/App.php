@@ -92,6 +92,11 @@ class App extends Controller
         return get_field('pied_de_page', 'option')['adresse'];
     }
 
+    public function footeraddresslink()
+    {
+        return get_field('pied_de_page', 'option')['adresse_lien'];
+    }
+
     public function footermission()
     {
         return get_field('pied_de_page', 'option')['texte_artistes'];

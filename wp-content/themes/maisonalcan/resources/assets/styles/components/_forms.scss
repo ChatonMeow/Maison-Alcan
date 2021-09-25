@@ -1,5 +1,9 @@
 .input-wrapper {
-    margin-bottom: 1.5rem;
+    margin-bottom: 3.9rem;
+
+    @include mq-down(sm) {
+        margin-bottom: 1.6rem;
+    }
 
     &.double {
         @include mq-up(md) {
@@ -14,23 +18,33 @@
 
         > * {
             @include mq-up(md) {
-                width: percent(466, 958);
+                width: percent(408, 883);
             }
 
             &:not(:last-child) {
                 @include mq-down(sm) {
-                    margin-bottom: 1.1rem;
+                    margin-bottom: 1.6rem;
                 }
             }
         }
     }
 
-    &.submit {
-        text-align: center;
-        margin-bottom: 0;
+    &.weird-spacing {
+        margin: 61px 0 70px;
 
-        @include mq-up(md) {
-            margin-top: 4rem;
+        @include mq-down(sm) {
+            margin: 34px 0;
+        }
+    }
+
+    &.submit {
+        text-align: right;
+        margin-bottom: 0;
+        margin-top: 70px;
+
+        @include mq-down(sm) {
+            text-align: left;
+            margin-top: 55px;
         }
     }
 }
@@ -47,6 +61,11 @@ select {
 
 textarea {
     resize: vertical;
+    height: 200px;
+
+    @include mq-down(sm) {
+        height: 160px;
+    }
 }
 
 input[type="text"],
@@ -60,18 +79,39 @@ input[type="search"],
 input[type="tel"],
 input[type="url"],
 input[type="week"],
-select,
 textarea {
     -webkit-appearance: none;
     appearance: none;
+    border: none;
+    display: block;
+    font-family: $font;
+    width: 100%;
+    border-bottom: 2px solid;
+    font-size: 2.2rem;
+    transition: all $t2;
+    background: $cp2 no-repeat center right;
+    background-size: em(18, 22) auto;
+    outline: 0;
+    padding: em(8, 22) em(30, 22) em(8, 22) 0;
 
     &::placeholder {
+        color: #8e8e8e;
     }
 
     &::-ms-input-placeholder {
+        color: #8e8e8e;
     }
 
     &:focus {
+        border-bottom-color: #00b700;
+    }
+
+    &.wpcf7-not-valid {
+        border-bottom-color: red;
+    }
+
+    &.wpcf7-validates-as-required {
+        background-image: url("/wp-content/themes/maisonalcan/dist/images/required.svg");
     }
 
     .error &,
@@ -80,8 +120,43 @@ textarea {
     }
 }
 
+select {
+    -webkit-appearance: none;
+    appearance: none;
+    display: block;
+    width: 100%;
+    font-size: 2.2rem;
+    outline: 0;
+    border: 2px solid;
+    padding: em(8, 22) em(54, 22) em(8, 22) em(15, 22);
+    background: $cp2 url("/wp-content/themes/maisonalcan/dist/images/dropdown.svg") no-repeat right em(16, 22) center;
+    background-size: em(22, 22) auto;
+}
+
 input[type="submit"] {
-    @extend .button;
+    cursor: pointer;
+
+    .button &,
+    button & {
+        border: none;
+        -webkit-appearance: none;
+        appearance: none;
+        padding: 0;
+        outline: 0;
+        border-radius: 0;
+        background: none;
+        font-size: inherit;
+        display: inline;
+        color: inherit;
+
+        + .ajax-loader {
+            position: absolute;
+            margin: 0;
+            top: 50%;
+            left: 50%;
+            transform: translateX(-50%) translateY(-50%);
+        }
+    }
 }
 
 input[type="radio"] {
@@ -92,4 +167,8 @@ input[type="checkbox"] {
 
 form,
 .form {
+}
+
+.wpcf7-not-valid-tip {
+    font-size: 1.6rem;
 }
