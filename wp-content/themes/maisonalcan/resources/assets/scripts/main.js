@@ -9,6 +9,7 @@ import Router from './util/Router';
 import common from './routes/common';
 import home from './routes/home';
 import historique from './routes/historique';
+import contact from './routes/contact';
 
 /** Populate Router instance with DOM routes */
 const routes = new Router({
@@ -18,6 +19,8 @@ const routes = new Router({
   home,
   // Historique page
   historique,
+  // Contact page
+  contact,
 });
 
 // Load Events

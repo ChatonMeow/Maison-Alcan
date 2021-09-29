@@ -60,7 +60,7 @@ select {
 }
 
 textarea {
-    resize: vertical;
+    resize: none;
     height: 200px;
 
     @include mq-down(sm) {
@@ -82,6 +82,8 @@ input[type="week"],
 textarea {
     -webkit-appearance: none;
     appearance: none;
+    -webkit-border-radius: 0;
+    border-radius: 0;
     border: none;
     display: block;
     font-family: $font;
@@ -102,10 +104,6 @@ textarea {
         color: #8e8e8e;
     }
 
-    &:focus {
-        border-bottom-color: #00b700;
-    }
-
     &.wpcf7-not-valid {
         border-bottom-color: red;
     }
@@ -123,6 +121,8 @@ textarea {
 select {
     -webkit-appearance: none;
     appearance: none;
+    -webkit-border-radius: 0;
+    border-radius: 0;
     display: block;
     width: 100%;
     font-size: 2.2rem;
@@ -171,4 +171,9 @@ form,
 
 .wpcf7-not-valid-tip {
     font-size: 1.6rem;
+}
+
+.wpcf7-response-output.wpcf7-response-output.wpcf7-response-output {
+    border-width: 2px;
+    padding: 1.5em;
 }

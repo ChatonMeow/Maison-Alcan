@@ -13,6 +13,6 @@
     @endif
   </div>
   @if($image)
-    <div class="img" style="background-image: url('{{ $image['sizes']['1536x1536'] }}');"></div>
+    <div class="img" style="background-image: url('{{ $image['sizes']['2048x2048'] }}');"></div>
   @endif
 </div>

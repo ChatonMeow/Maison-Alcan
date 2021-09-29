@@ -1,119 +1,121 @@
 .template-contact {
-    .top {
-        display: flex;
-        flex-wrap: nowrap;
-        align-content: flex-start;
-        justify-content: flex-start;
-        padding: 123px 0;
+    .main__content {
+        .top {
+            display: flex;
+            flex-wrap: nowrap;
+            align-content: flex-start;
+            justify-content: flex-start;
+            padding: 123px 0;
 
-        @include mq-down(md) {
-            justify-content: space-between;
-        }
-
-        @include mq-down(sm) {
-            display: block;
-            padding: 23px 0 75px;
-        }
-
-        &:not(:last-child) {
-            border-bottom: 1px solid;
-            margin-bottom: 120px;
-
-            @include mq-down(sm) {
-                border-bottom: 0;
-                margin-bottom: 0;
-            }
-        }
-
-        h1 {
-            width: percent(500, 1280);
-            margin: 0 percent(45, 1280) 0 0;
-
-            @include mq-down(sm) {
-                width: auto;
-                margin: 0 0 em(65, 50);
-            }
-        }
-
-        .infos {
-            font-size: 2.2rem;
-            padding-top: 1.25em;
-
-            @include mq-down(sm) {
-                padding-top: 0;
+            @include mq-down(md) {
+                justify-content: space-between;
             }
 
-            .address {
-                position: relative;
-                padding-right: em(85, 22);
+            @include mq-down(sm) {
+                display: block;
+                padding: 23px 0 75px;
+            }
+
+            &:not(:last-child) {
+                border-bottom: 1px solid;
+                margin-bottom: 120px;
 
                 @include mq-down(sm) {
-                    padding: em(23, 22) 0;
-
-                    &:before,
-                    &:after {
-                        border-top: 2px solid;
-                        content: "";
-                        position: absolute;
-                        top: 0;
-                        left: -999px;
-                        right: -999px;
-                    }
-
-                    &:after {
-                        top: auto;
-                        bottom: 0;
-                    }
-                }
-
-                &:not(:last-child) {
-                    margin-bottom: em(56, 22);
-
-                    @include mq-down(sm) {
-                        margin-bottom: 0;
-                    }
-                }
-
-                p:last-of-type {
+                    border-bottom: 0;
                     margin-bottom: 0;
                 }
+            }
 
-                a {
-                    text-decoration: none;
-                    position: absolute;
-                    line-height: 0;
-                    top: 50%;
-                    right: 0;
-                    transform: translateY(-50%);
-                    max-width: em(48, 22);
-                    transition: all $t2;
+            h1 {
+                width: percent(500, 1280);
+                margin: 0 percent(45, 1280) 0 0;
 
-                    &:hover {
-                        filter: invert(1);
-                    }
+                @include mq-down(sm) {
+                    width: auto;
+                    margin: 0 0 em(65, 50);
                 }
             }
 
-            .email {
-                text-decoration: none;
+            .infos {
+                font-size: 2.2rem;
+                padding-top: 1.25em;
 
                 @include mq-down(sm) {
-                    position: relative;
-                    padding: em(23, 22) 0;
-                    display: block;
+                    padding-top: 0;
+                }
 
-                    &:after {
-                        border-top: 2px solid;
-                        content: "";
+                .address {
+                    position: relative;
+                    padding-right: em(85, 22);
+
+                    @include mq-down(sm) {
+                        padding: em(23, 22) 0;
+
+                        &:before,
+                        &:after {
+                            border-top: 2px solid;
+                            content: "";
+                            position: absolute;
+                            top: 0;
+                            left: -999px;
+                            right: -999px;
+                        }
+
+                        &:after {
+                            top: auto;
+                            bottom: 0;
+                        }
+                    }
+
+                    &:not(:last-child) {
+                        margin-bottom: em(56, 22);
+
+                        @include mq-down(sm) {
+                            margin-bottom: 0;
+                        }
+                    }
+
+                    p:last-of-type {
+                        margin-bottom: 0;
+                    }
+
+                    a {
+                        text-decoration: none;
                         position: absolute;
-                        bottom: 0;
-                        left: -999px;
-                        right: -999px;
+                        line-height: 0;
+                        top: 50%;
+                        right: 0;
+                        transform: translateY(-50%);
+                        max-width: em(48, 22);
+                        transition: all $t2;
+
+                        &:hover {
+                            filter: invert(1);
+                        }
                     }
                 }
 
-                &:hover {
-                    text-decoration: underline;
+                .email {
+                    text-decoration: none;
+
+                    @include mq-down(sm) {
+                        position: relative;
+                        padding: em(23, 22) 0;
+                        display: block;
+
+                        &:after {
+                            border-top: 2px solid;
+                            content: "";
+                            position: absolute;
+                            bottom: 0;
+                            left: -999px;
+                            right: -999px;
+                        }
+                    }
+
+                    &:hover {
+                        text-decoration: underline;
+                    }
                 }
             }
         }

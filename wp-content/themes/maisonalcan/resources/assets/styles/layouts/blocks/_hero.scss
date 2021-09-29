@@ -1,13 +1,10 @@
 .hero {
-    padding-left: $gap;
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: space-between;
+    padding: 0 $gap;
     margin: 50px 0 percent(182, 1366);
 
     @include mq-down(md) {
+        display: flex;
         flex-direction: column-reverse;
-        padding-right: $gap;
         margin: 0 0 percent(90, 768);
         padding-bottom: percent(80, 768);
         border-bottom: 2px solid;
@@ -20,6 +17,10 @@
 
     &.is-home {
         margin: 0;
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        padding-right: 0;
 
         @include mq-down(xl) {
             margin-bottom: percent(67, 1337);
@@ -37,10 +38,10 @@
         }
 
         .infos {
-            display: flex;
             flex-direction: column;
             justify-content: flex-start;
             padding: 18vh 0 0 0;
+            max-width: 600px;
 
             @include mq-down(lg) {
                 padding-top: 9vh;
@@ -52,7 +53,14 @@
             }
         }
 
+        .title {
+            margin: 0 0 2.825em 0;
+        }
+
         .text {
+            padding-top: 0;
+            max-width: none;
+
             @include mq-down(md) {
                 column-count: 1;
                 column-gap: 0;
@@ -64,6 +72,7 @@
             min-width: percent(1111, 1800);
             max-width: percent(1111, 1800);
             margin-left: percent(118, 1800);
+            border-right: 0;
 
             @include mq-down(xl) {
                 min-width: percent(846, 1321);
@@ -99,21 +108,23 @@
     }
 
     .infos {
-        padding: 50px 0 100px;
+        padding: 77px 0 100px;
         display: flex;
-        flex-direction: column;
         justify-content: space-between;
-        max-width: 600px;
 
         @include mq-down(md) {
             padding: 0;
-            max-width: none;
             align-items: flex-start;
         }
     }
 
     .title {
         font-size: 8rem;
+        margin: 0 1em 1.5em 0;
+
+        @include mq-down(md) {
+            margin: 0 0 2.825em 0;
+        }
 
         @include mq-down(sm) {
             font-size: 5rem;
@@ -122,8 +133,12 @@
 
     .text {
         font-size: 1.6rem;
+        max-width: percent(517, 1280);
+        padding-top: 1.5em;
 
         @include mq-down(md) {
+            padding-top: 0;
+            max-width: none;
             column-count: 2;
             column-gap: em(24, 16);
         }
@@ -136,10 +151,7 @@
 
     .img {
         border: 3px solid;
-        border-right: 0;
-        min-width: percent(670, 1337);
-        max-width: percent(670, 1337);
-        margin-left: percent(137, 1337);
+        width: 100%;
         background: no-repeat center;
         background-size: cover;
         line-height: 0;
@@ -160,7 +172,7 @@
         &:before {
             content: "";
             display: block;
-            padding-top: calc(100vh - 125px - 50px - 6px);
+            padding-top: percent(589, 1280);
 
             @include mq-down(md) {
                 padding-top: percent(492, 688);
