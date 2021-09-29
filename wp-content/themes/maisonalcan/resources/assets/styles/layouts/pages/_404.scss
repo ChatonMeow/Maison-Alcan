@@ -16,7 +16,7 @@
         }
 
         .left {
-            font-size: vw(120, 1366);
+            font-size: calc(min(150px, 8.78477vw));
             line-height: 1;
             margin-right: 10%;
 
@@ -34,7 +34,7 @@
             }
 
             h1 {
-                font-size: vw(120, 1366);
+                font-size: calc(min(150px, 8.78477vw));
                 margin: 0 0 em(91, 120);
                 line-height: 1;
 
