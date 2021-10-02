@@ -4,17 +4,49 @@
     position: relative;
     z-index: 5;
 
-    /* position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%; */
-
     @include mq-down(xl) {
         padding: 27px 0;
     }
 
     @include mq-down(md) {
         padding: 41px 0;
+    }
+
+    .has-scroll-init & {
+        .logo,
+        nav ul li,
+        .header__lang,
+        .menu-toggle {
+            opacity: 0;
+            transform: translateX(-100%);
+            transition: all $t2;
+        }
+
+        nav ul li {
+            @for $i from 1 to 5 {
+                &:nth-child(#{$i}) {
+                    transition-delay: 0.25s + $i * 0.15s;
+                }
+            }
+        }
+
+        .menu-toggle {
+            transition-delay: 0.25s;
+        }
+
+        .header__lang {
+            transition-delay: 1s;
+        }
+
+        &.is-inview {
+            .logo,
+            nav ul li,
+            .header__lang,
+            .menu-toggle {
+                transform: none;
+                opacity: 1;
+            }
+        }
     }
 
     .container {

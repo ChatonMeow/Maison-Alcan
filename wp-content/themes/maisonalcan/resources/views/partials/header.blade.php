@@ -1,4 +1,4 @@
-<header class="header">
+<header class="header" data-scroll>
   <div class="container">
     <a href="{{ home_url('/') }}" class="logo">
       @if($logo)
