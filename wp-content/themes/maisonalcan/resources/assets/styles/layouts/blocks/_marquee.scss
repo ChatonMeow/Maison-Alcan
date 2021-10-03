@@ -23,6 +23,19 @@
         font-size: 80px;
         margin: 64px 0;
     }
+
+    .has-scroll-init & {
+        &.is-inview {
+            .marquee {
+                transform: none;
+            }
+        }
+
+        .marquee {
+            transform: translateY(100%);
+            transition: all 1s 1s;
+        }
+    }
 }
 
 .marquee {

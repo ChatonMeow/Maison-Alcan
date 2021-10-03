@@ -9,7 +9,7 @@
   @while(have_posts()) @php the_post() @endphp
     @include('partials.marquee', ['text' => $fields['marquise']])
     @include('partials.hero', ['text' => $fields['hero']['texte'], 'image' => $fields['hero']['image'], 'home' => true])
-    <div class="history">
+    <div class="history" data-scroll>
       <div class="container">
         @if($fields['historique']['titre'])
           <h2 class="title with-arrow">
@@ -31,7 +31,7 @@
           <div class="cards">
             <div class="swiper-wrapper">
               @foreach($fields['historique']['cartes'] as $card)
-                <div class="swiper-slide">
+                <div class="swiper-slide" data-scroll data-scroll-speed="{{ $loop->index / 2 }}">
                   @if($card['image'])
                     <img src="{{ $card['image']['sizes']['medium'] }}" alt="{{ $card['image']['alt'] }}" />
                   @endif
@@ -48,15 +48,17 @@
         @endif
       </div>
     </div>
-    <div class="spaces">
+    <div class="spaces" data-scroll>
       <div class="top">
         @if($fields['espaces']['image'])
           <div class="img" style="background-image: url('{{ $fields['espaces']['image']['sizes']['1536x1536'] }}');"></div>
         @endif
         @if($fields['espaces']['titre'])
-          <h2 class="title">
-            {{ $fields['espaces']['titre'] }}
-          </h2>
+          <div class="title__wrapper" data-scroll data-scroll-speed=".5" data-scroll-direction="horizontal">
+            <h2 class="title">
+              {{ $fields['espaces']['titre'] }}
+            </h2>
+          </div>
         @endif
       </div>
       <div class="bot">
@@ -79,7 +81,7 @@
         @endif
       </div>
     </div>
-    <div class="residents">
+    <div class="residents" data-scroll>
       <div class="container">
         <div class="infos">
           @if($fields['residents']['titre'])
@@ -99,7 +101,7 @@
         @endif
       </div>
       @if(!empty($fields['residents']['residents']))
-        <div class="marquee__wrapper">
+        <div class="marquee__wrapper" data-scroll>
           <div class="marquee">
             @for ($i = 1; $i < 5; $i++)
               <div class="marquee__inner">
