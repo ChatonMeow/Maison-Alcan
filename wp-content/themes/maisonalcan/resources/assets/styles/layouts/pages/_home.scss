@@ -255,6 +255,10 @@
                     opacity: 1;
                     transform: none;
                 }
+
+                .infos:after {
+                    width: 100%;
+                }
             }
 
             &:after {
@@ -272,6 +276,10 @@
                 opacity: 0;
                 transform: translateY(100%);
                 transition: all 1s 1.5s;
+
+                &:after {
+                    width: 0;
+                }
             }
 
             .button {
@@ -300,9 +308,9 @@
             .img {
                 border: 3px solid;
                 width: 100%;
-                background: no-repeat center;
-                background-size: cover;
                 min-height: 477px;
+                overflow: hidden;
+                position: relative;
 
                 @include mq-down(sm) {
                     min-height: 311px;
@@ -324,6 +332,15 @@
                     @include mq-down(sm) {
                         padding-top: percent(220, 311);
                     }
+                }
+
+                img {
+                    position: absolute;
+                    object-fit: cover;
+                    left: 0;
+                    top: -35%;
+                    height: 170%;
+                    width: 100%;
                 }
             }
         }
@@ -389,7 +406,7 @@
             max-width: percent(774, 1383);
             font-size: 1.6rem;
             padding-top: 32px;
-            border-top: 1px solid;
+            position: relative;
 
             @include mq-down(xl) {
                 max-width: percent(626, 1062);
@@ -401,6 +418,16 @@
 
             @include mq-down(sm) {
                 display: block;
+            }
+
+            &:after {
+                content: "";
+                position: absolute;
+                top: 0;
+                border-top: 1px solid;
+                transition: all 1.5s 1.5s;
+                left: 0;
+                width: 100%;
             }
 
             .label {
@@ -595,8 +622,10 @@
 
         .img {
             border: 3px solid;
-            object-fit: cover;
+            position: relative;
+            overflow: hidden;
             max-width: percent(777, 1718);
+            flex-grow: 1;
 
             @include mq-down(xl) {
                 max-width: percent(516, 1280);
@@ -604,6 +633,15 @@
 
             @include mq-down(md) {
                 display: none;
+            }
+
+            img {
+                object-fit: cover;
+                position: absolute;
+                left: 0;
+                top: -35%;
+                height: 170%;
+                width: 100%;
             }
         }
 

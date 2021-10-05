@@ -9,12 +9,12 @@
   @while(have_posts()) @php the_post() @endphp
     @include('partials.marquee', ['text' => $fields['marquise']])
     @include('partials.hero', ['text' => $fields['hero']['texte'], 'image' => $fields['hero']['image'], 'home' => true])
-    <div class="history" data-scroll>
+    <div class="history" data-scroll data-scroll-call="arrow">
       <div class="container">
         @if($fields['historique']['titre'])
           <h2 class="title with-arrow">
             {{ $fields['historique']['titre'] }}
-            <img src="@asset('images/arrow.svg')" alt="">
+            <div id="arrow"></div>
           </h2>
         @endif
         <div class="infos">
@@ -51,7 +51,9 @@
     <div class="spaces" data-scroll>
       <div class="top">
         @if($fields['espaces']['image'])
-          <div class="img" style="background-image: url('{{ $fields['espaces']['image']['sizes']['1536x1536'] }}');"></div>
+          <div class="img">
+            <img src="{{ $fields['espaces']['image']['sizes']['2048x2048'] }}" data-scroll data-scroll-speed="1" alt="">
+          </div>
         @endif
         @if($fields['espaces']['titre'])
           <div class="title__wrapper" data-scroll data-scroll-speed=".5" data-scroll-direction="horizontal">
@@ -81,13 +83,13 @@
         @endif
       </div>
     </div>
-    <div class="residents" data-scroll>
+    <div class="residents" data-scroll data-scroll-call="arrow">
       <div class="container">
         <div class="infos">
           @if($fields['residents']['titre'])
             <h2 class="title with-arrow">
               {{ $fields['residents']['titre'] }}
-              <img src="@asset('images/arrow.svg')" alt="">
+              <div id="arrow"></div>
             </h2>
           @endif
           @if($fields['residents']['texte'])
@@ -97,7 +99,9 @@
           @endif
         </div>
         @if($fields['residents']['image'])
-          <img src="{{ $fields['residents']['image']['sizes']['large'] }}" alt="{{ $fields['residents']['image']['alt'] }}" class="img">
+          <div class="img">
+            <img src="{{ $fields['residents']['image']['sizes']['1536x1536'] }}" alt="{{ $fields['residents']['image']['alt'] }}" data-scroll data-scroll-speed="1">
+          </div>
         @endif
       </div>
       @if(!empty($fields['residents']['residents']))

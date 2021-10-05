@@ -1,5 +1,5 @@
 <!doctype html>
-<html {!! get_language_attributes() !!}>
+<html {!! get_language_attributes() !!} class="has-scroll-init">
 @include('partials.head')
 
 <body @php body_class() @endphp>

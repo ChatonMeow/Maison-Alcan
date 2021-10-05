@@ -1,10 +1,10 @@
-<div class="hero {{ $home ? 'is-home' : '' }}" data-scroll>
+<div class="hero {{ $home ? 'is-home' : '' }}" data-scroll data-scroll-call="arrow">
   <div class="infos">
     @if($title)
       <div class="title-wrapper">
         <h1 class="title with-arrow">
           {!! $title !!}
-          <img src="@asset('images/arrow.svg')" alt="">
+          <div id="arrow"></div>
         </h1>
       </div>
     @endif
