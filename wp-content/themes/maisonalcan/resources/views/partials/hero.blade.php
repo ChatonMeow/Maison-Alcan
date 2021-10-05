@@ -4,7 +4,7 @@
       <div class="title-wrapper">
         <h1 class="title with-arrow">
           {!! $title !!}
-          <div id="arrow"></div>
+          <div class="arrow"></div>
         </h1>
       </div>
     @endif

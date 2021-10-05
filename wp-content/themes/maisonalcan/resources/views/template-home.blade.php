@@ -14,7 +14,7 @@
         @if($fields['historique']['titre'])
           <h2 class="title with-arrow">
             {{ $fields['historique']['titre'] }}
-            <div id="arrow"></div>
+            <div class="arrow"></div>
           </h2>
         @endif
         <div class="infos">
@@ -89,7 +89,7 @@
           @if($fields['residents']['titre'])
             <h2 class="title with-arrow">
               {{ $fields['residents']['titre'] }}
-              <div id="arrow"></div>
+              <div class="arrow"></div>
             </h2>
           @endif
           @if($fields['residents']['texte'])

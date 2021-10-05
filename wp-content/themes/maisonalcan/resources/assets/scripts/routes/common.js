@@ -22,10 +22,10 @@ export default {
       //Trigger des lotties quand on arrive sur l'élément'
       scroll.on('call', (func, state, elem) => {
         if(func === 'arrow') {
-          if(!elem.el.querySelector('#arrow svg')) {
+          if(!elem.el.querySelector('.arrow svg')) {
             setTimeout(() => {
               var params = {
-                container: elem.el.querySelector('#arrow'),
+                container: elem.el.querySelector('.arrow'),
                 renderer: 'svg',
                 loop: false,
                 autoplay: true,
