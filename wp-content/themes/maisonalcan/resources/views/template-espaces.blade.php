@@ -9,13 +9,13 @@
   @while(have_posts()) @php the_post() @endphp
     @include('partials.hero', ['text' => $fields['hero']['texte'], 'image' => $fields['hero']['image'], 'title' => get_the_title()])
     @if($fields['texte_large'])
-      <div class="quote container">
+      <div class="quote container" data-scroll>
         {{ $fields['texte_large'] }}
       </div>
     @endif
     @if($fields['espaces'])
       <div class="espaces container">
-        <div class="top row c-40-60">
+        <div class="top row c-40-60" data-scroll>
           <div class="left">
             @if($fields['espaces']['titre'])
               <h2 class="title">
@@ -37,7 +37,7 @@
           </div>
         </div>
         @foreach($fields['espaces']['rangee__espaces'] as $row)
-          <div class="row spaces c-{{ $row['type'] }}">
+          <div class="row spaces c-{{ $row['type'] }}" data-scroll>
             <div class="left">
               @include('partials.espace', [
                 'type' => $row['type'] === '40-60' ? 1 : 3, 
@@ -62,7 +62,7 @@
     @endif
     @if($fields['banniere']['titre'] && $fields['banniere']['bouton'])
       @php $artist = $footerartist @endphp
-      <div class="banniere container">
+      <div class="banniere container" data-scroll>
         <div class="inner" @if($artist) style="background-color: {{ $artist['fields']['couleur'] }}; @if($artist['fields']['couleur_texte']) color: {{ $artist['fields']['couleur_texte'] }}; @endif" @endif>
           <div class="title">
             {{ $fields['banniere']['titre'] }}
@@ -74,7 +74,7 @@
       </div>
     @endif
     @if($fields['autres_espaces'])
-      <div class="autres-espaces container">
+      <div class="autres-espaces container" data-scroll>
         <div class="top">
           @if($fields['autres_espaces']['titre'])
             <h2 class="title">

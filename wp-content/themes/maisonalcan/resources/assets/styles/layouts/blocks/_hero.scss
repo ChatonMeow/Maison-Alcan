@@ -7,7 +7,16 @@
         flex-direction: column-reverse;
         margin: 0 0 percent(90, 768);
         padding-bottom: percent(80, 768);
-        border-bottom: 2px solid;
+        position: relative;
+
+        &:after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            border-top: 2px solid;
+        }
     }
 
     @include mq-down(sm) {
@@ -30,7 +39,11 @@
             margin-bottom: percent(145, 768);
             flex-direction: column;
             padding: 0;
-            border-bottom: 0;
+            display: block;
+
+            &:after {
+                display: none;
+            }
         }
 
         @include mq-down(sm) {
@@ -136,6 +149,10 @@
                 &:before {
                 }
             }
+
+            &:after {
+                width: 100%;
+            }
         }
 
         .title-wrapper {
@@ -160,6 +177,11 @@
             &:before {
             }
         }
+
+        &:after {
+            transition: all 3s 2s;
+            width: 0;
+        }
     }
 
     .infos {
@@ -169,7 +191,7 @@
 
         @include mq-down(md) {
             padding: 0;
-            align-items: flex-start;
+            display: block;
         }
     }
 
@@ -245,9 +267,9 @@
         img {
             object-fit: cover;
             position: absolute;
-            top: -35%;
+            top: -15%;
             left: 0;
-            height: 170%;
+            height: 130%;
             width: 100%;
         }
     }

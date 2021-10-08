@@ -11,7 +11,7 @@
     @if($residents)
       <div class="residents container">
         @foreach($residents as $resident)
-          <div class="resident">
+          <div class="resident" data-scroll data-scroll-speed="{{ $loop->index % 2 === 0 ? 0.5 : 1 }}">
             @php($residentFields = get_fields($resident))
             @if(has_post_thumbnail($resident))
               <img class="logo" src="{{ get_the_post_thumbnail_url($resident->ID, 'medium') }}" alt="{{ $resident->post_title }}">

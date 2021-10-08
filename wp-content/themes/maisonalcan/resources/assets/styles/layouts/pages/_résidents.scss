@@ -67,7 +67,59 @@
             &:not(:last-of-type) {
                 padding-bottom: percent(80, 330);
                 margin-bottom: percent(80, 330);
-                border-bottom: 1px solid;
+                position: relative;
+
+                &:after {
+                    position: absolute;
+                    content: "";
+                    bottom: 0;
+                    left: 0;
+                    width: 100%;
+                    border-top: 1px solid;
+                }
+            }
+        }
+
+        .has-scroll-init & {
+            &.is-inview {
+                .logo,
+                .desc,
+                .button {
+                    opacity: 1;
+                    transform: none;
+                }
+
+                &:before {
+                    width: calc(100vw - var(--gap) * 2);
+                }
+
+                &:not(:last-child) {
+                    &:after {
+                        width: 100%;
+                    }
+                }
+            }
+
+            .logo,
+            .desc,
+            .button {
+                opacity: 0;
+                transform: translateY(2rem);
+                transition: all $t2;
+            }
+
+            &:before {
+                width: 0;
+                transition: all 3s 2s;
+            }
+
+            @include mq-down(sm) {
+                &:not(:last-child) {
+                    &:after {
+                        transition: all 2s;
+                        width: 0;
+                    }
+                }
             }
         }
 

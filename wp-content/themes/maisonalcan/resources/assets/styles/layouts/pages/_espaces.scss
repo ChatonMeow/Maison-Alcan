@@ -1,15 +1,18 @@
 .template-espaces {
     .hero {
         @include mq-down(md) {
-            border-bottom: 0;
             padding-bottom: 0;
+
+            &:after {
+                display: none;
+            }
         }
     }
 
     .quote {
-        border-bottom: 2px solid;
         padding-bottom: percent(80, 1366);
         margin-bottom: percent(51, 1366);
+        position: relative;
 
         @include mq-down(md) {
             padding-bottom: 11.7%;
@@ -19,6 +22,35 @@
         @include mq-down(sm) {
             padding-bottom: percent(90, 375);
             margin-bottom: percent(90, 375);
+        }
+
+        .has-scroll-init & {
+            &.is-inview {
+                opacity: 1;
+                transform: none;
+
+                &:after {
+                    width: 100%;
+                }
+            }
+
+            opacity: 0;
+            transform: translateY(2rem);
+            transition: all $t2;
+
+            &:after {
+                width: 0;
+                transition: all 3s 2s;
+            }
+        }
+
+        &:after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            border-top: 2px solid;
+            left: 0;
+            width: 100%;
         }
     }
 
@@ -30,6 +62,38 @@
 
             @include mq-down(sm) {
                 display: block;
+            }
+
+            .has-scroll-init & {
+                &.is-inview {
+                    .title,
+                    .desc,
+                    .right {
+                        opacity: 1;
+                        transform: none;
+                    }
+
+                    &.spaces + .spaces {
+                        &:after {
+                            width: 100%;
+                        }
+                    }
+                }
+
+                .title,
+                .desc,
+                .right {
+                    opacity: 0;
+                    transform: translateY(2rem);
+                    transition: all $t2;
+                }
+
+                &.spaces + .spaces {
+                    &:after {
+                        transition: all 3s 2s;
+                        width: 0;
+                    }
+                }
             }
 
             &.c-40-60 {
@@ -152,11 +216,20 @@
             & + .spaces {
                 margin-top: percent(126, 1283);
                 padding-top: percent(126, 1283);
-                border-top: 1px solid;
+                position: relative;
 
                 @include mq-down(sm) {
                     margin-top: percent(70, 375);
                     padding-top: percent(48, 375);
+                }
+
+                &:after {
+                    content: "";
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    border-top: 1px solid;
                 }
             }
         }
@@ -167,6 +240,17 @@
 
         @include mq-down(sm) {
             margin: percent(90, 330) 0 percent(98, 330);
+        }
+
+        .has-scroll-init & {
+            &.is-inview {
+                opacity: 1;
+                transform: none;
+            }
+
+            opacity: 0;
+            transform: translateY(2rem);
+            transition: all $t2;
         }
 
         .inner {
@@ -211,6 +295,25 @@
 
         @include mq-down(sm) {
             margin-bottom: percent(80, 375);
+        }
+
+        .has-scroll-init & {
+            &.is-inview {
+                .top,
+                .title,
+                .desc {
+                    opacity: 1;
+                    transform: none;
+                }
+            }
+
+            .top,
+            .title,
+            .desc {
+                transition: all $t2;
+                opacity: 0;
+                transform: translateY(2rem);
+            }
         }
 
         .top {

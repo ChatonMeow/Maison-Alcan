@@ -12,9 +12,18 @@
 
         .row {
             &:not(:last-child) {
+                position: relative;
                 padding-bottom: percent(122, 1283);
                 margin-bottom: percent(122, 1283);
-                border-bottom: 1px solid;
+
+                &:after {
+                    content: "";
+                    position: absolute;
+                    bottom: 0;
+                    border-top: 1px solid;
+                    left: 0;
+                    width: 100%;
+                }
 
                 @include mq-down(md) {
                     padding-bottom: percent(135, 688);
@@ -24,6 +33,34 @@
                 @include mq-down(sm) {
                     padding-bottom: percent(80, 330);
                     margin-bottom: percent(80, 330);
+                }
+            }
+
+            .has-scroll-init & {
+                &.is-inview {
+                    &.quote,
+                    .title,
+                    .desc {
+                        transform: none;
+                        opacity: 1;
+                    }
+
+                    &:after {
+                        width: 100%;
+                    }
+                }
+
+                &.quote,
+                .title,
+                .desc {
+                    opacity: 0;
+                    transition: all $t2;
+                    transform: translateY(2rem);
+                }
+
+                &:after {
+                    transition: width 3s 1s;
+                    width: 0;
                 }
             }
 
@@ -235,8 +272,8 @@
     }
 
     .timeline {
-        border-bottom: 2px solid;
         margin-bottom: percent(95, 1366);
+        position: relative;
 
         @include mq-down(md) {
             padding-bottom: percent(144, 768);
@@ -246,6 +283,39 @@
         @include mq-down(sm) {
             padding-bottom: percent(80, 375);
             margin-bottom: percent(80, 375);
+        }
+
+        .has-scroll-init & {
+            &.is-inview {
+                .today {
+                    transform: none;
+                    opacity: 1;
+                }
+
+                &:after {
+                    width: 100%;
+                }
+            }
+
+            .today {
+                transition: all $t2;
+                opacity: 0;
+                transform: translateY(2rem);
+            }
+
+            &:after {
+                transition: all 3s 2s;
+                width: 0;
+            }
+        }
+
+        &:after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            border-top: 2px solid;
         }
 
         .container {
@@ -282,6 +352,7 @@
             align-items: center;
 
             @include mq-down(md) {
+                transform: none !important;
                 width: auto;
                 flex-wrap: nowrap;
                 justify-content: space-between;
@@ -329,6 +400,23 @@
                     &:after {
                         left: 70px;
                     }
+                }
+            }
+
+            .has-scroll-init & {
+                &.is-inview {
+                    .title,
+                    .txt {
+                        opacity: 1;
+                        transform: none;
+                    }
+                }
+
+                .title,
+                .txt {
+                    transition: all $t2;
+                    opacity: 0;
+                    transform: translateY(2rem);
                 }
             }
 
@@ -430,6 +518,31 @@
 
         @include mq-down(sm) {
             margin-bottom: percent(90, 375);
+        }
+
+        .has-scroll-init & {
+            &.is-inview {
+                h3.title,
+                .fact {
+                    opacity: 1;
+                    transform: none;
+                }
+            }
+
+            h3.title,
+            .fact {
+                opacity: 0;
+                transform: translateY(2rem);
+                transition: all $t2;
+            }
+
+            .fact {
+                @for $i from 1 to 20 {
+                    &:nth-child(#{$i}) {
+                        transition-delay: 0.25s + $i * 0.15s;
+                    }
+                }
+            }
         }
 
         .container {

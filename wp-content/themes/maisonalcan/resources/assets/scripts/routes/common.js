@@ -17,6 +17,7 @@ export default {
       const scroll = new LocomotiveScroll({
         el: document.querySelector('[data-scroll-container]'),
         smooth: true,
+        offset: ['33%', 0],
       });
 
       //Trigger des lotties quand on arrive sur l'élément'

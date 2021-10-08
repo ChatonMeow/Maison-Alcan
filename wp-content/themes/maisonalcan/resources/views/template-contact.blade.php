@@ -8,7 +8,7 @@
 @section('content')
   @while(have_posts()) @php the_post() @endphp
     <div class="container">
-      <div class="top">
+      <div class="top" data-scroll>
         <h1>
           {{get_the_title()}}
         </h1>
@@ -29,7 +29,7 @@
         </div>
       </div>
       @if($fields['formulaire'] && !empty($fields['formulaire']))
-        <div class="form">
+        <div class="form" data-scroll>
           {!! do_shortcode('[contact-form-7 id="' . $fields['formulaire'][0] . '" title="Contact"]') !!}
         </div>
       @endif

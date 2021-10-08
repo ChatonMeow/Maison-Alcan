@@ -13,7 +13,7 @@
         <div class="container">
           @foreach($fields['contenu_principal'] as $item)
             @if($item['acf_fc_layout'] === 'annee')
-              <div class="row year d-{{ $item['type'] }}">
+              <div class="row year d-{{ $item['type'] }}" data-scroll>
                 <div class="left">
                   <h2 class="title">
                     <div>
@@ -24,7 +24,7 @@
                     </div>
                   </h2>
                   @if($item['image_1'])
-                    <img class="img" src="{{ $item['image_1']['sizes']['large'] }}" alt="{{ $item['image_1']['alt'] }}">
+                    <img class="img" src="{{ $item['image_1']['sizes']['large'] }}" alt="{{ $item['image_1']['alt'] }}" data-scroll data-scroll-speed="0.5">
                   @endif
                   <div class="desc">
                     {!! $item['texte_1'] !!}
@@ -37,7 +37,7 @@
                     </h2>
                   @endif
                   @if($item['image_2'])
-                    <img class="img" src="{{ $item['image_2']['sizes']['large'] }}" alt="{{ $item['image_2']['alt'] }}">
+                    <img class="img" src="{{ $item['image_2']['sizes']['large'] }}" alt="{{ $item['image_2']['alt'] }}" data-scroll data-scroll-speed="0.25">
                   @endif
                   <div class="txt">
                     @if($item['type'] !== '55-45')
@@ -52,7 +52,7 @@
                 </div>
               </div>
             @elseif($item['acf_fc_layout'] === 'texte')
-              <div class="row quote">
+              <div class="row quote" data-scroll>
                 {{ $item['texte'] }}
               </div>
             @endif
@@ -61,14 +61,14 @@
       </div>
     @endif
     @if($fields['ligne_du_temps'])
-      <div class="timeline">
+      <div class="timeline" data-scroll>
         <div class="container">
           <h3 class="today">
             {{ __("Aujourd'hui",'maisonalcan') }}
           </h3>
           <div class="timeline__inner">
             @foreach($fields['ligne_du_temps'] as $year)
-              <div class="timeline__year">
+              <div class="timeline__year" data-scroll data-scroll-speed="{{ $loop->index % 2 === 0 ? 0.5 : 1 }}">
                 @if($year['image'])
                   <img src="{{ $year['image']['sizes']['thumbnail'] }}" alt="{{ $year['image']['alt'] }}">
                 @endif
@@ -94,7 +94,7 @@
       </div>
     @endif
     @if($fields['faits_divers'])
-      <div class="facts">
+      <div class="facts" data-scroll>
         <div class="container">
           <h3 class="title">
             {{ __("Faits divers",'maisonalcan') }}

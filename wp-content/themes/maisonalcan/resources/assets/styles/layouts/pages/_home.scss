@@ -250,7 +250,6 @@
                     width: 100%;
                 }
 
-                .img,
                 .infos,
                 .button {
                     opacity: 1;
@@ -268,15 +267,12 @@
             }
 
             .img {
-                opacity: 0;
-                transform: translateY(100%);
-                transition: all 1s 1s;
             }
 
             .infos {
                 opacity: 0;
                 transform: translateY(100%);
-                transition: all 1s 1.5s;
+                transition: all 1s;
 
                 &:after {
                     width: 0;
@@ -286,7 +282,7 @@
             .button {
                 opacity: 0;
                 transform: translateY(100%);
-                transition: all 1s 1.75s, color 1s;
+                transition: all 1s;
             }
         }
 
@@ -339,8 +335,8 @@
                     position: absolute;
                     object-fit: cover;
                     left: 0;
-                    top: -35%;
-                    height: 170%;
+                    top: -15%;
+                    height: 130%;
                     width: 100%;
                 }
             }
@@ -497,7 +493,6 @@
             &.is-inview {
                 .title,
                 .txt,
-                .img,
                 .button {
                     opacity: 1;
                     transform: none;
@@ -507,25 +502,19 @@
             .title {
                 opacity: 0;
                 transform: translateY(200%);
-                transition: all 1s 1s;
+                transition: all 1s;
             }
 
             .txt {
                 opacity: 0;
                 transform: translateY(100%);
-                transition: all 1s 1.25s;
-            }
-
-            .img {
-                opacity: 0;
-                transform: translateY(100%);
-                transition: all 1s 0.51s;
+                transition: all 1s;
             }
 
             .button {
                 opacity: 0;
                 transform: translateY(100%);
-                transition: all 1s 1.75s, color 1s;
+                transition: all 1s;
             }
         }
 
@@ -641,8 +630,8 @@
                 object-fit: cover;
                 position: absolute;
                 left: 0;
-                top: -35%;
-                height: 170%;
+                top: -15%;
+                height: 130%;
                 width: 100%;
             }
         }

@@ -52,7 +52,7 @@
       <div class="top">
         @if($fields['espaces']['image'])
           <div class="img">
-            <img src="{{ $fields['espaces']['image']['sizes']['2048x2048'] }}" data-scroll data-scroll-speed="1" alt="">
+            <img src="{{ $fields['espaces']['image']['sizes']['2048x2048'] }}" data-scroll data-scroll-speed="0.5" alt="">
           </div>
         @endif
         @if($fields['espaces']['titre'])
@@ -100,7 +100,7 @@
         </div>
         @if($fields['residents']['image'])
           <div class="img">
-            <img src="{{ $fields['residents']['image']['sizes']['1536x1536'] }}" alt="{{ $fields['residents']['image']['alt'] }}" data-scroll data-scroll-speed="1">
+            <img src="{{ $fields['residents']['image']['sizes']['1536x1536'] }}" alt="{{ $fields['residents']['image']['alt'] }}" data-scroll data-scroll-speed="0.5">
           </div>
         @endif
       </div>

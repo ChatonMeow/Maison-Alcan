@@ -18,7 +18,7 @@
         .header__lang,
         .menu-toggle {
             opacity: 0;
-            transform: translateX(-100%);
+            transform: translateY(2rem);
             transition: all $t2;
         }
 
@@ -35,7 +35,7 @@
         }
 
         .header__lang {
-            transition-delay: 1s;
+            transition: all $t2 1s, color $t2, background $t2, border $t2;
         }
 
         &.is-inview {

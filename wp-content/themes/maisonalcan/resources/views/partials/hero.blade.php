@@ -16,7 +16,7 @@
   </div>
   @if($image)
     <div class="img">
-      <img src="{{ $image['sizes']['2048x2048'] }}" data-scroll data-scroll-speed="1" alt="">
+      <img src="{{ $image['sizes']['2048x2048'] }}" data-scroll data-scroll-speed="0.5" alt="{{ $image['alt'] }}">
     </div>
   @endif
 </div>
