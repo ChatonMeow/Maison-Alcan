@@ -25,7 +25,7 @@
         nav ul li {
             @for $i from 1 to 5 {
                 &:nth-child(#{$i}) {
-                    transition-delay: 0.25s + $i * 0.15s;
+                    transition-delay: $i * 0.15s;
                 }
             }
         }
@@ -35,7 +35,7 @@
         }
 
         .header__lang {
-            transition: all $t2 1s, color $t2, background $t2, border $t2;
+            transition: all $t2 0.5s, color $t2, background $t2, border $t2;
         }
 
         &.is-inview {
@@ -185,7 +185,7 @@
 
             &:hover {
                 &:before {
-                    width: calc(100% - 0.5rem);
+                    width: calc(100% - 2px);
                     opacity: 1;
                 }
             }
@@ -194,7 +194,7 @@
                 position: absolute;
                 bottom: em(5, 24);
                 content: "";
-                left: 0.25rem;
+                left: 1px;
                 transition: all $t2;
                 border-top: 2px solid;
                 width: 0;

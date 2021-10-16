@@ -24,16 +24,15 @@
         margin: 64px 0;
     }
 
-    .has-scroll-init & {
-        &.is-inview {
-            .marquee {
-                transform: none;
-            }
-        }
+    .has-scroll-init .residents.is-inview & .marquee,
+    .has-scroll-init &.is-inview .marquee {
+        transform: none;
+    }
 
+    .has-scroll-init & {
         .marquee {
             transform: translateY(100%);
-            transition: all 1s 1s;
+            transition: all 1s 0.2s;
         }
     }
 }

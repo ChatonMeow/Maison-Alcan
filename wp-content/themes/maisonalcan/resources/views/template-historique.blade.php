@@ -24,7 +24,7 @@
                     </div>
                   </h2>
                   @if($item['image_1'])
-                    <img class="img" src="{{ $item['image_1']['sizes']['large'] }}" alt="{{ $item['image_1']['alt'] }}" data-scroll data-scroll-speed="0.5">
+                    <img class="img" src="{{ $item['image_1']['sizes']['large'] }}" alt="{{ $item['image_1']['alt'] }}">
                   @endif
                   <div class="desc">
                     {!! $item['texte_1'] !!}
@@ -37,7 +37,7 @@
                     </h2>
                   @endif
                   @if($item['image_2'])
-                    <img class="img" src="{{ $item['image_2']['sizes']['large'] }}" alt="{{ $item['image_2']['alt'] }}" data-scroll data-scroll-speed="0.25">
+                    <img class="img" src="{{ $item['image_2']['sizes']['large'] }}" alt="{{ $item['image_2']['alt'] }}">
                   @endif
                   <div class="txt">
                     @if($item['type'] !== '55-45')
@@ -68,7 +68,7 @@
           </h3>
           <div class="timeline__inner">
             @foreach($fields['ligne_du_temps'] as $year)
-              <div class="timeline__year" data-scroll data-scroll-speed="{{ $loop->index % 2 === 0 ? 0.5 : 1 }}">
+              <div class="timeline__year" data-scroll>
                 @if($year['image'])
                   <img src="{{ $year['image']['sizes']['thumbnail'] }}" alt="{{ $year['image']['alt'] }}">
                 @endif

@@ -25,15 +25,12 @@
     }
 
     &.is-home {
-        margin: 0;
+        margin-top: 0;
+        margin-bottom: percent(67, 1337);
         display: flex;
         flex-wrap: nowrap;
         justify-content: space-between;
         padding-right: 0;
-
-        @include mq-down(xl) {
-            margin-bottom: percent(67, 1337);
-        }
 
         @include mq-down(md) {
             margin-bottom: percent(145, 768);
@@ -160,18 +157,18 @@
         }
 
         .title {
-            transition: all 1s 1s;
+            transition: all 1s 0.2s;
             transform: translateY(200%);
         }
 
         .text {
-            transition: all 1s 1.5s;
+            transition: all 1s 0.5s;
             opacity: 0;
         }
 
         .img {
-            transition: all 1s 1.75s;
-            transform: translateY(100%);
+            transition: all 1s 0.75s;
+            transform: translateY(4rem);
             opacity: 0;
 
             &:before {

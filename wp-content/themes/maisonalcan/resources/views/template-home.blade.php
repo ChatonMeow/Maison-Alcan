@@ -56,7 +56,7 @@
           </div>
         @endif
         @if($fields['espaces']['titre'])
-          <div class="title__wrapper" data-scroll data-scroll-speed=".5" data-scroll-direction="horizontal">
+          <div class="title__wrapper">
             <h2 class="title">
               {{ $fields['espaces']['titre'] }}
             </h2>

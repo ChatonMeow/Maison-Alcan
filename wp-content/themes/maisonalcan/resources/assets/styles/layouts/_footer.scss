@@ -164,7 +164,7 @@
 
                 &:hover {
                     &:before {
-                        width: calc(100% - 0.5rem);
+                        width: calc(100% - 2px);
                         opacity: 1;
                     }
                 }
@@ -173,7 +173,7 @@
                     position: absolute;
                     bottom: em(5, 24);
                     content: "";
-                    left: 0.25rem;
+                    left: 1px;
                     transition: all $t2;
                     border-top: 1px solid;
                     width: 0;

@@ -140,15 +140,24 @@
 
         .photo {
             border: 3px solid;
-            background: no-repeat center;
-            background-size: cover;
             line-height: 0;
             padding-top: percent(233, 364);
             margin-bottom: 43px;
             width: 100%;
+            position: relative;
+            overflow: hidden;
 
             @include mq-down(sm) {
                 padding-top: percent(233, 330);
+            }
+
+            img {
+                object-fit: cover;
+                position: absolute;
+                top: -15%;
+                left: 0;
+                height: 130%;
+                width: 100%;
             }
         }
 
