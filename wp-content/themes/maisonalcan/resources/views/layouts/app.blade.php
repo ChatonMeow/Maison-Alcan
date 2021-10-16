@@ -13,6 +13,7 @@
     @include('partials.footer')
     @php wp_footer() @endphp
   </div>
+  @include('partials.loader')
 </body>
 
 </html>

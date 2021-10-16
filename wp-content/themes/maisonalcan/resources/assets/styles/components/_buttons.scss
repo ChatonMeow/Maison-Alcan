@@ -12,6 +12,10 @@ button,
     outline: 0;
     padding: em(21, 24) em(34, 24) em(20, 24) em(16, 24);
 
+    &.small {
+        font-size: 1.4rem;
+    }
+
     &:before,
     &:after {
         content: "";
