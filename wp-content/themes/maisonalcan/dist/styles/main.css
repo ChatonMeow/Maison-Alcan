@@ -248,45 +248,78 @@ button,
   white-space: nowrap;
   font-size: 2.4rem;
   position: relative;
-  border: none;
-  background: none;
+  border: 2px solid;
+  border-right: 0;
+  background: #1c1c1c;
+  background: linear-gradient(90deg, #1c1c1c 0%, #1c1c1c 50%, #1c1c1c 50%, #fff 50%, #fff 100%);
+  background-size: 207% 100%;
+  background-position: 99% 0;
   outline: 0;
-  padding: 0.875em 1.41667em 0.83333em 0.66667em; }
-  /* line 15, resources/assets/styles/components/_buttons.scss */
-  button:before, button:after,
-  .button:before,
-  .button:after {
-    content: "";
-    position: absolute;
-    z-index: -1;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    clip-path: polygon(0 0, calc(100% - 1.04em) 0, calc(100% - 0.08em) 50%, calc(100% - 1.04em) 100%, 0 100%, 0 0);
-    transition: all 1s;
-    background: #1c1c1c;
-    background: linear-gradient(90deg, #1c1c1c 0%, #1c1c1c 50%, #1c1c1c 50%, #fff 50%, #fff 100%);
-    background-size: 200% 100%;
-    background-position: 100% 0; }
-  /* line 32, resources/assets/styles/components/_buttons.scss */
+  padding: 1em;
+  line-height: 1.15;
+  margin-right: 1em; }
+  /* line 21, resources/assets/styles/components/_buttons.scss */
   button:before,
   .button:before {
-    background: #1c1c1c;
-    clip-path: polygon(50% 0, calc(100% - 1em) 0, 100% 50%, calc(100% - 1em) 100%, 0 100%, 0 0);
-    margin-top: -2px;
-    margin-left: -2px;
-    width: calc(100% + 3px);
-    height: calc(100% + 3px); }
-  /* line 41, resources/assets/styles/components/_buttons.scss */
+    width: 2em;
+    height: 2em;
+    position: absolute;
+    top: -2.05em;
+    right: -1.95em;
+    background-color: #fff;
+    content: "";
+    transform: rotate(57deg);
+    transition: 1s all;
+    border-bottom: 2px solid #1c1c1c;
+    transform-origin: bottom left; }
+  /* line 35, resources/assets/styles/components/_buttons.scss */
+  button:after,
+  .button:after {
+    width: 1.9em;
+    height: 1.9em;
+    position: absolute;
+    bottom: -0.03em;
+    right: -1.9em;
+    background-color: #fff;
+    content: "";
+    transform: rotate(33deg);
+    transition: 1s all;
+    border-left: 2px solid #1c1c1c;
+    transform-origin: bottom left; }
+  /* line 49, resources/assets/styles/components/_buttons.scss */
+  button.small,
+  .button.small {
+    font-size: 1.4rem; }
+    /* line 52, resources/assets/styles/components/_buttons.scss */
+    button.small:before,
+    .button.small:before {
+      width: 2em;
+      height: 2em;
+      top: -2.25em; }
+    /* line 58, resources/assets/styles/components/_buttons.scss */
+    button.small:after,
+    .button.small:after {
+      width: 2em;
+      height: 2em;
+      top: 1.2em; }
+  /* line 65, resources/assets/styles/components/_buttons.scss */
   button:hover,
   .button:hover {
-    color: #fff; }
-    /* line 45, resources/assets/styles/components/_buttons.scss */
+    color: #fff;
+    background-position: 0% 0;
+    padding: 1em 2em 1em 1em;
+    margin-right: 0; }
+    /* line 71, resources/assets/styles/components/_buttons.scss */
+    button:hover:before,
+    .button:hover:before {
+      right: -0.95em;
+      top: -1.95em; }
+    /* line 76, resources/assets/styles/components/_buttons.scss */
     button:hover:after,
     .button:hover:after {
-      background-position: 0% 0; }
-  /* line 50, resources/assets/styles/components/_buttons.scss */
+      right: -0.83em;
+      bottom: 0.05em; }
+  /* line 82, resources/assets/styles/components/_buttons.scss */
   button.disabled, button[disabled],
   .button.disabled,
   .button[disabled] {
@@ -1784,21 +1817,18 @@ input[type="submit"] {
       .template-espaces .espaces .top .desc {
         max-width: none;
         margin: 3.8125em 0 1.5625em; } }
-  /* line 210, resources/assets/styles/layouts/pages/_espaces.scss */
-  .template-espaces .espaces .top .button {
-    font-size: 1.4rem; }
 
-/* line 216, resources/assets/styles/layouts/pages/_espaces.scss */
+/* line 215, resources/assets/styles/layouts/pages/_espaces.scss */
 .template-espaces .espaces .spaces + .spaces {
   margin-top: 9.82073%;
   padding-top: 9.82073%;
   position: relative; }
   @media screen and (max-width: 767px) {
-    /* line 216, resources/assets/styles/layouts/pages/_espaces.scss */
+    /* line 215, resources/assets/styles/layouts/pages/_espaces.scss */
     .template-espaces .espaces .spaces + .spaces {
       margin-top: 18.66667%;
       padding-top: 12.8%; } }
-  /* line 226, resources/assets/styles/layouts/pages/_espaces.scss */
+  /* line 225, resources/assets/styles/layouts/pages/_espaces.scss */
   .template-espaces .espaces .spaces + .spaces:after {
     content: "";
     position: absolute;
@@ -1807,23 +1837,23 @@ input[type="submit"] {
     width: 100%;
     border-top: 1px solid; }
 
-/* line 238, resources/assets/styles/layouts/pages/_espaces.scss */
+/* line 237, resources/assets/styles/layouts/pages/_espaces.scss */
 .template-espaces .banniere {
   margin: 9.29722% 0; }
   @media screen and (max-width: 767px) {
-    /* line 238, resources/assets/styles/layouts/pages/_espaces.scss */
+    /* line 237, resources/assets/styles/layouts/pages/_espaces.scss */
     .template-espaces .banniere {
       margin: 27.27273% 0 29.69697%; } }
-  /* line 245, resources/assets/styles/layouts/pages/_espaces.scss */
+  /* line 244, resources/assets/styles/layouts/pages/_espaces.scss */
   .has-scroll-init .template-espaces .banniere {
     opacity: 0;
     transform: translateY(2rem);
     transition: all 0.5s; }
-    /* line 246, resources/assets/styles/layouts/pages/_espaces.scss */
+    /* line 245, resources/assets/styles/layouts/pages/_espaces.scss */
     .has-scroll-init .template-espaces .banniere.is-inview {
       opacity: 1;
       transform: none; }
-  /* line 256, resources/assets/styles/layouts/pages/_espaces.scss */
+  /* line 255, resources/assets/styles/layouts/pages/_espaces.scss */
   .template-espaces .banniere .inner {
     border: 3px solid;
     display: flex;
@@ -1832,52 +1862,51 @@ input[type="submit"] {
     align-items: center;
     padding: 37px 42px 37px 32px; }
     @media screen and (max-width: 767px) {
-      /* line 256, resources/assets/styles/layouts/pages/_espaces.scss */
+      /* line 255, resources/assets/styles/layouts/pages/_espaces.scss */
       .template-espaces .banniere .inner {
         display: block;
         padding: 27px 22px; } }
-  /* line 270, resources/assets/styles/layouts/pages/_espaces.scss */
+  /* line 269, resources/assets/styles/layouts/pages/_espaces.scss */
   .template-espaces .banniere .title {
     max-width: 460px;
     font-size: 3.2rem;
     margin-right: 1.5em; }
     @media screen and (max-width: 1049px) {
-      /* line 270, resources/assets/styles/layouts/pages/_espaces.scss */
+      /* line 269, resources/assets/styles/layouts/pages/_espaces.scss */
       .template-espaces .banniere .title {
         font-size: 2.5rem; } }
     @media screen and (max-width: 767px) {
-      /* line 270, resources/assets/styles/layouts/pages/_espaces.scss */
+      /* line 269, resources/assets/styles/layouts/pages/_espaces.scss */
       .template-espaces .banniere .title {
         font-size: 3.2rem;
         margin: 0 0 1em;
         line-height: 1.22;
         min-height: 6.1em; } }
-  /* line 287, resources/assets/styles/layouts/pages/_espaces.scss */
+  /* line 286, resources/assets/styles/layouts/pages/_espaces.scss */
   .template-espaces .banniere .button {
-    position: relative;
     z-index: 1; }
 
-/* line 293, resources/assets/styles/layouts/pages/_espaces.scss */
+/* line 291, resources/assets/styles/layouts/pages/_espaces.scss */
 .template-espaces .autres-espaces {
   margin-bottom: 4.6875%; }
   @media screen and (max-width: 767px) {
-    /* line 293, resources/assets/styles/layouts/pages/_espaces.scss */
+    /* line 291, resources/assets/styles/layouts/pages/_espaces.scss */
     .template-espaces .autres-espaces {
       margin-bottom: 21.33333%; } }
-  /* line 302, resources/assets/styles/layouts/pages/_espaces.scss */
+  /* line 300, resources/assets/styles/layouts/pages/_espaces.scss */
   .has-scroll-init .template-espaces .autres-espaces.is-inview .top,
   .has-scroll-init .template-espaces .autres-espaces.is-inview .title,
   .has-scroll-init .template-espaces .autres-espaces.is-inview .desc {
     opacity: 1;
     transform: none; }
-  /* line 310, resources/assets/styles/layouts/pages/_espaces.scss */
+  /* line 308, resources/assets/styles/layouts/pages/_espaces.scss */
   .has-scroll-init .template-espaces .autres-espaces .top,
   .has-scroll-init .template-espaces .autres-espaces .title,
   .has-scroll-init .template-espaces .autres-espaces .desc {
     transition: all 0.5s;
     opacity: 0;
     transform: translateY(2rem); }
-  /* line 319, resources/assets/styles/layouts/pages/_espaces.scss */
+  /* line 317, resources/assets/styles/layouts/pages/_espaces.scss */
   .template-espaces .autres-espaces .top {
     margin-bottom: 10.54688%;
     display: flex;
@@ -1885,47 +1914,47 @@ input[type="submit"] {
     justify-content: space-between;
     align-items: center; }
     @media screen and (max-width: 767px) {
-      /* line 319, resources/assets/styles/layouts/pages/_espaces.scss */
+      /* line 317, resources/assets/styles/layouts/pages/_espaces.scss */
       .template-espaces .autres-espaces .top {
         display: block;
         margin-bottom: 27.27273%; } }
-    /* line 331, resources/assets/styles/layouts/pages/_espaces.scss */
+    /* line 329, resources/assets/styles/layouts/pages/_espaces.scss */
     .template-espaces .autres-espaces .top .title {
       font-size: 8rem;
       margin: 0 1em 0 0;
       line-height: 1.12; }
       @media screen and (max-width: 767px) {
-        /* line 331, resources/assets/styles/layouts/pages/_espaces.scss */
+        /* line 329, resources/assets/styles/layouts/pages/_espaces.scss */
         .template-espaces .autres-espaces .top .title {
           margin: 0 0 0.5em; } }
-    /* line 341, resources/assets/styles/layouts/pages/_espaces.scss */
+    /* line 339, resources/assets/styles/layouts/pages/_espaces.scss */
     .template-espaces .autres-espaces .top .desc {
       font-size: 1.6rem;
       margin: 0;
       max-width: 430px; }
-  /* line 348, resources/assets/styles/layouts/pages/_espaces.scss */
+  /* line 346, resources/assets/styles/layouts/pages/_espaces.scss */
   .template-espaces .autres-espaces .list {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between; }
     @media screen and (max-width: 767px) {
-      /* line 348, resources/assets/styles/layouts/pages/_espaces.scss */
+      /* line 346, resources/assets/styles/layouts/pages/_espaces.scss */
       .template-espaces .autres-espaces .list {
         display: block; } }
-    /* line 357, resources/assets/styles/layouts/pages/_espaces.scss */
+    /* line 355, resources/assets/styles/layouts/pages/_espaces.scss */
     .template-espaces .autres-espaces .list .espace {
       width: 29.0625%;
       margin-bottom: 6.48438%; }
       @media screen and (max-width: 1049px) {
-        /* line 357, resources/assets/styles/layouts/pages/_espaces.scss */
+        /* line 355, resources/assets/styles/layouts/pages/_espaces.scss */
         .template-espaces .autres-espaces .list .espace {
           width: 47.5%; } }
       @media screen and (max-width: 767px) {
-        /* line 357, resources/assets/styles/layouts/pages/_espaces.scss */
+        /* line 355, resources/assets/styles/layouts/pages/_espaces.scss */
         .template-espaces .autres-espaces .list .espace {
           width: auto;
           margin-bottom: 0; }
-          /* line 369, resources/assets/styles/layouts/pages/_espaces.scss */
+          /* line 367, resources/assets/styles/layouts/pages/_espaces.scss */
           .template-espaces .autres-espaces .list .espace:not(:last-child) {
             border-bottom: 1px solid;
             padding-bottom: 24.24242%;
@@ -2352,114 +2381,113 @@ input[type="submit"] {
           margin: 35px 0 0; } }
     /* line 497, resources/assets/styles/layouts/pages/_historique.scss */
     .template-historique .timeline .timeline__year .button {
-      margin: 0 38px 38px 0;
-      font-size: 1.4rem; }
+      margin: 0 38px 38px 0; }
       @media screen and (max-width: 1049px) {
         /* line 497, resources/assets/styles/layouts/pages/_historique.scss */
         .template-historique .timeline .timeline__year .button {
           margin: 0; }
-          /* line 504, resources/assets/styles/layouts/pages/_historique.scss */
+          /* line 503, resources/assets/styles/layouts/pages/_historique.scss */
           .template-historique .timeline .timeline__year .button:not(:last-child) {
             margin-bottom: 21px; } }
 
-/* line 512, resources/assets/styles/layouts/pages/_historique.scss */
+/* line 511, resources/assets/styles/layouts/pages/_historique.scss */
 .template-historique .facts {
   margin-bottom: 12.4451%; }
   @media screen and (max-width: 1049px) {
-    /* line 512, resources/assets/styles/layouts/pages/_historique.scss */
+    /* line 511, resources/assets/styles/layouts/pages/_historique.scss */
     .template-historique .facts {
       margin-bottom: 23.4375%; } }
   @media screen and (max-width: 767px) {
-    /* line 512, resources/assets/styles/layouts/pages/_historique.scss */
+    /* line 511, resources/assets/styles/layouts/pages/_historique.scss */
     .template-historique .facts {
       margin-bottom: 24%; } }
-  /* line 525, resources/assets/styles/layouts/pages/_historique.scss */
+  /* line 524, resources/assets/styles/layouts/pages/_historique.scss */
   .has-scroll-init .template-historique .facts.is-inview h3.title,
   .has-scroll-init .template-historique .facts.is-inview .fact {
     opacity: 1;
     transform: none; }
-  /* line 532, resources/assets/styles/layouts/pages/_historique.scss */
+  /* line 531, resources/assets/styles/layouts/pages/_historique.scss */
   .has-scroll-init .template-historique .facts h3.title,
   .has-scroll-init .template-historique .facts .fact {
     opacity: 0;
     transform: translateY(2rem);
     transition: all 0.5s; }
-  /* line 541, resources/assets/styles/layouts/pages/_historique.scss */
+  /* line 540, resources/assets/styles/layouts/pages/_historique.scss */
   .has-scroll-init .template-historique .facts .fact:nth-child(1) {
     transition-delay: 0.4s; }
-  /* line 541, resources/assets/styles/layouts/pages/_historique.scss */
+  /* line 540, resources/assets/styles/layouts/pages/_historique.scss */
   .has-scroll-init .template-historique .facts .fact:nth-child(2) {
     transition-delay: 0.55s; }
-  /* line 541, resources/assets/styles/layouts/pages/_historique.scss */
+  /* line 540, resources/assets/styles/layouts/pages/_historique.scss */
   .has-scroll-init .template-historique .facts .fact:nth-child(3) {
     transition-delay: 0.7s; }
-  /* line 541, resources/assets/styles/layouts/pages/_historique.scss */
+  /* line 540, resources/assets/styles/layouts/pages/_historique.scss */
   .has-scroll-init .template-historique .facts .fact:nth-child(4) {
     transition-delay: 0.85s; }
-  /* line 541, resources/assets/styles/layouts/pages/_historique.scss */
+  /* line 540, resources/assets/styles/layouts/pages/_historique.scss */
   .has-scroll-init .template-historique .facts .fact:nth-child(5) {
     transition-delay: 1s; }
-  /* line 541, resources/assets/styles/layouts/pages/_historique.scss */
+  /* line 540, resources/assets/styles/layouts/pages/_historique.scss */
   .has-scroll-init .template-historique .facts .fact:nth-child(6) {
     transition-delay: 1.15s; }
-  /* line 541, resources/assets/styles/layouts/pages/_historique.scss */
+  /* line 540, resources/assets/styles/layouts/pages/_historique.scss */
   .has-scroll-init .template-historique .facts .fact:nth-child(7) {
     transition-delay: 1.3s; }
-  /* line 541, resources/assets/styles/layouts/pages/_historique.scss */
+  /* line 540, resources/assets/styles/layouts/pages/_historique.scss */
   .has-scroll-init .template-historique .facts .fact:nth-child(8) {
     transition-delay: 1.45s; }
-  /* line 541, resources/assets/styles/layouts/pages/_historique.scss */
+  /* line 540, resources/assets/styles/layouts/pages/_historique.scss */
   .has-scroll-init .template-historique .facts .fact:nth-child(9) {
     transition-delay: 1.6s; }
-  /* line 541, resources/assets/styles/layouts/pages/_historique.scss */
+  /* line 540, resources/assets/styles/layouts/pages/_historique.scss */
   .has-scroll-init .template-historique .facts .fact:nth-child(10) {
     transition-delay: 1.75s; }
-  /* line 541, resources/assets/styles/layouts/pages/_historique.scss */
+  /* line 540, resources/assets/styles/layouts/pages/_historique.scss */
   .has-scroll-init .template-historique .facts .fact:nth-child(11) {
     transition-delay: 1.9s; }
-  /* line 541, resources/assets/styles/layouts/pages/_historique.scss */
+  /* line 540, resources/assets/styles/layouts/pages/_historique.scss */
   .has-scroll-init .template-historique .facts .fact:nth-child(12) {
     transition-delay: 2.05s; }
-  /* line 541, resources/assets/styles/layouts/pages/_historique.scss */
+  /* line 540, resources/assets/styles/layouts/pages/_historique.scss */
   .has-scroll-init .template-historique .facts .fact:nth-child(13) {
     transition-delay: 2.2s; }
-  /* line 541, resources/assets/styles/layouts/pages/_historique.scss */
+  /* line 540, resources/assets/styles/layouts/pages/_historique.scss */
   .has-scroll-init .template-historique .facts .fact:nth-child(14) {
     transition-delay: 2.35s; }
-  /* line 541, resources/assets/styles/layouts/pages/_historique.scss */
+  /* line 540, resources/assets/styles/layouts/pages/_historique.scss */
   .has-scroll-init .template-historique .facts .fact:nth-child(15) {
     transition-delay: 2.5s; }
-  /* line 541, resources/assets/styles/layouts/pages/_historique.scss */
+  /* line 540, resources/assets/styles/layouts/pages/_historique.scss */
   .has-scroll-init .template-historique .facts .fact:nth-child(16) {
     transition-delay: 2.65s; }
-  /* line 541, resources/assets/styles/layouts/pages/_historique.scss */
+  /* line 540, resources/assets/styles/layouts/pages/_historique.scss */
   .has-scroll-init .template-historique .facts .fact:nth-child(17) {
     transition-delay: 2.8s; }
-  /* line 541, resources/assets/styles/layouts/pages/_historique.scss */
+  /* line 540, resources/assets/styles/layouts/pages/_historique.scss */
   .has-scroll-init .template-historique .facts .fact:nth-child(18) {
     transition-delay: 2.95s; }
-  /* line 541, resources/assets/styles/layouts/pages/_historique.scss */
+  /* line 540, resources/assets/styles/layouts/pages/_historique.scss */
   .has-scroll-init .template-historique .facts .fact:nth-child(19) {
     transition-delay: 3.1s; }
-  /* line 551, resources/assets/styles/layouts/pages/_historique.scss */
+  /* line 550, resources/assets/styles/layouts/pages/_historique.scss */
   .template-historique .facts h3.title {
     font-weight: normal;
     font-size: 2.8rem;
     margin-bottom: 9.35308%; }
     @media screen and (max-width: 1049px) {
-      /* line 551, resources/assets/styles/layouts/pages/_historique.scss */
+      /* line 550, resources/assets/styles/layouts/pages/_historique.scss */
       .template-historique .facts h3.title {
         margin-bottom: 17.44186%; } }
     @media screen and (max-width: 767px) {
-      /* line 551, resources/assets/styles/layouts/pages/_historique.scss */
+      /* line 550, resources/assets/styles/layouts/pages/_historique.scss */
       .template-historique .facts h3.title {
         margin-bottom: 13.0303%; } }
-  /* line 565, resources/assets/styles/layouts/pages/_historique.scss */
+  /* line 564, resources/assets/styles/layouts/pages/_historique.scss */
   .template-historique .facts .swiper-wrapper {
     column-count: 4;
     column-gap: 2.18%; }
     @media screen and (min-width: 768px) {
-      /* line 565, resources/assets/styles/layouts/pages/_historique.scss */
+      /* line 564, resources/assets/styles/layouts/pages/_historique.scss */
       .template-historique .facts .swiper-wrapper {
         transform: none !important;
         width: auto;
@@ -2467,16 +2495,16 @@ input[type="submit"] {
         display: block;
         box-sizing: border-box; } }
     @media screen and (max-width: 1049px) {
-      /* line 565, resources/assets/styles/layouts/pages/_historique.scss */
+      /* line 564, resources/assets/styles/layouts/pages/_historique.scss */
       .template-historique .facts .swiper-wrapper {
         column-count: 2;
         column-gap: 3.92%; } }
     @media screen and (max-width: 767px) {
-      /* line 565, resources/assets/styles/layouts/pages/_historique.scss */
+      /* line 564, resources/assets/styles/layouts/pages/_historique.scss */
       .template-historique .facts .swiper-wrapper {
         column-count: 1;
         column-gap: 0; } }
-  /* line 588, resources/assets/styles/layouts/pages/_historique.scss */
+  /* line 587, resources/assets/styles/layouts/pages/_historique.scss */
   .template-historique .facts .fact {
     border: 3px solid;
     padding: 33px 24px;
@@ -2484,34 +2512,34 @@ input[type="submit"] {
     grid-template-rows: 1fr auto;
     break-inside: avoid; }
     @media screen and (min-width: 768px) {
-      /* line 588, resources/assets/styles/layouts/pages/_historique.scss */
+      /* line 587, resources/assets/styles/layouts/pages/_historique.scss */
       .template-historique .facts .fact {
         width: auto !important; } }
     @media screen and (max-width: 1049px) {
-      /* line 588, resources/assets/styles/layouts/pages/_historique.scss */
+      /* line 587, resources/assets/styles/layouts/pages/_historique.scss */
       .template-historique .facts .fact {
         margin-bottom: 12.15805%; } }
     @media screen and (max-width: 767px) {
-      /* line 588, resources/assets/styles/layouts/pages/_historique.scss */
+      /* line 587, resources/assets/styles/layouts/pages/_historique.scss */
       .template-historique .facts .fact {
         margin: 0;
         height: auto;
         grid-template-rows: initial; } }
-    /* line 609, resources/assets/styles/layouts/pages/_historique.scss */
+    /* line 608, resources/assets/styles/layouts/pages/_historique.scss */
     .template-historique .facts .fact .title {
       font-size: 2rem;
       margin-bottom: 1em;
       min-height: 2.55em;
       display: flex;
       align-items: center; }
-    /* line 617, resources/assets/styles/layouts/pages/_historique.scss */
+    /* line 616, resources/assets/styles/layouts/pages/_historique.scss */
     .template-historique .facts .fact .txt {
       font-size: 1.4rem; }
-  /* line 622, resources/assets/styles/layouts/pages/_historique.scss */
+  /* line 621, resources/assets/styles/layouts/pages/_historique.scss */
   .template-historique .facts .swiper-pagination-bullets {
     margin-top: 35px; }
     @media screen and (min-width: 768px) {
-      /* line 622, resources/assets/styles/layouts/pages/_historique.scss */
+      /* line 621, resources/assets/styles/layouts/pages/_historique.scss */
       .template-historique .facts .swiper-pagination-bullets {
         display: none; } }
 
@@ -2545,9 +2573,9 @@ input[type="submit"] {
     border-bottom: 3px solid; }
   /* line 33, resources/assets/styles/layouts/pages/_home.scss */
   .has-scroll-init .template-home .history.is-inview .title,
-  .has-scroll-init .template-home .history.is-inview .infos,
+  .has-scroll-init .template-home .history.is-inview .txt,
   .has-scroll-init .template-home .history.is-inview .cards,
-  .has-scroll-init .template-home .history.is-inview .infos .button {
+  .has-scroll-init .template-home .history.is-inview .button {
     transform: none;
     opacity: 1; }
   /* line 41, resources/assets/styles/layouts/pages/_home.scss */
@@ -2563,39 +2591,38 @@ input[type="submit"] {
     transition: all 1s 0.5s;
     opacity: 0; }
   /* line 57, resources/assets/styles/layouts/pages/_home.scss */
-  .has-scroll-init .template-home .history .infos {
+  .has-scroll-init .template-home .history .txt {
     transform: translateY(100%);
     opacity: 0;
     transition: all 1s 1s; }
-    @media screen and (max-width: 1049px) {
-      /* line 62, resources/assets/styles/layouts/pages/_home.scss */
-      .has-scroll-init .template-home .history .infos .button {
-        opacity: 0;
-        transition: opacity 1s 2s, all 1s; } }
+  /* line 63, resources/assets/styles/layouts/pages/_home.scss */
+  .has-scroll-init .template-home .history .button {
+    opacity: 0;
+    transition: all 1s, opacity 1s 2s; }
   @media screen and (max-width: 1049px) {
-    /* line 70, resources/assets/styles/layouts/pages/_home.scss */
+    /* line 68, resources/assets/styles/layouts/pages/_home.scss */
     .has-scroll-init .template-home .history .cards {
       transform: translateY(100%);
       opacity: 0;
       transition: all 1s 1.5s; } }
   @media screen and (max-width: 1049px) {
-    /* line 78, resources/assets/styles/layouts/pages/_home.scss */
+    /* line 76, resources/assets/styles/layouts/pages/_home.scss */
     .has-scroll-init .template-home .history .swiper-slide {
       transform: none !important; } }
-  /* line 88, resources/assets/styles/layouts/pages/_home.scss */
+  /* line 86, resources/assets/styles/layouts/pages/_home.scss */
   .template-home .history .title {
     font-size: 8rem; }
     @media screen and (max-width: 767px) {
-      /* line 88, resources/assets/styles/layouts/pages/_home.scss */
+      /* line 86, resources/assets/styles/layouts/pages/_home.scss */
       .template-home .history .title {
         font-size: 6.6rem;
         padding-right: 0;
         margin-bottom: 0.71212em; }
-        /* line 96, resources/assets/styles/layouts/pages/_home.scss */
+        /* line 94, resources/assets/styles/layouts/pages/_home.scss */
         .template-home .history .title img,
         .template-home .history .title .arrow {
           display: none; } }
-  /* line 103, resources/assets/styles/layouts/pages/_home.scss */
+  /* line 101, resources/assets/styles/layouts/pages/_home.scss */
   .template-home .history .infos {
     display: flex;
     flex-wrap: nowrap;
@@ -2603,93 +2630,93 @@ input[type="submit"] {
     align-items: flex-start;
     margin-bottom: 59px; }
     @media screen and (max-width: 1919px) {
-      /* line 103, resources/assets/styles/layouts/pages/_home.scss */
+      /* line 101, resources/assets/styles/layouts/pages/_home.scss */
       .template-home .history .infos {
         margin-bottom: 66px; } }
     @media screen and (max-width: 1049px) {
-      /* line 103, resources/assets/styles/layouts/pages/_home.scss */
+      /* line 101, resources/assets/styles/layouts/pages/_home.scss */
       .template-home .history .infos {
         margin-bottom: 113px; } }
     @media screen and (max-width: 767px) {
-      /* line 103, resources/assets/styles/layouts/pages/_home.scss */
+      /* line 101, resources/assets/styles/layouts/pages/_home.scss */
       .template-home .history .infos {
         margin-bottom: 37px; } }
-    /* line 122, resources/assets/styles/layouts/pages/_home.scss */
+    /* line 120, resources/assets/styles/layouts/pages/_home.scss */
     .template-home .history .infos .txt {
       max-width: 650px;
       column-count: 2;
       column-gap: 57px;
       font-size: 1.6rem; }
       @media screen and (max-width: 1919px) {
-        /* line 122, resources/assets/styles/layouts/pages/_home.scss */
+        /* line 120, resources/assets/styles/layouts/pages/_home.scss */
         .template-home .history .infos .txt {
           column-gap: 28px; } }
       @media screen and (max-width: 1049px) {
-        /* line 122, resources/assets/styles/layouts/pages/_home.scss */
+        /* line 120, resources/assets/styles/layouts/pages/_home.scss */
         .template-home .history .infos .txt {
           max-width: 100%; } }
       @media screen and (max-width: 767px) {
-        /* line 122, resources/assets/styles/layouts/pages/_home.scss */
+        /* line 120, resources/assets/styles/layouts/pages/_home.scss */
         .template-home .history .infos .txt {
           column-gap: 22px; } }
     @media screen and (max-width: 1049px) {
-      /* line 141, resources/assets/styles/layouts/pages/_home.scss */
+      /* line 139, resources/assets/styles/layouts/pages/_home.scss */
       .template-home .history .infos .button {
         position: absolute;
         right: var(--gap);
         bottom: 108px; } }
     @media screen and (max-width: 767px) {
-      /* line 141, resources/assets/styles/layouts/pages/_home.scss */
+      /* line 139, resources/assets/styles/layouts/pages/_home.scss */
       .template-home .history .infos .button {
         right: auto;
         left: var(--gap);
         bottom: 90px; } }
-  /* line 156, resources/assets/styles/layouts/pages/_home.scss */
+  /* line 154, resources/assets/styles/layouts/pages/_home.scss */
   .template-home .history .cards {
     position: relative; }
   @media screen and (max-width: 1049px) {
-    /* line 165, resources/assets/styles/layouts/pages/_home.scss */
+    /* line 163, resources/assets/styles/layouts/pages/_home.scss */
     .template-home .history .swiper-slide.swiper-slide-active .txt {
       opacity: 1; } }
-  /* line 172, resources/assets/styles/layouts/pages/_home.scss */
+  /* line 170, resources/assets/styles/layouts/pages/_home.scss */
   .template-home .history .swiper-slide img {
     border: 3px solid;
     width: 100%;
     margin-bottom: 23px; }
     @media screen and (max-width: 1919px) {
-      /* line 172, resources/assets/styles/layouts/pages/_home.scss */
+      /* line 170, resources/assets/styles/layouts/pages/_home.scss */
       .template-home .history .swiper-slide img {
         margin-bottom: 10px; } }
     @media screen and (max-width: 1049px) {
-      /* line 172, resources/assets/styles/layouts/pages/_home.scss */
+      /* line 170, resources/assets/styles/layouts/pages/_home.scss */
       .template-home .history .swiper-slide img {
         margin-bottom: 21px; } }
     @media screen and (max-width: 767px) {
-      /* line 172, resources/assets/styles/layouts/pages/_home.scss */
+      /* line 170, resources/assets/styles/layouts/pages/_home.scss */
       .template-home .history .swiper-slide img {
         margin-bottom: 26px; } }
-  /* line 190, resources/assets/styles/layouts/pages/_home.scss */
+  /* line 188, resources/assets/styles/layouts/pages/_home.scss */
   .template-home .history .swiper-slide .txt {
     font-size: 1.2rem;
     max-width: 420px;
     transition: opacity 0.5s; }
     @media screen and (max-width: null) {
-      /* line 190, resources/assets/styles/layouts/pages/_home.scss */
+      /* line 188, resources/assets/styles/layouts/pages/_home.scss */
       .template-home .history .swiper-slide .txt {
         max-width: 242px; } }
     @media screen and (max-width: 1049px) {
-      /* line 190, resources/assets/styles/layouts/pages/_home.scss */
+      /* line 188, resources/assets/styles/layouts/pages/_home.scss */
       .template-home .history .swiper-slide .txt {
         opacity: 0; } }
     @media screen and (max-width: 767px) {
-      /* line 190, resources/assets/styles/layouts/pages/_home.scss */
+      /* line 188, resources/assets/styles/layouts/pages/_home.scss */
       .template-home .history .swiper-slide .txt {
         font-size: 1.4rem; } }
-  /* line 209, resources/assets/styles/layouts/pages/_home.scss */
+  /* line 207, resources/assets/styles/layouts/pages/_home.scss */
   .template-home .history .pager {
     display: none; }
     @media screen and (max-width: 1049px) {
-      /* line 209, resources/assets/styles/layouts/pages/_home.scss */
+      /* line 207, resources/assets/styles/layouts/pages/_home.scss */
       .template-home .history .pager {
         display: block;
         z-index: 1;
@@ -2697,78 +2724,78 @@ input[type="submit"] {
         bottom: 0;
         right: 0; } }
 
-/* line 222, resources/assets/styles/layouts/pages/_home.scss */
+/* line 220, resources/assets/styles/layouts/pages/_home.scss */
 .template-home .spaces {
   margin-bottom: 8.59375%;
   padding: 0 440px 8.59375% 0;
   position: relative; }
   @media screen and (max-width: 1919px) {
-    /* line 222, resources/assets/styles/layouts/pages/_home.scss */
+    /* line 220, resources/assets/styles/layouts/pages/_home.scss */
     .template-home .spaces {
       margin-bottom: 8.78477%;
       padding: 0 247px 9.59004% 0; } }
   @media screen and (max-width: 1049px) {
-    /* line 222, resources/assets/styles/layouts/pages/_home.scss */
+    /* line 220, resources/assets/styles/layouts/pages/_home.scss */
     .template-home .spaces {
       margin-bottom: 15.88542%;
       padding: 0 0 15.88542% 0; } }
   @media screen and (max-width: 767px) {
-    /* line 222, resources/assets/styles/layouts/pages/_home.scss */
+    /* line 220, resources/assets/styles/layouts/pages/_home.scss */
     .template-home .spaces {
       margin-bottom: 20.26667%;
       padding: 0 var(--gap) 24%; } }
-  /* line 242, resources/assets/styles/layouts/pages/_home.scss */
+  /* line 240, resources/assets/styles/layouts/pages/_home.scss */
   .template-home .spaces:after {
     content: "";
     position: absolute;
     bottom: 0;
     border-top: 2px solid;
     left: 0; }
-  /* line 252, resources/assets/styles/layouts/pages/_home.scss */
+  /* line 250, resources/assets/styles/layouts/pages/_home.scss */
   .has-scroll-init .template-home .spaces.is-inview:after {
     width: 100%; }
-  /* line 256, resources/assets/styles/layouts/pages/_home.scss */
+  /* line 254, resources/assets/styles/layouts/pages/_home.scss */
   .has-scroll-init .template-home .spaces.is-inview .infos,
   .has-scroll-init .template-home .spaces.is-inview .button {
     opacity: 1;
     transform: none; }
-  /* line 262, resources/assets/styles/layouts/pages/_home.scss */
+  /* line 260, resources/assets/styles/layouts/pages/_home.scss */
   .has-scroll-init .template-home .spaces.is-inview .infos:after {
     width: 100%; }
-  /* line 267, resources/assets/styles/layouts/pages/_home.scss */
+  /* line 265, resources/assets/styles/layouts/pages/_home.scss */
   .has-scroll-init .template-home .spaces:after {
     transition: width 3s 2s;
     width: 0; }
-  /* line 275, resources/assets/styles/layouts/pages/_home.scss */
+  /* line 273, resources/assets/styles/layouts/pages/_home.scss */
   .has-scroll-init .template-home .spaces .infos {
     opacity: 0;
     transform: translateY(100%);
     transition: all 1s; }
-    /* line 280, resources/assets/styles/layouts/pages/_home.scss */
+    /* line 278, resources/assets/styles/layouts/pages/_home.scss */
     .has-scroll-init .template-home .spaces .infos:after {
       width: 0; }
-  /* line 285, resources/assets/styles/layouts/pages/_home.scss */
+  /* line 283, resources/assets/styles/layouts/pages/_home.scss */
   .has-scroll-init .template-home .spaces .button {
     opacity: 0;
     transform: translateY(100%);
     transition: all 1s; }
-  /* line 292, resources/assets/styles/layouts/pages/_home.scss */
+  /* line 290, resources/assets/styles/layouts/pages/_home.scss */
   .template-home .spaces .top {
     position: relative;
     margin-bottom: 8.15217%; }
     @media screen and (max-width: 1919px) {
-      /* line 292, resources/assets/styles/layouts/pages/_home.scss */
+      /* line 290, resources/assets/styles/layouts/pages/_home.scss */
       .template-home .spaces .top {
         margin-bottom: 9.39177%; } }
     @media screen and (max-width: 1049px) {
-      /* line 292, resources/assets/styles/layouts/pages/_home.scss */
+      /* line 290, resources/assets/styles/layouts/pages/_home.scss */
       .template-home .spaces .top {
         margin: 0 216px 15.88542% 0; } }
     @media screen and (max-width: 767px) {
-      /* line 292, resources/assets/styles/layouts/pages/_home.scss */
+      /* line 290, resources/assets/styles/layouts/pages/_home.scss */
       .template-home .spaces .top {
         margin: 0 111px 17.96407% 0; } }
-    /* line 308, resources/assets/styles/layouts/pages/_home.scss */
+    /* line 306, resources/assets/styles/layouts/pages/_home.scss */
     .template-home .spaces .top .img {
       border: 3px solid;
       width: 100%;
@@ -2776,27 +2803,27 @@ input[type="submit"] {
       overflow: hidden;
       position: relative; }
       @media screen and (max-width: 767px) {
-        /* line 308, resources/assets/styles/layouts/pages/_home.scss */
+        /* line 306, resources/assets/styles/layouts/pages/_home.scss */
         .template-home .spaces .top .img {
           min-height: 311px; } }
-      /* line 319, resources/assets/styles/layouts/pages/_home.scss */
+      /* line 317, resources/assets/styles/layouts/pages/_home.scss */
       .template-home .spaces .top .img:before {
         content: "";
         display: block;
         padding-top: 42.66304%; }
         @media screen and (max-width: 1919px) {
-          /* line 319, resources/assets/styles/layouts/pages/_home.scss */
+          /* line 317, resources/assets/styles/layouts/pages/_home.scss */
           .template-home .spaces .top .img:before {
             padding-top: 39.75%; } }
         @media screen and (max-width: 1049px) {
-          /* line 319, resources/assets/styles/layouts/pages/_home.scss */
+          /* line 317, resources/assets/styles/layouts/pages/_home.scss */
           .template-home .spaces .top .img:before {
             padding-top: 86.41304%; } }
         @media screen and (max-width: 767px) {
-          /* line 319, resources/assets/styles/layouts/pages/_home.scss */
+          /* line 317, resources/assets/styles/layouts/pages/_home.scss */
           .template-home .spaces .top .img:before {
             padding-top: 70.73955%; } }
-      /* line 337, resources/assets/styles/layouts/pages/_home.scss */
+      /* line 335, resources/assets/styles/layouts/pages/_home.scss */
       .template-home .spaces .top .img img {
         position: absolute;
         object-fit: cover;
@@ -2804,12 +2831,12 @@ input[type="submit"] {
         top: -15%;
         height: 130%;
         width: 100%; }
-  /* line 348, resources/assets/styles/layouts/pages/_home.scss */
+  /* line 346, resources/assets/styles/layouts/pages/_home.scss */
   .template-home .spaces .title__wrapper {
     position: absolute;
     left: 100%;
     top: 50%; }
-  /* line 354, resources/assets/styles/layouts/pages/_home.scss */
+  /* line 352, resources/assets/styles/layouts/pages/_home.scss */
   .template-home .spaces .title {
     font-size: 9.4rem;
     transform: rotate(90deg) translateX(-60%) translateY(-2.5em);
@@ -2817,19 +2844,19 @@ input[type="submit"] {
     line-height: 1;
     margin: 0; }
     @media screen and (max-width: 1919px) {
-      /* line 354, resources/assets/styles/layouts/pages/_home.scss */
+      /* line 352, resources/assets/styles/layouts/pages/_home.scss */
       .template-home .spaces .title {
         transform: rotate(90deg) translateX(-60%) translateY(-1.5em); } }
     @media screen and (max-width: 1049px) {
-      /* line 354, resources/assets/styles/layouts/pages/_home.scss */
+      /* line 352, resources/assets/styles/layouts/pages/_home.scss */
       .template-home .spaces .title {
         transform: rotate(90deg) translateX(-60%) translateY(-1.25em); } }
     @media screen and (max-width: 767px) {
-      /* line 354, resources/assets/styles/layouts/pages/_home.scss */
+      /* line 352, resources/assets/styles/layouts/pages/_home.scss */
       .template-home .spaces .title {
         font-size: 6.6rem;
         transform: rotate(90deg) translateX(-60%) translateY(-1em); } }
-  /* line 375, resources/assets/styles/layouts/pages/_home.scss */
+  /* line 373, resources/assets/styles/layouts/pages/_home.scss */
   .template-home .spaces .bot {
     display: flex;
     flex-wrap: nowrap;
@@ -2837,23 +2864,23 @@ input[type="submit"] {
     justify-content: space-between;
     margin-left: var(--gap); }
     @media screen and (max-width: 1049px) {
-      /* line 375, resources/assets/styles/layouts/pages/_home.scss */
+      /* line 373, resources/assets/styles/layouts/pages/_home.scss */
       .template-home .spaces .bot {
         margin: 0 var(--gap);
         display: block; }
-        /* line 386, resources/assets/styles/layouts/pages/_home.scss */
+        /* line 384, resources/assets/styles/layouts/pages/_home.scss */
         .template-home .spaces .bot:after {
           content: "";
           display: table;
           clear: both; } }
     @media screen and (max-width: 767px) {
-      /* line 375, resources/assets/styles/layouts/pages/_home.scss */
+      /* line 373, resources/assets/styles/layouts/pages/_home.scss */
       .template-home .spaces .bot {
         margin: 0; }
-        /* line 396, resources/assets/styles/layouts/pages/_home.scss */
+        /* line 394, resources/assets/styles/layouts/pages/_home.scss */
         .template-home .spaces .bot:after {
           display: none; } }
-  /* line 402, resources/assets/styles/layouts/pages/_home.scss */
+  /* line 400, resources/assets/styles/layouts/pages/_home.scss */
   .template-home .spaces .infos {
     display: flex;
     flex-wrap: nowrap;
@@ -2863,18 +2890,18 @@ input[type="submit"] {
     padding-top: 32px;
     position: relative; }
     @media screen and (max-width: 1919px) {
-      /* line 402, resources/assets/styles/layouts/pages/_home.scss */
+      /* line 400, resources/assets/styles/layouts/pages/_home.scss */
       .template-home .spaces .infos {
         max-width: 58.94539%; } }
     @media screen and (max-width: 1049px) {
-      /* line 402, resources/assets/styles/layouts/pages/_home.scss */
+      /* line 400, resources/assets/styles/layouts/pages/_home.scss */
       .template-home .spaces .infos {
         max-width: none; } }
     @media screen and (max-width: 767px) {
-      /* line 402, resources/assets/styles/layouts/pages/_home.scss */
+      /* line 400, resources/assets/styles/layouts/pages/_home.scss */
       .template-home .spaces .infos {
         display: block; } }
-    /* line 423, resources/assets/styles/layouts/pages/_home.scss */
+    /* line 421, resources/assets/styles/layouts/pages/_home.scss */
     .template-home .spaces .infos:after {
       content: "";
       position: absolute;
@@ -2883,51 +2910,51 @@ input[type="submit"] {
       transition: all 1.5s 1.5s;
       left: 0;
       width: 100%; }
-    /* line 433, resources/assets/styles/layouts/pages/_home.scss */
+    /* line 431, resources/assets/styles/layouts/pages/_home.scss */
     .template-home .spaces .infos .label {
       min-width: 184px;
       max-width: 184px;
       margin-right: 52px; }
       @media screen and (max-width: 767px) {
-        /* line 433, resources/assets/styles/layouts/pages/_home.scss */
+        /* line 431, resources/assets/styles/layouts/pages/_home.scss */
         .template-home .spaces .infos .label {
           min-width: 0;
           max-width: none;
           margin: 0 0 32px 0; } }
-    /* line 445, resources/assets/styles/layouts/pages/_home.scss */
+    /* line 443, resources/assets/styles/layouts/pages/_home.scss */
     .template-home .spaces .infos .txt {
       flex-grow: 1; }
       @media screen and (max-width: 1049px) {
-        /* line 445, resources/assets/styles/layouts/pages/_home.scss */
+        /* line 443, resources/assets/styles/layouts/pages/_home.scss */
         .template-home .spaces .infos .txt {
           max-width: 64.68023%; } }
       @media screen and (max-width: 767px) {
-        /* line 445, resources/assets/styles/layouts/pages/_home.scss */
+        /* line 443, resources/assets/styles/layouts/pages/_home.scss */
         .template-home .spaces .infos .txt {
           max-width: none; } }
-  /* line 458, resources/assets/styles/layouts/pages/_home.scss */
+  /* line 456, resources/assets/styles/layouts/pages/_home.scss */
   .template-home .spaces .button {
     margin: 32px 0 0 32px; }
     @media screen and (max-width: 1049px) {
-      /* line 458, resources/assets/styles/layouts/pages/_home.scss */
+      /* line 456, resources/assets/styles/layouts/pages/_home.scss */
       .template-home .spaces .button {
         margin: 75px 0 0 0;
         float: right; } }
     @media screen and (max-width: 767px) {
-      /* line 458, resources/assets/styles/layouts/pages/_home.scss */
+      /* line 456, resources/assets/styles/layouts/pages/_home.scss */
       .template-home .spaces .button {
         float: none;
         margin-top: 52px; } }
 
-/* line 473, resources/assets/styles/layouts/pages/_home.scss */
+/* line 471, resources/assets/styles/layouts/pages/_home.scss */
 .template-home .residents {
   padding-bottom: 8.64583%; }
   @media screen and (max-width: 1919px) {
-    /* line 473, resources/assets/styles/layouts/pages/_home.scss */
+    /* line 471, resources/assets/styles/layouts/pages/_home.scss */
     .template-home .residents {
       padding-bottom: 9.88287%; } }
   @media screen and (max-width: 1049px) {
-    /* line 473, resources/assets/styles/layouts/pages/_home.scss */
+    /* line 471, resources/assets/styles/layouts/pages/_home.scss */
     .template-home .residents {
       padding-bottom: 20.3125%;
       padding-top: 164px;
@@ -2937,92 +2964,92 @@ input[type="submit"] {
       justify-content: space-between;
       align-items: flex-start; } }
   @media screen and (max-width: 767px) {
-    /* line 473, resources/assets/styles/layouts/pages/_home.scss */
+    /* line 471, resources/assets/styles/layouts/pages/_home.scss */
     .template-home .residents {
       padding-bottom: 26.4%;
       padding-top: 156px; } }
-  /* line 497, resources/assets/styles/layouts/pages/_home.scss */
+  /* line 495, resources/assets/styles/layouts/pages/_home.scss */
   .has-scroll-init .template-home .residents.is-inview .title,
   .has-scroll-init .template-home .residents.is-inview .txt,
   .has-scroll-init .template-home .residents.is-inview .button {
     opacity: 1;
     transform: none; }
-  /* line 505, resources/assets/styles/layouts/pages/_home.scss */
+  /* line 503, resources/assets/styles/layouts/pages/_home.scss */
   .has-scroll-init .template-home .residents .title {
     opacity: 0;
     transform: translateY(200%);
     transition: all 1s; }
-  /* line 511, resources/assets/styles/layouts/pages/_home.scss */
+  /* line 509, resources/assets/styles/layouts/pages/_home.scss */
   .has-scroll-init .template-home .residents .txt {
     opacity: 0;
     transform: translateY(100%);
     transition: all 1s; }
-  /* line 517, resources/assets/styles/layouts/pages/_home.scss */
+  /* line 515, resources/assets/styles/layouts/pages/_home.scss */
   .has-scroll-init .template-home .residents .button {
     opacity: 0;
     transform: translateY(100%);
     transition: all 1s; }
-  /* line 524, resources/assets/styles/layouts/pages/_home.scss */
+  /* line 522, resources/assets/styles/layouts/pages/_home.scss */
   .template-home .residents:after {
     content: "";
     display: table;
     clear: both; }
     @media screen and (max-width: 1049px) {
-      /* line 524, resources/assets/styles/layouts/pages/_home.scss */
+      /* line 522, resources/assets/styles/layouts/pages/_home.scss */
       .template-home .residents:after {
         display: none; } }
-  /* line 534, resources/assets/styles/layouts/pages/_home.scss */
+  /* line 532, resources/assets/styles/layouts/pages/_home.scss */
   .template-home .residents .container {
     display: flex;
     flex-wrap: nowrap;
     justify-content: space-between;
     margin-bottom: 5.625%; }
     @media screen and (max-width: 1919px) {
-      /* line 534, resources/assets/styles/layouts/pages/_home.scss */
+      /* line 532, resources/assets/styles/layouts/pages/_home.scss */
       .template-home .residents .container {
         margin-bottom: 7.10938%; } }
     @media screen and (max-width: 1049px) {
-      /* line 534, resources/assets/styles/layouts/pages/_home.scss */
+      /* line 532, resources/assets/styles/layouts/pages/_home.scss */
       .template-home .residents .container {
         order: 2;
         max-width: 49.0625%;
         padding: 0;
         margin: 0 0 0 var(--gap); } }
     @media screen and (max-width: 767px) {
-      /* line 534, resources/assets/styles/layouts/pages/_home.scss */
+      /* line 532, resources/assets/styles/layouts/pages/_home.scss */
       .template-home .residents .container {
         max-width: none;
         flex-grow: 1;
         margin-right: var(--gap); } }
-  /* line 558, resources/assets/styles/layouts/pages/_home.scss */
+  /* line 556, resources/assets/styles/layouts/pages/_home.scss */
   .template-home .residents .infos {
     margin-top: var(--gap);
     max-width: 38.18393%; }
     @media screen and (max-width: 1919px) {
-      /* line 558, resources/assets/styles/layouts/pages/_home.scss */
+      /* line 556, resources/assets/styles/layouts/pages/_home.scss */
       .template-home .residents .infos {
         max-width: 49.0625%; } }
     @media screen and (max-width: 1049px) {
-      /* line 558, resources/assets/styles/layouts/pages/_home.scss */
+      /* line 556, resources/assets/styles/layouts/pages/_home.scss */
       .template-home .residents .infos {
         margin-top: 0;
         border-top: 1px solid;
         padding-top: 32px;
         max-width: none; } }
-  /* line 574, resources/assets/styles/layouts/pages/_home.scss */
+  /* line 572, resources/assets/styles/layouts/pages/_home.scss */
   .template-home .residents .title {
     font-size: 8rem; }
     @media screen and (max-width: 1919px) {
-      /* line 574, resources/assets/styles/layouts/pages/_home.scss */
+      /* line 572, resources/assets/styles/layouts/pages/_home.scss */
       .template-home .residents .title {
         padding-right: 0;
         margin-bottom: 21.97452%; }
-        /* line 581, resources/assets/styles/layouts/pages/_home.scss */
+        /* line 579, resources/assets/styles/layouts/pages/_home.scss */
         .template-home .residents .title img,
         .template-home .residents .title .arrow {
           display: none; } }
     @media screen and (max-width: 1049px) {
-      /* line 574, resources/assets/styles/layouts/pages/_home.scss */
+      /* line 572, resources/assets/styles/layouts/pages/_home.scss */
       .template-home .residents .title {
         margin: 0;
         position: absolute;
@@ -3033,23 +3060,23 @@ input[type="submit"] {
         overflow: hidden;
         text-overflow: ellipsis; } }
     @media screen and (max-width: 767px) {
-      /* line 574, resources/assets/styles/layouts/pages/_home.scss */
+      /* line 572, resources/assets/styles/layouts/pages/_home.scss */
       .template-home .residents .title {
         font-size: 6.6rem; } }
-  /* line 603, resources/assets/styles/layouts/pages/_home.scss */
+  /* line 601, resources/assets/styles/layouts/pages/_home.scss */
   .template-home .residents .txt {
     column-gap: 52px;
     column-count: 2; }
     @media screen and (max-width: 1919px) {
-      /* line 603, resources/assets/styles/layouts/pages/_home.scss */
+      /* line 601, resources/assets/styles/layouts/pages/_home.scss */
       .template-home .residents .txt {
         column-gap: 28px; } }
     @media screen and (max-width: 1049px) {
-      /* line 603, resources/assets/styles/layouts/pages/_home.scss */
+      /* line 601, resources/assets/styles/layouts/pages/_home.scss */
       .template-home .residents .txt {
         column-count: 1;
         column-gap: 0; } }
-  /* line 617, resources/assets/styles/layouts/pages/_home.scss */
+  /* line 615, resources/assets/styles/layouts/pages/_home.scss */
   .template-home .residents .img {
     border: 3px solid;
     position: relative;
@@ -3057,14 +3084,14 @@ input[type="submit"] {
     max-width: 45.22701%;
     flex-grow: 1; }
     @media screen and (max-width: 1919px) {
-      /* line 617, resources/assets/styles/layouts/pages/_home.scss */
+      /* line 615, resources/assets/styles/layouts/pages/_home.scss */
       .template-home .residents .img {
         max-width: 40.3125%; } }
     @media screen and (max-width: 1049px) {
-      /* line 617, resources/assets/styles/layouts/pages/_home.scss */
+      /* line 615, resources/assets/styles/layouts/pages/_home.scss */
       .template-home .residents .img {
         display: none; } }
-    /* line 632, resources/assets/styles/layouts/pages/_home.scss */
+    /* line 630, resources/assets/styles/layouts/pages/_home.scss */
     .template-home .residents .img img {
       object-fit: cover;
       position: absolute;
@@ -3072,28 +3099,28 @@ input[type="submit"] {
       top: -15%;
       height: 130%;
       width: 100%; }
-  /* line 642, resources/assets/styles/layouts/pages/_home.scss */
+  /* line 640, resources/assets/styles/layouts/pages/_home.scss */
   .template-home .residents .marquee__wrapper {
     margin: 0 0 7.23958%;
     white-space: nowrap;
     font-size: inherit; }
     @media screen and (max-width: 1919px) {
-      /* line 642, resources/assets/styles/layouts/pages/_home.scss */
+      /* line 640, resources/assets/styles/layouts/pages/_home.scss */
       .template-home .residents .marquee__wrapper {
         margin-bottom: 6.66179%; } }
     @media screen and (max-width: 1049px) {
-      /* line 642, resources/assets/styles/layouts/pages/_home.scss */
+      /* line 640, resources/assets/styles/layouts/pages/_home.scss */
       .template-home .residents .marquee__wrapper {
         margin-bottom: 14.32292%;
         flex-grow: 1; } }
     @media screen and (max-width: 767px) {
-      /* line 642, resources/assets/styles/layouts/pages/_home.scss */
+      /* line 640, resources/assets/styles/layouts/pages/_home.scss */
       .template-home .residents .marquee__wrapper {
         margin-bottom: 16%; } }
-  /* line 662, resources/assets/styles/layouts/pages/_home.scss */
+  /* line 660, resources/assets/styles/layouts/pages/_home.scss */
   .template-home .residents .marquee__inner:after {
     display: none; }
-  /* line 670, resources/assets/styles/layouts/pages/_home.scss */
+  /* line 668, resources/assets/styles/layouts/pages/_home.scss */
   .template-home .residents .resident {
     border: 3px solid;
     margin-right: 40px;
@@ -3104,45 +3131,45 @@ input[type="submit"] {
     justify-content: center;
     vertical-align: middle; }
     @media screen and (max-width: 1049px) {
-      /* line 670, resources/assets/styles/layouts/pages/_home.scss */
+      /* line 668, resources/assets/styles/layouts/pages/_home.scss */
       .template-home .residents .resident {
         width: auto;
         padding: 0 35px; } }
     @media screen and (max-width: 767px) {
-      /* line 670, resources/assets/styles/layouts/pages/_home.scss */
+      /* line 668, resources/assets/styles/layouts/pages/_home.scss */
       .template-home .residents .resident {
         height: 134px;
         padding: 0 26px; } }
-    /* line 690, resources/assets/styles/layouts/pages/_home.scss */
+    /* line 688, resources/assets/styles/layouts/pages/_home.scss */
     .template-home .residents .resident img {
       max-width: 79.02736%;
       max-height: 61.13744%; }
       @media screen and (max-width: 1049px) {
-        /* line 690, resources/assets/styles/layouts/pages/_home.scss */
+        /* line 688, resources/assets/styles/layouts/pages/_home.scss */
         .template-home .residents .resident img {
           max-width: 260px;
           max-height: 65px; } }
       @media screen and (max-width: 767px) {
-        /* line 690, resources/assets/styles/layouts/pages/_home.scss */
+        /* line 688, resources/assets/styles/layouts/pages/_home.scss */
         .template-home .residents .resident img {
           max-width: 156px;
           max-height: 45px; } }
-  /* line 706, resources/assets/styles/layouts/pages/_home.scss */
+  /* line 704, resources/assets/styles/layouts/pages/_home.scss */
   .template-home .residents .button {
     float: right;
     margin-right: calc(var(--gap) + 94px); }
     @media screen and (max-width: 1919px) {
-      /* line 706, resources/assets/styles/layouts/pages/_home.scss */
+      /* line 704, resources/assets/styles/layouts/pages/_home.scss */
       .template-home .residents .button {
         margin-right: var(--gap); } }
     @media screen and (max-width: 1049px) {
-      /* line 706, resources/assets/styles/layouts/pages/_home.scss */
+      /* line 704, resources/assets/styles/layouts/pages/_home.scss */
       .template-home .residents .button {
         order: 3;
         float: none;
         margin-top: 32px; } }
     @media screen and (max-width: 767px) {
-      /* line 706, resources/assets/styles/layouts/pages/_home.scss */
+      /* line 704, resources/assets/styles/layouts/pages/_home.scss */
       .template-home .residents .button {
         margin: 51px var(--gap) 0; } }
 
@@ -3282,9 +3309,6 @@ input[type="submit"] {
     margin-bottom: 40px;
     width: 100%;
     flex-grow: 1; }
-  /* line 171, resources/assets/styles/layouts/pages/_résidents.scss */
-  .template-residents .resident .button {
-    font-size: 1.4rem; }
 
 /* line 2, resources/assets/styles/layouts/pages/_404.scss */
 .error404 .main__container {

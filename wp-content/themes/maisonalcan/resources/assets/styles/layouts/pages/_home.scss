@@ -31,9 +31,9 @@
         .has-scroll-init & {
             &.is-inview {
                 .title,
-                .infos,
+                .txt,
                 .cards,
-                .infos .button {
+                .button {
                     transform: none;
                     opacity: 1;
                 }
@@ -54,17 +54,15 @@
                 opacity: 0;
             }
 
-            .infos {
+            .txt {
                 transform: translateY(100%);
                 opacity: 0;
                 transition: all 1s 1s;
+            }
 
-                .button {
-                    @include mq-down(md) {
-                        opacity: 0;
-                        transition: opacity 1s 2s, all 1s;
-                    }
-                }
+            .button {
+                opacity: 0;
+                transition: all 1s, opacity 1s 2s;
             }
 
             .cards {

@@ -30,7 +30,7 @@
               </p>
             @endif
             @if($fields['espaces']['bouton'])
-              <a class="button" href="{{ $fields['espaces']['bouton']['url'] }}" target="{{ $fields['espaces']['bouton']['target'] }}">
+              <a class="button small" href="{{ $fields['espaces']['bouton']['url'] }}" target="{{ $fields['espaces']['bouton']['target'] }}">
                 {{ $fields['espaces']['bouton']['title'] }}
               </a>
             @endif

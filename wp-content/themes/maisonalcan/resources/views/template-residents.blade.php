@@ -25,7 +25,7 @@
               {!! $residentFields['description'] !!}
             </div>
             @if($residentFields['lien'])
-              <a href="{{ $residentFields['lien'] }}" target="__blank" class="button">
+              <a href="{{ $residentFields['lien'] }}" target="__blank" class="button small">
                 {{ __('Voir le site web de', 'maisonalcan') }} {{ $resident->post_title }}
               </a>
             @endif

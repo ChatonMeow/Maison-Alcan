@@ -80,7 +80,7 @@
                   @if($year['boutons'])
                     <div class="btns">
                       @foreach($year['boutons'] as $btn)
-                        <a href="{{ $btn['bouton']['url'] }}" target="{{ $btn['bouton']['target'] }}" class="button">
+                        <a href="{{ $btn['bouton']['url'] }}" target="{{ $btn['bouton']['target'] }}" class="button small">
                           {{ $btn['bouton']['title'] }}
                         </a>
                       @endforeach
