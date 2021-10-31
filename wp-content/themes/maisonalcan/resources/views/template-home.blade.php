@@ -23,7 +23,18 @@
           </div>
           @if($fields['historique']['bouton'])
             <a href="{{ $fields['historique']['bouton']['url'] }}" class="button" target="{{ $fields['historique']['bouton']{'target'} }}">
-              {{ $fields['historique']['bouton']['title'] }}
+              <div class="button__top">
+                {{ $fields['historique']['bouton']['title'] }}
+                <img src="@asset('images/arrow-right.svg')" alt="">
+              </div>
+              <div class="button__bot">
+                @for ($i = 1; $i < 4; $i++)
+                  <div class="bot-marquee">
+                    {{ $fields['historique']['bouton']['title'] }}
+                    <img src="@asset('images/arrow-right.svg')" alt="">
+                  </div>
+                @endfor
+              </div>
             </a>
           @endif
         </div>
@@ -78,7 +89,18 @@
         </div>
         @if($fields['espaces']['bouton'])
           <a href="{{ $fields['espaces']['bouton']['url'] }}" target="{{ $fields['espaces']['bouton']['target'] }}" class="button">
-            {{ $fields['espaces']['bouton']['title'] }}
+            <div class="button__top">
+              {{ $fields['espaces']['bouton']['title'] }}
+              <img src="@asset('images/arrow-right.svg')" alt="">
+            </div>
+            <div class="button__bot">
+              @for ($i = 1; $i < 4; $i++)
+                <div class="bot-marquee">
+                  {{ $fields['espaces']['bouton']['title'] }}
+                  <img src="@asset('images/arrow-right.svg')" alt="">
+                </div>
+              @endfor
+            </div>
           </a>
         @endif
       </div>
@@ -123,7 +145,18 @@
       @endif
       @if($fields['residents']['bouton'])
         <a href="{{ $fields['residents']['bouton']['url'] }}" target="{{ $fields['residents']['bouton']['target'] }}" class="button">
-          {{ $fields['residents']['bouton']['title'] }}
+          <div class="button__top">
+            {{ $fields['residents']['bouton']['title'] }}
+            <img src="@asset('images/arrow-right.svg')" alt="">
+          </div>
+          <div class="button__bot">
+            @for ($i = 1; $i < 4; $i++)
+              <div class="bot-marquee">
+                {{ $fields['residents']['bouton']['title'] }}
+                <img src="@asset('images/arrow-right.svg')" alt="">
+              </div>
+            @endfor
+          </div>
         </a>
       @endif
     </div>

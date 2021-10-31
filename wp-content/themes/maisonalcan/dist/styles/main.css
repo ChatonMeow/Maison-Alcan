@@ -247,55 +247,94 @@ button,
   display: inline-block;
   white-space: nowrap;
   font-size: 2.4rem;
+  padding: 0;
   position: relative;
-  border: none;
   background: none;
   outline: 0;
-  padding: 0.875em 1.41667em 0.83333em 0.66667em; }
-  /* line 15, resources/assets/styles/components/_buttons.scss */
+  overflow: hidden;
+  border: 2px solid #1c1c1c;
+  line-height: 1; }
+  /* line 17, resources/assets/styles/components/_buttons.scss */
   button.small,
   .button.small {
     font-size: 1.4rem; }
-  /* line 19, resources/assets/styles/components/_buttons.scss */
-  button:before, button:after,
-  .button:before,
-  .button:after {
-    content: "";
-    position: absolute;
-    z-index: -1;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    clip-path: polygon(0 0, calc(100% - 1.04em) 0, calc(100% - 0.08em) 50%, calc(100% - 1.04em) 100%, 0 100%, 0 0);
-    transition: all 1s;
-    background: #1c1c1c;
-    background: linear-gradient(90deg, #1c1c1c 0%, #1c1c1c 50%, #1c1c1c 50%, #fff 50%, #fff 100%);
-    background-size: 200% 100%;
-    background-position: 100% 0; }
-  /* line 36, resources/assets/styles/components/_buttons.scss */
-  button:before,
-  .button:before {
-    background: #1c1c1c;
-    clip-path: polygon(50% 0, calc(100% - 1em) 0, 100% 50%, calc(100% - 1em) 100%, 0 100%, 0 0);
-    margin-top: -2px;
-    margin-left: -2px;
-    width: calc(100% + 3px);
-    height: calc(100% + 3px); }
-  /* line 45, resources/assets/styles/components/_buttons.scss */
-  button:hover,
-  .button:hover {
-    color: #fff; }
-    /* line 49, resources/assets/styles/components/_buttons.scss */
-    button:hover:after,
-    .button:hover:after {
-      background-position: 0% 0; }
-  /* line 54, resources/assets/styles/components/_buttons.scss */
+    /* line 21, resources/assets/styles/components/_buttons.scss */
+    button.small:hover .button__top,
+    button.small:hover .button__bot,
+    .button.small:hover .button__top,
+    .button.small:hover .button__bot {
+      transform: none;
+      color: #fff;
+      background: #1c1c1c; }
+    /* line 28, resources/assets/styles/components/_buttons.scss */
+    button.small:hover img,
+    .button.small:hover img {
+      filter: invert(1); }
+    /* line 33, resources/assets/styles/components/_buttons.scss */
+    button.small .button__top,
+    button.small .button__bot,
+    .button.small .button__top,
+    .button.small .button__bot {
+      padding: 0.73529em 0.625em; }
+  /* line 40, resources/assets/styles/components/_buttons.scss */
+  button:hover .button__top,
+  button:hover .button__bot,
+  .button:hover .button__top,
+  .button:hover .button__bot {
+    transform: translateY(-100%); }
+  /* line 46, resources/assets/styles/components/_buttons.scss */
   button.disabled, button[disabled],
   .button.disabled,
   .button[disabled] {
     pointer-events: none;
     opacity: 0.35; }
+  /* line 52, resources/assets/styles/components/_buttons.scss */
+  button p,
+  .button p {
+    margin: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; }
+  /* line 61, resources/assets/styles/components/_buttons.scss */
+  button br,
+  .button br {
+    display: none; }
+  /* line 65, resources/assets/styles/components/_buttons.scss */
+  button .button__top,
+  button .button__bot,
+  .button .button__top,
+  .button .button__bot {
+    padding: 1.14706em 1.16667em;
+    transition: all 0.25s;
+    background: #fff; }
+  /* line 72, resources/assets/styles/components/_buttons.scss */
+  button .button__bot,
+  .button .button__bot {
+    position: absolute;
+    color: #fff;
+    background: #1c1c1c;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-start; }
+    /* line 80, resources/assets/styles/components/_buttons.scss */
+    button .button__bot img,
+    .button .button__bot img {
+      filter: invert(1); }
+  /* line 85, resources/assets/styles/components/_buttons.scss */
+  button .bot-marquee,
+  .button .bot-marquee {
+    animation: marquee 5s linear infinite;
+    padding-right: 2.5em; }
+  /* line 90, resources/assets/styles/components/_buttons.scss */
+  button img,
+  .button img {
+    display: inline-block;
+    vertical-align: middle;
+    width: 1.2em;
+    margin-left: 0.25em;
+    transition: all 0.25s; }
 
 /* line 5, resources/assets/styles/components/_comments.scss */
 .comment-list ol {
@@ -477,21 +516,29 @@ input[type="submit"] {
     background: none;
     font-size: inherit;
     display: inline;
-    color: inherit; }
-    /* line 152, resources/assets/styles/components/_forms.scss */
+    color: inherit;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0; }
+    /* line 158, resources/assets/styles/components/_forms.scss */
     .button input[type="submit"] + .ajax-loader,
-    button input[type="submit"] + .ajax-loader {
+    .button input[type="submit"] + .wpcf7-spinner,
+    button input[type="submit"] + .ajax-loader,
+    button input[type="submit"] + .wpcf7-spinner {
       position: absolute;
       margin: 0;
       top: 50%;
       left: 50%;
       transform: translateX(-50%) translateY(-50%); }
 
-/* line 172, resources/assets/styles/components/_forms.scss */
+/* line 179, resources/assets/styles/components/_forms.scss */
 .wpcf7-not-valid-tip {
   font-size: 1.6rem; }
 
-/* line 176, resources/assets/styles/components/_forms.scss */
+/* line 183, resources/assets/styles/components/_forms.scss */
 .wpcf7-response-output.wpcf7-response-output.wpcf7-response-output {
   border-width: 2px;
   padding: 1.5em; }
@@ -2300,7 +2347,7 @@ input[type="submit"] {
       opacity: 0;
       transform: translateY(2rem); }
     /* line 423, resources/assets/styles/layouts/pages/_historique.scss */
-    .template-historique .timeline .timeline__year img {
+    .template-historique .timeline .timeline__year > img {
       border: 3px solid;
       margin-right: 27px;
       object-fit: cover;
@@ -2308,11 +2355,11 @@ input[type="submit"] {
       height: 127px; }
       @media screen and (max-width: 1049px) {
         /* line 423, resources/assets/styles/layouts/pages/_historique.scss */
-        .template-historique .timeline .timeline__year img {
+        .template-historique .timeline .timeline__year > img {
           margin-right: 0; } }
       @media screen and (max-width: 767px) {
         /* line 423, resources/assets/styles/layouts/pages/_historique.scss */
-        .template-historique .timeline .timeline__year img {
+        .template-historique .timeline .timeline__year > img {
           display: none; } }
     /* line 439, resources/assets/styles/layouts/pages/_historique.scss */
     .template-historique .timeline .timeline__year .title {
@@ -2370,7 +2417,7 @@ input[type="submit"] {
           margin: 35px 0 0; } }
     /* line 497, resources/assets/styles/layouts/pages/_historique.scss */
     .template-historique .timeline .timeline__year .button {
-      margin: 0 38px 38px 0; }
+      margin: 0 30px 38px 0; }
       @media screen and (max-width: 1049px) {
         /* line 497, resources/assets/styles/layouts/pages/_historique.scss */
         .template-historique .timeline .timeline__year .button {

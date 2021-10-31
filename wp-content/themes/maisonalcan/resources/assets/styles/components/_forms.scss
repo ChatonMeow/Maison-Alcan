@@ -148,8 +148,15 @@ input[type="submit"] {
         font-size: inherit;
         display: inline;
         color: inherit;
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        opacity: 0;
 
-        + .ajax-loader {
+        + .ajax-loader,
+        + .wpcf7-spinner {
             position: absolute;
             margin: 0;
             top: 50%;

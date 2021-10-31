@@ -26,7 +26,10 @@
             </div>
             @if($residentFields['lien'])
               <a href="{{ $residentFields['lien'] }}" target="__blank" class="button small">
-                {{ __('Voir le site web de', 'maisonalcan') }} {{ $resident->post_title }}
+                <div class="button__top">
+                  {{ __('Voir le site web de', 'maisonalcan') }} {{ $resident->post_title }}
+                  <img src="@asset('images/arrow-right.svg')" alt="">
+                </div>
               </a>
             @endif
           </div>

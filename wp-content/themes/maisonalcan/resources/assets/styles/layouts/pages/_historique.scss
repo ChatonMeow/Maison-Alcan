@@ -420,7 +420,7 @@
                 }
             }
 
-            img {
+            > img {
                 border: 3px solid;
                 margin-right: 27px;
                 object-fit: cover;
@@ -495,7 +495,7 @@
             }
 
             .button {
-                margin: 0 38px 38px 0;
+                margin: 0 30px 38px 0;
 
                 @include mq-down(md) {
                     margin: 0;

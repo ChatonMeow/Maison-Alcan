@@ -31,7 +31,10 @@
             @endif
             @if($fields['espaces']['bouton'])
               <a class="button small" href="{{ $fields['espaces']['bouton']['url'] }}" target="{{ $fields['espaces']['bouton']['target'] }}">
-                {{ $fields['espaces']['bouton']['title'] }}
+                <div class="button__top">
+                  {{ $fields['espaces']['bouton']['title'] }}
+                  <img src="@asset('images/arrow-right.svg')" alt="">
+                </div>
               </a>
             @endif
           </div>
@@ -68,7 +71,18 @@
             {{ $fields['banniere']['titre'] }}
           </div>
           <a class="button" href="{{ $fields['banniere']['bouton']['url'] }}" target="{{ $fields['banniere']['bouton']['target'] }}">
-            {{ $fields['banniere']['bouton']['title'] }}
+            <div class="button__top">
+              {{ $fields['banniere']['bouton']['title'] }}
+              <img src="@asset('images/arrow-right.svg')" alt="">
+            </div>
+            <div class="button__bot">
+              @for ($i = 1; $i < 4; $i++)
+                <div class="bot-marquee">
+                  {{ $fields['banniere']['bouton']['title'] }}
+                  <img src="@asset('images/arrow-right.svg')" alt="">
+                </div>
+              @endfor
+            </div>
           </a>
         </div>
       </div>

@@ -81,7 +81,10 @@
                     <div class="btns">
                       @foreach($year['boutons'] as $btn)
                         <a href="{{ $btn['bouton']['url'] }}" target="{{ $btn['bouton']['target'] }}" class="button small">
-                          {{ $btn['bouton']['title'] }}
+                          <div class="button__top">
+                            {{ $btn['bouton']['title'] }}
+                            <img src="@asset('images/arrow-right.svg')" alt="">
+                          </div>
                         </a>
                       @endforeach
                     </div>
