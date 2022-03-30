@@ -20,27 +20,23 @@
  * @package WordPress
  */
 
-// ** Réglages MySQL - Votre hébergeur doit vous fournir ces informations. ** //
-/** Nom de la base de données de WordPress. */
-define( 'DB_NAME', 'votre_nom_de_bdd' );
+/** The name of the database for WordPress */
+define('DB_NAME', 'lamp');
 
-/** Utilisateur de la base de données MySQL. */
-define( 'DB_USER', 'votre_utilisateur_de_bdd' );
+/** MySQL database username */
+define('DB_USER', 'lamp');
 
-/** Mot de passe de la base de données MySQL. */
-define( 'DB_PASSWORD', 'votre_mdp_de_bdd' );
+/** MySQL database password */
+define('DB_PASSWORD', 'lamp');
 
-/** Adresse de l’hébergement MySQL. */
-define( 'DB_HOST', 'localhost' );
+/** MySQL hostname */
+define('DB_HOST', 'database');
 
-/** Jeu de caractères à utiliser par la base de données lors de la création des tables. */
-define( 'DB_CHARSET', 'utf8' );
+/** Database Charset to use in creating database tables. */
+define('DB_CHARSET', 'utf8');
 
-/**
- * Type de collation de la base de données.
- * N’y touchez que si vous savez ce que vous faites.
- */
-define( 'DB_COLLATE', '' );
+/** The Database Collate type. Don't change this if in doubt. */
+define('DB_COLLATE', '');
 
 /**#@+
  * Clés uniques d’authentification et salage.
@@ -87,6 +83,9 @@ $table_prefix = 'wp_';
  * @link https://fr.wordpress.org/support/article/debugging-in-wordpress/
  */
 define( 'WP_DEBUG', false );
+
+define('WP_HOME', 'http://maisonalcan.lndo.site');
+define('WP_SITEURL', 'http://maisonalcan.lndo.site');
 
 /* C’est tout, ne touchez pas à ce qui suit ! Bonne publication. */
 
